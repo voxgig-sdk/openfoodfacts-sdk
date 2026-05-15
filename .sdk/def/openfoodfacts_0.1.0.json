@@ -1,0 +1,544 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "OpenFoodFacts API",
+    "description": "Open Food Facts is a food products database made by everyone, for everyone. You can use it to make better food choices, and as it is open data, anyone can re-use it for any purpose. This API provides access to product information including nutrition facts, ingredients, labels, and computed values like Nutri-Score and NOVA groups.",
+    "version": "2.0.0",
+    "contact": {
+      "email": "reuse@openfoodfacts.org",
+      "url": "https://world.openfoodfacts.org"
+    },
+    "license": {
+      "name": "Open Database License",
+      "url": "https://opendatacommons.org/licenses/odbl/"
+    },
+    "termsOfService": "https://world.openfoodfacts.org/terms-of-use"
+  },
+  "servers": [
+    {
+      "url": "https://world.openfoodfacts.org/api/v2",
+      "description": "Production API server"
+    }
+  ],
+  "paths": {
+    "/product/{barcode}": {
+      "get": {
+        "summary": "Get product by barcode",
+        "description": "Retrieve detailed information about a specific product using its barcode. This endpoint returns comprehensive product data including nutrition facts, ingredients, labels, images, and computed values such as Nutri-Score, NOVA group, Eco-Score, and allergen information.",
+        "operationId": "getProductByBarcode",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "barcode",
+            "in": "path",
+            "required": true,
+            "description": "The barcode of the product (e.g., EAN-13, UPC)",
+            "schema": {
+              "type": "string",
+              "example": "737628064502"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with product information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductResponse"
+                },
+                "example": {
+                  "code": "737628064502",
+                  "product": {
+                    "product_name": "Example Product",
+                    "brands": "Example Brand",
+                    "categories": "Snacks",
+                    "labels": "Organic",
+                    "ingredients_text": "Wheat flour, sugar, salt",
+                    "allergens": "gluten",
+                    "nutriments": {
+                      "energy-kcal": 450,
+                      "fat": 20,
+                      "saturated-fat": 5,
+                      "carbohydrates": 50,
+                      "sugars": 10,
+                      "proteins": 8,
+                      "salt": 1.5
+                    },
+                    "nutriscore_grade": "c",
+                    "nova_group": 3,
+                    "ecoscore_grade": "b",
+                    "image_url": "https://images.openfoodfacts.org/images/products/737/628/064/502/front_en.jpg"
+                  },
+                  "status": 1,
+                  "status_verbose": "product found"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "status": 0,
+                  "status_verbose": "product not found",
+                  "code": "737628064502"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/{barcode}.json": {
+      "get": {
+        "summary": "Get product by barcode (JSON format)",
+        "description": "Retrieve product information in JSON format explicitly. Same as the base endpoint but with explicit JSON format in the URL.",
+        "operationId": "getProductByBarcodeJson",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "barcode",
+            "in": "path",
+            "required": true,
+            "description": "The barcode of the product",
+            "schema": {
+              "type": "string",
+              "example": "737628064502"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with product information in JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/{barcode}.xml": {
+      "get": {
+        "summary": "Get product by barcode (XML format)",
+        "description": "Retrieve product information in XML format. Note: This API is not actively maintained and not officially documented.",
+        "operationId": "getProductByBarcodeXml",
+        "deprecated": true,
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "barcode",
+            "in": "path",
+            "required": true,
+            "description": "The barcode of the product",
+            "schema": {
+              "type": "string",
+              "example": "737628064502"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with product information in XML",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product not found",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Search products",
+        "description": "Search for products using various criteria. This endpoint allows advanced search with multiple filters and parameters.",
+        "operationId": "searchProducts",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "search_terms",
+            "in": "query",
+            "description": "Search terms for product name, brand, or other text fields",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categories",
+            "in": "query",
+            "description": "Filter by product category",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "brands",
+            "in": "query",
+            "description": "Filter by brand name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "labels",
+            "in": "query",
+            "description": "Filter by labels (e.g., organic, fair-trade)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Number of products per page",
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "json",
+            "in": "query",
+            "description": "Return results in JSON format",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful search response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProductResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "The product barcode"
+          },
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "status": {
+            "type": "integer",
+            "description": "Status code: 1 for found, 0 for not found"
+          },
+          "status_verbose": {
+            "type": "string",
+            "description": "Human-readable status message"
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "product_name": {
+            "type": "string",
+            "description": "Name of the product"
+          },
+          "generic_name": {
+            "type": "string",
+            "description": "Generic name of the product"
+          },
+          "brands": {
+            "type": "string",
+            "description": "Brands of the product"
+          },
+          "categories": {
+            "type": "string",
+            "description": "Categories the product belongs to"
+          },
+          "labels": {
+            "type": "string",
+            "description": "Labels associated with the product (e.g., Organic, Fair Trade)"
+          },
+          "quantity": {
+            "type": "string",
+            "description": "Quantity or volume of the product"
+          },
+          "packaging": {
+            "type": "string",
+            "description": "Packaging type"
+          },
+          "ingredients_text": {
+            "type": "string",
+            "description": "List of ingredients as text"
+          },
+          "allergens": {
+            "type": "string",
+            "description": "Allergens present in the product"
+          },
+          "traces": {
+            "type": "string",
+            "description": "Traces of allergens"
+          },
+          "nutriments": {
+            "type": "object",
+            "description": "Nutritional information",
+            "properties": {
+              "energy-kcal": {
+                "type": "number",
+                "description": "Energy in kcal per 100g"
+              },
+              "energy-kj": {
+                "type": "number",
+                "description": "Energy in kJ per 100g"
+              },
+              "fat": {
+                "type": "number",
+                "description": "Fat content per 100g"
+              },
+              "saturated-fat": {
+                "type": "number",
+                "description": "Saturated fat content per 100g"
+              },
+              "carbohydrates": {
+                "type": "number",
+                "description": "Carbohydrates per 100g"
+              },
+              "sugars": {
+                "type": "number",
+                "description": "Sugars per 100g"
+              },
+              "fiber": {
+                "type": "number",
+                "description": "Dietary fiber per 100g"
+              },
+              "proteins": {
+                "type": "number",
+                "description": "Proteins per 100g"
+              },
+              "salt": {
+                "type": "number",
+                "description": "Salt content per 100g"
+              },
+              "sodium": {
+                "type": "number",
+                "description": "Sodium content per 100g"
+              }
+            }
+          },
+          "nutriscore_grade": {
+            "type": "string",
+            "description": "Nutri-Score grade (a, b, c, d, e)",
+            "enum": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "e"
+            ]
+          },
+          "nutriscore_score": {
+            "type": "integer",
+            "description": "Nutri-Score numerical score"
+          },
+          "nova_group": {
+            "type": "integer",
+            "description": "NOVA group for food processing level (1-4)",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "ecoscore_grade": {
+            "type": "string",
+            "description": "Eco-Score grade for environmental impact (a, b, c, d, e)",
+            "enum": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "e"
+            ]
+          },
+          "ecoscore_score": {
+            "type": "integer",
+            "description": "Eco-Score numerical score"
+          },
+          "image_url": {
+            "type": "string",
+            "description": "URL of the product's front image"
+          },
+          "image_front_url": {
+            "type": "string",
+            "description": "URL of the front image"
+          },
+          "image_nutrition_url": {
+            "type": "string",
+            "description": "URL of the nutrition facts image"
+          },
+          "image_ingredients_url": {
+            "type": "string",
+            "description": "URL of the ingredients image"
+          },
+          "countries": {
+            "type": "string",
+            "description": "Countries where the product is sold"
+          },
+          "stores": {
+            "type": "string",
+            "description": "Stores where the product is available"
+          },
+          "manufacturing_places": {
+            "type": "string",
+            "description": "Manufacturing or processing places"
+          },
+          "additives_tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of additives"
+          },
+          "ingredients_analysis_tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)"
+          },
+          "last_modified_t": {
+            "type": "integer",
+            "description": "Last modification timestamp"
+          },
+          "created_t": {
+            "type": "integer",
+            "description": "Creation timestamp"
+          }
+        }
+      },
+      "SearchResponse": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Total number of products matching the search"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Current page number"
+          },
+          "page_size": {
+            "type": "integer",
+            "description": "Number of products per page"
+          },
+          "page_count": {
+            "type": "integer",
+            "description": "Total number of pages"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            },
+            "description": "Array of products matching the search criteria"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "description": "Status code (0 for error)"
+          },
+          "status_verbose": {
+            "type": "string",
+            "description": "Human-readable error message"
+          },
+          "code": {
+            "type": "string",
+            "description": "The barcode that was queried"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "UserAgent": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "User-Agent",
+        "description": "It is recommended to send a User-Agent header with your API calls to help identify your application"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Products",
+      "description": "Operations related to product information retrieval and search"
+    }
+  ],
+  "externalDocs": {
+    "description": "Full API documentation and data exports",
+    "url": "https://world.openfoodfacts.org/data"
+  }
+}

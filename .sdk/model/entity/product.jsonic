@@ -1,0 +1,143 @@
+# Entity: product
+
+main: kit: entity: product: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "product"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "status_verbose"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "product"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "737628064502"
+                kind: "param"
+                name: "barcode"
+                orig: "barcode"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/product/{barcode}.json"
+          parts: [
+            "product"
+            "{barcode}.json"
+          ]
+          select: {
+            "$action": "barcode"
+            exist: [
+              "barcode"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: "737628064502"
+                kind: "param"
+                name: "barcode"
+                orig: "barcode"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/product/{barcode}.xml"
+          parts: [
+            "product"
+            "{barcode}.xml"
+          ]
+          select: {
+            "$action": "barcode"
+            exist: [
+              "barcode"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: "737628064502"
+                kind: "param"
+                name: "id"
+                orig: "barcode"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/product/{barcode}"
+          parts: [
+            "product"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              barcode: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "product"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,53 @@
+package voxgigopenfoodfactssdk
+
+import (
+	"github.com/voxgig-sdk/openfoodfacts-sdk/core"
+	"github.com/voxgig-sdk/openfoodfacts-sdk/entity"
+	"github.com/voxgig-sdk/openfoodfacts-sdk/feature"
+	_ "github.com/voxgig-sdk/openfoodfacts-sdk/utility"
+)
+
+// Type aliases preserve external API.
+type OpenfoodfactsSDK = core.OpenfoodfactsSDK
+type Context = core.Context
+type Utility = core.Utility
+type Feature = core.Feature
+type Entity = core.Entity
+type OpenfoodfactsEntity = core.OpenfoodfactsEntity
+type FetcherFunc = core.FetcherFunc
+type Spec = core.Spec
+type Result = core.Result
+type Response = core.Response
+type Operation = core.Operation
+type Control = core.Control
+type OpenfoodfactsError = core.OpenfoodfactsError
+
+// BaseFeature from feature package.
+type BaseFeature = feature.BaseFeature
+
+func init() {
+	core.NewBaseFeatureFunc = func() core.Feature {
+		return feature.NewBaseFeature()
+	}
+	core.NewTestFeatureFunc = func() core.Feature {
+		return feature.NewTestFeature()
+	}
+	core.NewProductEntityFunc = func(client *core.OpenfoodfactsSDK, entopts map[string]any) core.OpenfoodfactsEntity {
+		return entity.NewProductEntity(client, entopts)
+	}
+	core.NewSearchEntityFunc = func(client *core.OpenfoodfactsSDK, entopts map[string]any) core.OpenfoodfactsEntity {
+		return entity.NewSearchEntity(client, entopts)
+	}
+}
+
+// Constructor re-exports.
+var NewOpenfoodfactsSDK = core.NewOpenfoodfactsSDK
+var TestSDK = core.TestSDK
+var NewContext = core.NewContext
+var NewSpec = core.NewSpec
+var NewResult = core.NewResult
+var NewResponse = core.NewResponse
+var NewOperation = core.NewOperation
+var MakeConfig = core.MakeConfig
+var NewBaseFeature = feature.NewBaseFeature
+var NewTestFeature = feature.NewTestFeature

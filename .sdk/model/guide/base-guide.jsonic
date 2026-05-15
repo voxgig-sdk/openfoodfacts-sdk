@@ -1,0 +1,31 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 4
+  metrics: count: method: 4
+
+  entity: product: {
+    path: "/product/{barcode}": {
+      rename: param: "barcode": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.product`")|top
+    }
+    path: "/product/{barcode}.json": {
+      action: "barcode": {}
+      op: load: method: *GET
+      op: load: transform: res: *("`body.product`")|top
+    }
+    path: "/product/{barcode}.xml": {
+      action: "barcode": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: search: {
+    path: "/search": {
+      op: list: method: *GET
+    }
+  }
+
+}

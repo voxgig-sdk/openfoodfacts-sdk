@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "product": {
+      "PRODUCT00": {
+        "code": "s28",
+        "product": {},
+        "status": "s2a",
+        "status_verbose": "s2b",
+        "barcode": "BARCODE01"
+      },
+      "PRODUCT01": {
+        "code": "s50",
+        "product": {},
+        "status": "s52",
+        "status_verbose": "s53",
+        "barcode": "BARCODE01"
+      },
+      "PRODUCT02": {
+        "code": "s78",
+        "product": {},
+        "status": "s7a",
+        "status_verbose": "s7b",
+        "barcode": "BARCODE01"
+      }
+    }
+  },
+  "new": {
+    "product": {
+      "product_ref01": {
+        "code": "sa0",
+        "product": {},
+        "status": "sa2",
+        "status_verbose": "sa3"
+      }
+    }
+  }
+}

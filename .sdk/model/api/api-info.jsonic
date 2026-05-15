@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "reuse@openfoodfacts.org"
+        url: "https://world.openfoodfacts.org"
+      }
+      description: "Open Food Facts is a food products database made by everyone, for everyone. You can use it to make better food choices, and as it is open data, anyone can re-use it for any purpose. This API provides access to product information including nutrition facts, ingredients, labels, and computed values like Nutri-Score and NOVA groups."
+      license: {
+        name: "Open Database License"
+        url: "https://opendatacommons.org/licenses/odbl/"
+      }
+      servers: [
+        {
+          description: "Production API server"
+          url: "https://world.openfoodfacts.org/api/v2"
+        }
+      ]
+      termsOfService: "https://world.openfoodfacts.org/terms-of-use"
+      title: "OpenFoodFacts API"
+      version: "2.0.0"
+    }
+  }
+}
+
+}
