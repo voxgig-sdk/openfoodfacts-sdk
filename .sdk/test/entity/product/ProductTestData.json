@@ -6,21 +6,24 @@
         "product": {},
         "status": "s2a",
         "status_verbose": "s2b",
-        "barcode": "BARCODE01"
+        "barcode": "BARCODE01",
+        "id": "PRODUCT00"
       },
       "PRODUCT01": {
         "code": "s50",
         "product": {},
         "status": "s52",
         "status_verbose": "s53",
-        "barcode": "BARCODE01"
+        "barcode": "BARCODE01",
+        "id": "PRODUCT01"
       },
       "PRODUCT02": {
         "code": "s78",
         "product": {},
         "status": "s7a",
         "status_verbose": "s7b",
-        "barcode": "BARCODE01"
+        "barcode": "BARCODE01",
+        "id": "PRODUCT02"
       }
     }
   },

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/openfoodfacts-sdk"
-	"github.com/voxgig-sdk/openfoodfacts-sdk/core"
+	sdk "github.com/voxgig-sdk/openfoodfacts-sdk/go"
+	"github.com/voxgig-sdk/openfoodfacts-sdk/go/core"
 )
 
 func TestProductDirect(t *testing.T) {

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/openfoodfacts-sdk"
-	"github.com/voxgig-sdk/openfoodfacts-sdk/core"
+	sdk "github.com/voxgig-sdk/openfoodfacts-sdk/go"
+	"github.com/voxgig-sdk/openfoodfacts-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/openfoodfacts-sdk/go/utility/struct"
 )
 
 func TestProductEntity(t *testing.T) {

@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/openfoodfacts-sdk/core"
+	"github.com/voxgig-sdk/openfoodfacts-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/openfoodfacts-sdk/go/utility/struct"
 )
 
 type ProductEntity struct {

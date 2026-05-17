@@ -1,10 +1,10 @@
 package voxgigopenfoodfactssdk
 
 import (
-	"github.com/voxgig-sdk/openfoodfacts-sdk/core"
-	"github.com/voxgig-sdk/openfoodfacts-sdk/entity"
-	"github.com/voxgig-sdk/openfoodfacts-sdk/feature"
-	_ "github.com/voxgig-sdk/openfoodfacts-sdk/utility"
+	"github.com/voxgig-sdk/openfoodfacts-sdk/go/core"
+	"github.com/voxgig-sdk/openfoodfacts-sdk/go/entity"
+	"github.com/voxgig-sdk/openfoodfacts-sdk/go/feature"
+	_ "github.com/voxgig-sdk/openfoodfacts-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
