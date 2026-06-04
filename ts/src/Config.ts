@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://world.openfoodfacts.org/api/v2',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

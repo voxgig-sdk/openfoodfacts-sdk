@@ -92,7 +92,6 @@ def _search_basic_setup(extra):
         "OPENFOODFACTS_TEST_SEARCH_ENTID": idmap,
         "OPENFOODFACTS_TEST_LIVE": "FALSE",
         "OPENFOODFACTS_TEST_EXPLAIN": "FALSE",
-        "OPENFOODFACTS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _search_basic_setup(extra):
     if env.get("OPENFOODFACTS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("OPENFOODFACTS_APIKEY"),
             },
             extra or {},
         ])

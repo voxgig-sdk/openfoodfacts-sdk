@@ -82,7 +82,6 @@ def product_basic_setup(extra)
     "OPENFOODFACTS_TEST_PRODUCT_ENTID" => idmap,
     "OPENFOODFACTS_TEST_LIVE" => "FALSE",
     "OPENFOODFACTS_TEST_EXPLAIN" => "FALSE",
-    "OPENFOODFACTS_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +93,6 @@ def product_basic_setup(extra)
   if env["OPENFOODFACTS_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["OPENFOODFACTS_APIKEY"],
       },
       extra || {},
     ])

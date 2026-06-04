@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'OPENFOODFACTS_TEST_SEARCH_ENTID': idmap,
     'OPENFOODFACTS_TEST_LIVE': 'FALSE',
     'OPENFOODFACTS_TEST_EXPLAIN': 'FALSE',
-    'OPENFOODFACTS_APIKEY': 'NONE',
   })
 
   idmap = env['OPENFOODFACTS_TEST_SEARCH_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new OpenfoodfactsSDK(merge([
       {
-        apikey: env.OPENFOODFACTS_APIKEY,
       },
       extra
     ]))

@@ -67,14 +67,12 @@ function product_direct_setup($mockres)
     $env = Runner::env_override([
         "OPENFOODFACTS_TEST_PRODUCT_ENTID" => [],
         "OPENFOODFACTS_TEST_LIVE" => "FALSE",
-        "OPENFOODFACTS_APIKEY" => "NONE",
     ]);
 
     $live = $env["OPENFOODFACTS_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["OPENFOODFACTS_APIKEY"],
         ];
         $client = new OpenfoodfactsSDK($merged_opts);
         return [
