@@ -93,12 +93,14 @@ func searchDirectSetup(mockres any) *searchDirectSetupResult {
 	env := envOverride(map[string]any{
 		"OPENFOODFACTS_TEST_SEARCH_ENTID": map[string]any{},
 		"OPENFOODFACTS_TEST_LIVE":    "FALSE",
+		"OPENFOODFACTS_APIKEY":       "NONE",
 	})
 
 	live := env["OPENFOODFACTS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["OPENFOODFACTS_APIKEY"],
 		}
 		client := sdk.NewOpenfoodfactsSDK(mergedOpts)
 

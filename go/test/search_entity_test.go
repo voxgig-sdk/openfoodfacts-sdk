@@ -119,6 +119,7 @@ func searchBasicSetup(extra map[string]any) *entityTestSetup {
 		"OPENFOODFACTS_TEST_SEARCH_ENTID": idmap,
 		"OPENFOODFACTS_TEST_LIVE":      "FALSE",
 		"OPENFOODFACTS_TEST_EXPLAIN":   "FALSE",
+		"OPENFOODFACTS_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["OPENFOODFACTS_TEST_SEARCH_ENTID"])
@@ -129,6 +130,7 @@ func searchBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["OPENFOODFACTS_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["OPENFOODFACTS_APIKEY"],
 			},
 			extra,
 		})

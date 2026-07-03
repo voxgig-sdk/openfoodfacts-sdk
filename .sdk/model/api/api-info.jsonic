@@ -22,29 +22,7 @@ main: {
       termsOfService: "https://world.openfoodfacts.org/terms-of-use"
       title: "OpenFoodFacts API"
       version: "2.0.0"
-      tagline: "Crowdsourced food product database with ingredients, nutrition facts, Nutri-Score and Nova group classifications"
-      homepage: "https://world.openfoodfacts.org"
-      docs_url: "https://openfoodfacts.github.io/openfoodfacts-server/api/"
-      license_short: "Open Database License (ODbL) for data; Database Contents License for individual contents; product images under Creative Commons Attribution-ShareAlike"
-      license_md: `- Database is published under the **Open Database License (ODbL)** — you may reuse and redistribute the data, including for commercial use, provided you credit Open Food Facts and share derived databases under the same terms.
-- Individual database contents are licensed under the **Database Contents License**.
-- Product photos are released under **Creative Commons Attribution-ShareAlike**; some embedded packaging artwork may remain under third-party copyright.
-- Data is volunteer-contributed and accuracy is not guaranteed; verify critical values before relying on them.`
-      about_md: `[Open Food Facts](https://world.openfoodfacts.org) is a collaborative, non-profit food products database built by a global community of contributors. Anyone can scan a barcode, photograph a label, and add or correct product information, which is then made freely available as open data.
-
-What you get from the API:
-
-- Product lookups by barcode, returning ingredients, allergens, categories, brands, labels, packaging, and origin.
-- Nutrition facts (energy, fats, sugars, salt, etc.) and computed scores such as **Nutri-Score**, **NOVA group**, and **Green-Score / Eco-Score**.
-- Structured search across the catalogue with filters on tags, nutrients, and other fields.
-- Bulk exports (CSV, JSONL, MongoDB dumps) are available separately for large-scale analysis.
-
-Operational notes: read endpoints are unauthenticated but require a descriptive \`User-Agent\` header in the form \`AppName/Version (ContactEmail)\`. Public rate limits are roughly 100 product reads and 10 searches per minute per IP (subject to change — see the docs). Writes need an Open Food Facts account. CORS is enabled. A staging environment is available at \`world.openfoodfacts.net\` for testing without polluting production data.`
-      entity_desc: {
-        product: "A food product identified by its barcode, with ingredients, nutrition facts, allergens, categories and computed scores. Typical paths: `GET /api/v2/product/{barcode}` and `GET /api/v2/product/{barcode}.json`."
-        search: "Structured, filter-based search over the product catalogue, returning paginated product summaries. Path: `GET /api/v2/search` with tag and field query parameters."
-      }
-      auth: false
     }
   }
 }
+

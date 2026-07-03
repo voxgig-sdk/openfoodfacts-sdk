@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'OPENFOODFACTS_TEST_PRODUCT_ENTID': {},
     'OPENFOODFACTS_TEST_LIVE': 'FALSE',
+    'OPENFOODFACTS_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.OPENFOODFACTS_TEST_LIVE
 
   if (live) {
     const client = new OpenfoodfactsSDK({
+      apikey: env.OPENFOODFACTS_APIKEY,
     })
 
     let idmap: any = env['OPENFOODFACTS_TEST_PRODUCT_ENTID']

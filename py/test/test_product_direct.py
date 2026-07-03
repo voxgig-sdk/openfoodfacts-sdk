@@ -59,12 +59,14 @@ def _product_direct_setup(mockres):
     env = runner.env_override({
         "OPENFOODFACTS_TEST_PRODUCT_ENTID": {},
         "OPENFOODFACTS_TEST_LIVE": "FALSE",
+        "OPENFOODFACTS_APIKEY": "NONE",
     })
 
     live = env.get("OPENFOODFACTS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("OPENFOODFACTS_APIKEY"),
         }
         client = OpenfoodfactsSDK(merged_opts)
         return {

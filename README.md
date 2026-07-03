@@ -1,21 +1,8 @@
 # Openfoodfacts SDK
 
-Crowdsourced food product database with ingredients, nutrition facts, Nutri-Score and Nova group classifications
+OpenFoodFacts API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About OpenFoodFacts API
-
-[Open Food Facts](https://world.openfoodfacts.org) is a collaborative, non-profit food products database built by a global community of contributors. Anyone can scan a barcode, photograph a label, and add or correct product information, which is then made freely available as open data.
-
-What you get from the API:
-
-- Product lookups by barcode, returning ingredients, allergens, categories, brands, labels, packaging, and origin.
-- Nutrition facts (energy, fats, sugars, salt, etc.) and computed scores such as **Nutri-Score**, **NOVA group**, and **Green-Score / Eco-Score**.
-- Structured search across the catalogue with filters on tags, nutrients, and other fields.
-- Bulk exports (CSV, JSONL, MongoDB dumps) are available separately for large-scale analysis.
-
-Operational notes: read endpoints are unauthenticated but require a descriptive `User-Agent` header in the form `AppName/Version (ContactEmail)`. Public rate limits are roughly 100 product reads and 10 searches per minute per IP (subject to change — see the docs). Writes need an Open Food Facts account. CORS is enabled. A staging environment is available at `world.openfoodfacts.net` for testing without polluting production data.
 
 ## Try it
 
@@ -49,27 +36,31 @@ gem install openfoodfacts-sdk
 luarocks install openfoodfacts-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { OpenfoodfactsSDK } from 'openfoodfacts'
 
-const client = new OpenfoodfactsSDK({})
+const client = new OpenfoodfactsSDK({
+  apikey: process.env.OPENFOODFACTS_APIKEY,
+})
 
+// Load product data
+const product = await client.Product().load({})
+console.log(product.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Product** | A food product identified by its barcode, with ingredients, nutrition facts, allergens, categories and computed scores. Typical paths: `GET /api/v2/product/{barcode}` and `GET /api/v2/product/{barcode}.json`. | `/product/{barcode}.json` |
-| **Search** | Structured, filter-based search over the product catalogue, returning paginated product summaries. Path: `GET /api/v2/search` with tag and field query parameters. | `/search` |
+| **Product** |  | `/product/{barcode}.json` |
+| **Search** |  | `/search` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,15 +101,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from openfoodfacts_sdk import OpenfoodfactsSDK
 
-client = OpenfoodfactsSDK({})
+client = OpenfoodfactsSDK({
+    "apikey": os.environ.get("OPENFOODFACTS_APIKEY"),
+})
 
 
 # Load a specific product
-product, err = client.Product(None).load(
-    {"id": "example_id"}, None
-)
+product, err = client.Product().load({"id": "example_id"})
+print(product)
 ```
 
 ### PHP
@@ -127,13 +120,14 @@ product, err = client.Product(None).load(
 <?php
 require_once 'openfoodfacts_sdk.php';
 
-$client = new OpenfoodfactsSDK([]);
+$client = new OpenfoodfactsSDK([
+    "apikey" => getenv("OPENFOODFACTS_APIKEY"),
+]);
 
 
 // Load a specific product
-[$product, $err] = $client->Product(null)->load(
-    ["id" => "example_id"], null
-);
+[$product, $err] = $client->Product()->load(["id" => "example_id"]);
+print_r($product);
 ```
 
 ### Golang
@@ -141,8 +135,13 @@ $client = new OpenfoodfactsSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/openfoodfacts-sdk/go"
 
-client := sdk.NewOpenfoodfactsSDK(map[string]any{})
+client := sdk.NewOpenfoodfactsSDK(map[string]any{
+    "apikey": os.Getenv("OPENFOODFACTS_APIKEY"),
+})
 
+// Load product data
+product, err := client.Product(nil).Load(map[string]any{}, nil)
+fmt.Println(product)
 ```
 
 ### Ruby
@@ -150,13 +149,14 @@ client := sdk.NewOpenfoodfactsSDK(map[string]any{})
 ```ruby
 require_relative "Openfoodfacts_sdk"
 
-client = OpenfoodfactsSDK.new({})
+client = OpenfoodfactsSDK.new({
+  "apikey" => ENV["OPENFOODFACTS_APIKEY"],
+})
 
 
 # Load a specific product
-product, err = client.Product(nil).load(
-  { "id" => "example_id" }, nil
-)
+product, err = client.Product().load({ "id" => "example_id" })
+puts product
 ```
 
 ### Lua
@@ -164,13 +164,14 @@ product, err = client.Product(nil).load(
 ```lua
 local sdk = require("openfoodfacts_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("OPENFOODFACTS_APIKEY"),
+})
 
 
 -- Load a specific product
-local product, err = client:Product(nil):load(
-  { id = "example_id" }, nil
-)
+local product, err = client:Product():load({ id = "example_id" })
+print(product)
 ```
 
 ## Unit testing in offline mode
@@ -189,25 +190,21 @@ const result = await client.Product().load({ id: 'test01' })
 ### Python
 
 ```python
-client = OpenfoodfactsSDK.test(None, None)
-result, err = client.Product(None).load(
-    {"id": "test01"}, None
-)
+client = OpenfoodfactsSDK.test()
+result, err = client.Product().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = OpenfoodfactsSDK::test(null, null);
-[$result, $err] = $client->Product(null)->load(
-    ["id" => "test01"], null
-);
+$client = OpenfoodfactsSDK::test();
+[$result, $err] = $client->Product()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Product(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -216,19 +213,15 @@ result, err := client.Product(nil).Load(
 ### Ruby
 
 ```ruby
-client = OpenfoodfactsSDK.test(nil, nil)
-result, err = client.Product(nil).load(
-  { "id" => "test01" }, nil
-)
+client = OpenfoodfactsSDK.test
+result, err = client.Product().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Product(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Product():load({ id = "test01" })
 ```
 
 ## How it works
@@ -332,16 +325,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the OpenFoodFacts API
-
-- Upstream: [https://world.openfoodfacts.org](https://world.openfoodfacts.org)
-- API docs: [https://openfoodfacts.github.io/openfoodfacts-server/api/](https://openfoodfacts.github.io/openfoodfacts-server/api/)
-
-- Database is published under the **Open Database License (ODbL)** — you may reuse and redistribute the data, including for commercial use, provided you credit Open Food Facts and share derived databases under the same terms.
-- Individual database contents are licensed under the **Database Contents License**.
-- Product photos are released under **Creative Commons Attribution-ShareAlike**; some embedded packaging artwork may remain under third-party copyright.
-- Data is volunteer-contributed and accuracy is not guaranteed; verify critical values before relying on them.
 
 ---
 
