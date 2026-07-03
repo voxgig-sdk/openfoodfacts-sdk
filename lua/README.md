@@ -10,7 +10,7 @@ The Lua SDK for the Openfoodfacts API — an entity-oriented client using Lua co
 
 ## Install
 ```bash
-luarocks install openfoodfacts-sdk
+luarocks install voxgig-sdk-openfoodfacts
 ```
 
 If the module is not yet published, add the source directory to

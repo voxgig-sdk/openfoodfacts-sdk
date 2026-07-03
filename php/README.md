@@ -10,7 +10,7 @@ The PHP SDK for the Openfoodfacts API — an entity-oriented client using PHP co
 
 ## Install
 ```bash
-composer require voxgig/openfoodfacts-sdk
+composer require voxgig-sdk/openfoodfacts
 ```
 
 

@@ -10,7 +10,7 @@ The TypeScript SDK for the Openfoodfacts API — a type-safe, entity-oriented cl
 
 ## Install
 ```bash
-npm install openfoodfacts
+npm install @voxgig-sdk/openfoodfacts
 ```
 ## Tutorial: your first API call
 

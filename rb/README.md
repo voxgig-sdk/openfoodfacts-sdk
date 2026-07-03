@@ -10,13 +10,13 @@ The Ruby SDK for the Openfoodfacts API — an entity-oriented client using idiom
 
 ## Install
 ```bash
-gem install openfoodfacts-sdk
+gem install voxgig-sdk-openfoodfacts
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "openfoodfacts-sdk"
+gem "voxgig-sdk-openfoodfacts"
 ```
 
 Then run:

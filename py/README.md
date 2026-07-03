@@ -10,7 +10,7 @@ The Python SDK for the Openfoodfacts API — an entity-oriented client following
 
 ## Install
 ```bash
-pip install openfoodfacts-sdk
+pip install voxgig-sdk-openfoodfacts
 ```
 
 Or install from source:
