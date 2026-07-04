@@ -107,7 +107,8 @@ class Config {
                     "name": "barcode",
                     "orig": "barcode",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },
@@ -140,7 +141,8 @@ class Config {
                     "name": "barcode",
                     "orig": "barcode",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },
@@ -173,7 +175,8 @@ class Config {
                     "name": "id",
                     "orig": "barcode",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },

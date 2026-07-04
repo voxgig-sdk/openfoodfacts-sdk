@@ -88,7 +88,7 @@ same parameters as `direct()`.
 ## ProductEntity
 
 ```lua
-local product = client:Product(nil)
+local product = client:product(nil)
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ local product = client:Product(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Product():load({ id = "product_id" })
+local result, err = client:product():load({ id = "product_id" })
 ```
 
 ### Common Methods
@@ -143,7 +143,7 @@ Return the entity name.
 ## SearchEntity
 
 ```lua
-local search = client:Search(nil)
+local search = client:search(nil)
 ```
 
 ### Fields
@@ -185,7 +185,7 @@ local search = client:Search(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Search():list()
+local results, err = client:search():list()
 ```
 
 ### Common Methods

@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Product,
+  ProductLoadMatch,
+} from '../OpenfoodfactsTypes'
 
 // TODO: needs Entity superclass
-class ProductEntity extends OpenfoodfactsEntityBase {
+class ProductEntity extends OpenfoodfactsEntityBase<Product> {
 
   constructor(client: OpenfoodfactsSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class ProductEntity extends OpenfoodfactsEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: ProductLoadMatch, ctrl?: Control): Promise<Product> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class ProductEntity extends OpenfoodfactsEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Product> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

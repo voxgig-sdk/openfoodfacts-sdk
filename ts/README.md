@@ -9,9 +9,12 @@ The TypeScript SDK for the Openfoodfacts API — a type-safe, entity-oriented cl
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/openfoodfacts
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/openfoodfacts-sdk/releases](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,7 +23,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OpenfoodfactsSDK } from 'openfoodfacts'
+import { OpenfoodfactsSDK } from '@voxgig-sdk/openfoodfacts'
 
 const client = new OpenfoodfactsSDK({
   apikey: process.env.OPENFOODFACTS_APIKEY,
@@ -30,7 +33,7 @@ const client = new OpenfoodfactsSDK({
 ### 3. Load a product
 
 ```ts
-const result = await client.Product().load({ id: 'example_id' })
+const result = await client.product.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = OpenfoodfactsSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.product.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -96,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.product
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -306,7 +309,7 @@ API path: `/search`
 
 ### Product
 
-Create an instance: `const product = client.Product()`
+Create an instance: `const product = client.product`
 
 #### Operations
 
@@ -326,13 +329,13 @@ Create an instance: `const product = client.Product()`
 #### Example: Load
 
 ```ts
-const product = await client.Product().load({ id: 'product_id' })
+const product = await client.product.load({ id: 'product_id' })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.Search()`
+Create an instance: `const search = client.search`
 
 #### Operations
 
@@ -375,7 +378,7 @@ Create an instance: `const search = client.Search()`
 #### Example: List
 
 ```ts
-const searchs = await client.Search().list()
+const searchs = await client.search.list()
 ```
 
 
@@ -436,7 +439,7 @@ openfoodfacts/
 Import the SDK from the package root:
 
 ```ts
-import { OpenfoodfactsSDK } from 'openfoodfacts'
+import { OpenfoodfactsSDK } from '@voxgig-sdk/openfoodfacts'
 ```
 
 ### Entity state
@@ -446,11 +449,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const product = client.product
+await product.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// product.data() now returns the loaded product data
+// product.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

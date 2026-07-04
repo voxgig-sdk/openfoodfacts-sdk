@@ -9,12 +9,9 @@ The Lua SDK for the Openfoodfacts API — an entity-oriented client using Lua co
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-openfoodfacts
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -39,7 +36,7 @@ local client = sdk.new({
 ### 3. Load a product
 
 ```lua
-local result, err = client:Product():load({ id = "example_id" })
+local result, err = client:product():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +84,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Openfoodfacts():load({ id = "test01" })
+local result, err = client:product():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -261,7 +258,7 @@ API path: `/search`
 
 ### Product
 
-Create an instance: `const product = client.Product()`
+Create an instance: `const product = client.product`
 
 #### Operations
 
@@ -281,13 +278,13 @@ Create an instance: `const product = client.Product()`
 #### Example: Load
 
 ```ts
-const product = await client.Product().load({ id: 'product_id' })
+const product = await client.product.load({ id: 'product_id' })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.Search()`
+Create an instance: `const search = client.search`
 
 #### Operations
 
@@ -330,7 +327,7 @@ Create an instance: `const search = client.Search()`
 #### Example: List
 
 ```ts
-const searchs = await client.Search().list()
+const searchs = await client.search.list()
 ```
 
 
@@ -405,11 +402,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local product = client:product()
+product:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- product:data_get() now returns the loaded product data
+-- product:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

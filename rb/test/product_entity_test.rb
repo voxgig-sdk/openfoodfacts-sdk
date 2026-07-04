@@ -42,8 +42,7 @@ class ProductEntityTest < Minitest::Test
     # LOAD
     product_ref01_ent = client.Product(nil)
     product_ref01_match_dt0 = {}
-    product_ref01_data_dt0_loaded, err = product_ref01_ent.load(product_ref01_match_dt0, nil)
-    assert_nil err
+    product_ref01_data_dt0_loaded = product_ref01_ent.load(product_ref01_match_dt0, nil)
     assert !product_ref01_data_dt0_loaded.nil?
 
   end

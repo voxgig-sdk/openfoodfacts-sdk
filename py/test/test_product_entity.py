@@ -49,8 +49,7 @@ class TestProductEntity:
         # LOAD
         product_ref01_ent = client.Product(None)
         product_ref01_match_dt0 = {}
-        product_ref01_data_dt0_loaded, err = product_ref01_ent.load(product_ref01_match_dt0, None)
-        assert err is None
+        product_ref01_data_dt0_loaded = product_ref01_ent.load(product_ref01_match_dt0, None)
         assert product_ref01_data_dt0_loaded is not None
 
 

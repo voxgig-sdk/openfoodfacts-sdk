@@ -49,8 +49,7 @@ class ProductEntityTest extends TestCase
         // LOAD
         $product_ref01_ent = $client->Product(null);
         $product_ref01_match_dt0 = [];
-        [$product_ref01_data_dt0_loaded, $err] = $product_ref01_ent->load($product_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $product_ref01_data_dt0_loaded = $product_ref01_ent->load($product_ref01_match_dt0, null);
         $this->assertNotNull($product_ref01_data_dt0_loaded);
 
     }

@@ -122,7 +122,7 @@ Alias for `OpenfoodfactsSDK.test()`.
 ## ProductEntity
 
 ```ts
-const product = client.Product()
+const product = client.product
 ```
 
 ### Fields
@@ -141,7 +141,7 @@ const product = client.Product()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Product().load({ id: 'product_id' })
+const result = await client.product.load({ id: 'product_id' })
 ```
 
 ### Common Methods
@@ -175,7 +175,7 @@ Return a copy of the entity options.
 ## SearchEntity
 
 ```ts
-const search = client.Search()
+const search = client.search
 ```
 
 ### Fields
@@ -217,7 +217,7 @@ const search = client.Search()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Search().list()
+const results = await client.search.list()
 ```
 
 ### Common Methods

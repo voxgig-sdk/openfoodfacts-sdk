@@ -245,11 +245,17 @@ func (sdk *OpenfoodfactsSDK) Direct(fetchargs map[string]any) (map[string]any, e
 }
 
 
+// Product returns a Product entity bound to this client.
+// Idiomatic usage: client.Product(nil).List(nil, nil) or
+// client.Product(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *OpenfoodfactsSDK) Product(data map[string]any) OpenfoodfactsEntity {
 	return NewProductEntityFunc(sdk, data)
 }
 
 
+// Search returns a Search entity bound to this client.
+// Idiomatic usage: client.Search(nil).List(nil, nil) or
+// client.Search(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *OpenfoodfactsSDK) Search(data map[string]any) OpenfoodfactsEntity {
 	return NewSearchEntityFunc(sdk, data)
 }
