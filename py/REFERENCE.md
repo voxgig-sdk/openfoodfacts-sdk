@@ -85,7 +85,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## ProductEntity
 
 ```python
-product = client.product
+product = client.Product()
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ product = client.product
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.product.load({"id": "product_id"})
+result = client.Product().load({"id": "product_id"})
 ```
 
 ### Common Methods
@@ -139,7 +139,7 @@ Return the entity name.
 ## SearchEntity
 
 ```python
-search = client.search
+search = client.Search()
 ```
 
 ### Fields
@@ -181,7 +181,9 @@ search = client.search
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.search.list({})
+results = client.Search().list({})
+for search in results:
+    print(search)
 ```
 
 ### Common Methods

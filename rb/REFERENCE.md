@@ -91,7 +91,7 @@ same parameters as `direct()`. Raises on error.
 ## ProductEntity
 
 ```ruby
-product = client.product
+product = client.Product
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ product = client.product
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.product.load({ "id" => "product_id" })
+result = client.Product.load({ "id" => "product_id" })
 ```
 
 ### Common Methods
@@ -146,7 +146,7 @@ Return the entity name.
 ## SearchEntity
 
 ```ruby
-search = client.search
+search = client.Search
 ```
 
 ### Fields
@@ -188,7 +188,7 @@ search = client.search
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.search.list(nil)
+results = client.Search.list(nil)
 ```
 
 ### Common Methods

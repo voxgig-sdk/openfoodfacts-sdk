@@ -36,10 +36,12 @@ client = OpenfoodfactsSDK({
 
 ### 3. Load a product
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.product.load({"id": "example_id"})
-    print(result)
+    product = client.Product().load({"id": "example_id"})
+    print(product)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -87,8 +89,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = OpenfoodfactsSDK.test()
 
-result = client.product.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+product = client.Product().load({"id": "test01"})
+# product contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -263,7 +266,7 @@ API path: `/search`
 
 ### Product
 
-Create an instance: `const product = client.product`
+Create an instance: `product = client.Product()`
 
 #### Operations
 
@@ -282,14 +285,14 @@ Create an instance: `const product = client.product`
 
 #### Example: Load
 
-```ts
-const product = await client.product.load({ id: 'product_id' })
+```python
+product = client.Product().load({"id": "product_id"})
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search()`
 
 #### Operations
 
@@ -331,8 +334,8 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```python
+searchs = client.Search().list({})
 ```
 
 
@@ -406,7 +409,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-product = client.product
+product = client.Product()
 product.load({"id": "example_id"})
 
 # product.data_get() now returns the loaded product data

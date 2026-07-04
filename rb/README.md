@@ -34,8 +34,9 @@ client = OpenfoodfactsSDK.new({
 
 ```ruby
 begin
-  result = client.product.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Product record (raises on error).
+  product = client.Product.load({ "id" => "example_id" })
+  puts product
 rescue => err
   warn "load failed: #{err}"
 end
@@ -82,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = OpenfoodfactsSDK.test
+client = OpenfoodfactsSDK.test({
+  "entity" => { "product" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.product.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+product = client.Product.load({ "id" => "test01" })
+puts product
 ```
 
 ### Use a custom fetch function
@@ -262,7 +267,7 @@ API path: `/search`
 
 ### Product
 
-Create an instance: `const product = client.product`
+Create an instance: `product = client.Product`
 
 #### Operations
 
@@ -281,14 +286,15 @@ Create an instance: `const product = client.product`
 
 #### Example: Load
 
-```ts
-const product = await client.product.load({ id: 'product_id' })
+```ruby
+# load returns the bare Product record (raises on error).
+product = client.Product.load({ "id" => "product_id" })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search`
 
 #### Operations
 
@@ -330,8 +336,9 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```ruby
+# list returns an Array of Search records (raises on error).
+searchs = client.Search.list
 ```
 
 
@@ -406,7 +413,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-product = client.product
+product = client.Product
 product.load({ "id" => "example_id" })
 
 # product.data_get now returns the loaded product data

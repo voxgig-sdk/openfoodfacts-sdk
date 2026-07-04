@@ -205,28 +205,14 @@ class OpenfoodfactsSDK {
 
 
 
-  _product?: ProductEntity
-
-  // Idiomatic facade: `client.product.list()` / `client.product.load({ id })`.
-  get product(): ProductEntity {
-    return (this._product ??= new ProductEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.product` instead. */
+  // Entity access: `client.Product().list()` / `client.Product().load({ id })`.
   Product(data?: any) {
     const self = this
     return new ProductEntity(self,data)
   }
 
 
-  _search?: SearchEntity
-
-  // Idiomatic facade: `client.search.list()` / `client.search.load({ id })`.
-  get search(): SearchEntity {
-    return (this._search ??= new SearchEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.search` instead. */
+  // Entity access: `client.Search().list()` / `client.Search().load({ id })`.
   Search(data?: any) {
     const self = this
     return new SearchEntity(self,data)

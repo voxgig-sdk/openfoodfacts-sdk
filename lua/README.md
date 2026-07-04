@@ -36,9 +36,9 @@ local client = sdk.new({
 ### 3. Load a product
 
 ```lua
-local result, err = client:product():load({ id = "example_id" })
+local product, err = client:Product():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(product)
 ```
 
 
@@ -84,8 +84,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:product():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Product():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -188,17 +188,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local product, err = client:Product():load({ id = "example_id" })
+    if err then error(err) end
+    -- product is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -258,7 +263,7 @@ API path: `/search`
 
 ### Product
 
-Create an instance: `const product = client.product`
+Create an instance: `local product = client:Product(nil)`
 
 #### Operations
 
@@ -277,14 +282,14 @@ Create an instance: `const product = client.product`
 
 #### Example: Load
 
-```ts
-const product = await client.product.load({ id: 'product_id' })
+```lua
+local product, err = client:Product():load({ id = "product_id" })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `local search = client:Search(nil)`
 
 #### Operations
 
@@ -326,8 +331,8 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```lua
+local searchs, err = client:Search():list()
 ```
 
 
@@ -402,7 +407,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local product = client:product()
+local product = client:Product()
 product:load({ id = "example_id" })
 
 -- product:data_get() now returns the loaded product data

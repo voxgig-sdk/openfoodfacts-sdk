@@ -35,9 +35,10 @@ $client = new OpenfoodfactsSDK([
 
 ```php
 try {
-    $result = $client->product()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Product record (throws on error).
+    $product = $client->Product()->load(["id" => "example_id"]);
+    print_r($product);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -83,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = OpenfoodfactsSDK::test();
+$client = OpenfoodfactsSDK::test([
+    "entity" => ["product" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->product()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$product = $client->Product()->load(["id" => "test01"]);
+print_r($product);
 ```
 
 ### Use a custom fetch function
@@ -267,7 +272,7 @@ API path: `/search`
 
 ### Product
 
-Create an instance: `const product = client.product`
+Create an instance: `$product = $client->Product();`
 
 #### Operations
 
@@ -286,14 +291,15 @@ Create an instance: `const product = client.product`
 
 #### Example: Load
 
-```ts
-const product = await client.product.load({ id: 'product_id' })
+```php
+// load() returns the bare Product record (throws on error).
+$product = $client->Product()->load(["id" => "product_id"]);
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `$search = $client->Search();`
 
 #### Operations
 
@@ -335,8 +341,9 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```php
+// list() returns an array of Search records (throws on error).
+$searchs = $client->Search()->list();
 ```
 
 
@@ -411,7 +418,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$product = $client->product();
+$product = $client->Product();
 $product->load(["id" => "example_id"]);
 
 // $product->dataGet() now returns the loaded product data

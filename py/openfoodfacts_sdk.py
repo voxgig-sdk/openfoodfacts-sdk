@@ -220,41 +220,21 @@ class OpenfoodfactsSDK:
         }
 
 
-    @property
-    def product(self):
-        """Idiomatic facade: client.product.list() / client.product.load({"id": ...})."""
-        from entity.product_entity import ProductEntity
-        cached = getattr(self, "_product", None)
-        if cached is None:
-            cached = ProductEntity(self, None)
-            self._product = cached
-        return cached
-
-    def Product(self, data=None):
-        # Deprecated: use client.product instead.
+    def Product(self, data=None) -> "ProductEntity":
+        """Entity factory: client.Product().list({}) / client.Product().load({"id": ...})."""
         from entity.product_entity import ProductEntity
         return ProductEntity(self, data)
 
 
-    @property
-    def search(self):
-        """Idiomatic facade: client.search.list() / client.search.load({"id": ...})."""
-        from entity.search_entity import SearchEntity
-        cached = getattr(self, "_search", None)
-        if cached is None:
-            cached = SearchEntity(self, None)
-            self._search = cached
-        return cached
-
-    def Search(self, data=None):
-        # Deprecated: use client.search instead.
+    def Search(self, data=None) -> "SearchEntity":
+        """Entity factory: client.Search().list({}) / client.Search().load({"id": ...})."""
         from entity.search_entity import SearchEntity
         return SearchEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "OpenfoodfactsSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class OpenfoodfactsSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.product_entity import ProductEntity
+    from entity.search_entity import SearchEntity

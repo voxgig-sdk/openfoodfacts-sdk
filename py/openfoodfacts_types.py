@@ -4,85 +4,85 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Product:
-    code: Optional[str] = None
-    product: Optional[dict] = None
-    status: Optional[int] = None
-    status_verbose: Optional[str] = None
+class Product(TypedDict, total=False):
+    code: str
+    product: dict
+    status: int
+    status_verbose: str
 
 
-@dataclass
-class ProductLoadMatch:
+class ProductLoadMatch(TypedDict):
     barcode: str
     id: str
 
 
-@dataclass
-class Search:
-    additives_tag: Optional[list] = None
-    allergen: Optional[str] = None
-    brand: Optional[str] = None
-    category: Optional[str] = None
-    country: Optional[str] = None
-    created_t: Optional[int] = None
-    ecoscore_grade: Optional[str] = None
-    ecoscore_score: Optional[int] = None
-    generic_name: Optional[str] = None
-    image_front_url: Optional[str] = None
-    image_ingredients_url: Optional[str] = None
-    image_nutrition_url: Optional[str] = None
-    image_url: Optional[str] = None
-    ingredients_analysis_tag: Optional[list] = None
-    ingredients_text: Optional[str] = None
-    label: Optional[str] = None
-    last_modified_t: Optional[int] = None
-    manufacturing_place: Optional[str] = None
-    nova_group: Optional[int] = None
-    nutriment: Optional[dict] = None
-    nutriscore_grade: Optional[str] = None
-    nutriscore_score: Optional[int] = None
-    packaging: Optional[str] = None
-    product_name: Optional[str] = None
-    quantity: Optional[str] = None
-    store: Optional[str] = None
-    trace: Optional[str] = None
+class Search(TypedDict, total=False):
+    additives_tag: list
+    allergen: str
+    brand: str
+    category: str
+    country: str
+    created_t: int
+    ecoscore_grade: str
+    ecoscore_score: int
+    generic_name: str
+    image_front_url: str
+    image_ingredients_url: str
+    image_nutrition_url: str
+    image_url: str
+    ingredients_analysis_tag: list
+    ingredients_text: str
+    label: str
+    last_modified_t: int
+    manufacturing_place: str
+    nova_group: int
+    nutriment: dict
+    nutriscore_grade: str
+    nutriscore_score: int
+    packaging: str
+    product_name: str
+    quantity: str
+    store: str
+    trace: str
 
 
-@dataclass
-class SearchListMatch:
-    additives_tag: Optional[list] = None
-    allergen: Optional[str] = None
-    brand: Optional[str] = None
-    category: Optional[str] = None
-    country: Optional[str] = None
-    created_t: Optional[int] = None
-    ecoscore_grade: Optional[str] = None
-    ecoscore_score: Optional[int] = None
-    generic_name: Optional[str] = None
-    image_front_url: Optional[str] = None
-    image_ingredients_url: Optional[str] = None
-    image_nutrition_url: Optional[str] = None
-    image_url: Optional[str] = None
-    ingredients_analysis_tag: Optional[list] = None
-    ingredients_text: Optional[str] = None
-    label: Optional[str] = None
-    last_modified_t: Optional[int] = None
-    manufacturing_place: Optional[str] = None
-    nova_group: Optional[int] = None
-    nutriment: Optional[dict] = None
-    nutriscore_grade: Optional[str] = None
-    nutriscore_score: Optional[int] = None
-    packaging: Optional[str] = None
-    product_name: Optional[str] = None
-    quantity: Optional[str] = None
-    store: Optional[str] = None
-    trace: Optional[str] = None
-
+class SearchListMatch(TypedDict, total=False):
+    additives_tag: list
+    allergen: str
+    brand: str
+    category: str
+    country: str
+    created_t: int
+    ecoscore_grade: str
+    ecoscore_score: int
+    generic_name: str
+    image_front_url: str
+    image_ingredients_url: str
+    image_nutrition_url: str
+    image_url: str
+    ingredients_analysis_tag: list
+    ingredients_text: str
+    label: str
+    last_modified_t: int
+    manufacturing_place: str
+    nova_group: int
+    nutriment: dict
+    nutriscore_grade: str
+    nutriscore_score: int
+    packaging: str
+    product_name: str
+    quantity: str
+    store: str
+    trace: str

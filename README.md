@@ -28,9 +28,9 @@ const client = new OpenfoodfactsSDK({
   apikey: process.env.OPENFOODFACTS_APIKEY,
 })
 
-// Load product data
-const product = await client.product.load({})
-console.log(product.data)
+// Load product data (returns a Product)
+const product = await client.Product().load()
+console.log(product)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -90,8 +90,8 @@ client = OpenfoodfactsSDK({
 })
 
 
-# Load a specific product
-product = client.product.load({"id": "example_id"})
+# Load a specific product (returns the record, raises on error)
+product = client.Product().load({"id": "example_id"})
 print(product)
 ```
 
@@ -106,8 +106,8 @@ $client = new OpenfoodfactsSDK([
 ]);
 
 
-// Load a specific product
-$product = $client->product()->load(["id" => "example_id"]);
+// Load a specific product (returns the bare record; throws on error)
+$product = $client->Product()->load(["id" => "example_id"]);
 print_r($product);
 ```
 
@@ -135,8 +135,8 @@ client = OpenfoodfactsSDK.new({
 })
 
 
-# Load a specific product
-product = client.product.load({ "id" => "example_id" })
+# Load a specific product (returns the bare record; raises on error)
+product = client.Product.load({ "id" => "example_id" })
 puts product
 ```
 
@@ -151,7 +151,7 @@ local client = sdk.new({
 
 
 -- Load a specific product
-local product, err = client:product():load({ id = "example_id" })
+local product, err = client:Product():load({ id = "example_id" })
 print(product)
 ```
 
@@ -164,22 +164,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = OpenfoodfactsSDK.test()
-const result = await client.product.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const product = await client.Product().load({ id: 'test01' })
+// product is a bare Product populated with mock data
+console.log(product)
 ```
 
 ### Python
 
 ```python
 client = OpenfoodfactsSDK.test()
-result = client.product.load({"id": "test01"})
+product = client.Product().load({"id": "test01"})
+print(product)
 ```
 
 ### PHP
 
 ```php
-$client = OpenfoodfactsSDK::test();
-$result = $client->product()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = OpenfoodfactsSDK::test([
+    "entity" => ["product" => ["test01" => ["id" => "test01"]]],
+]);
+$product = $client->Product()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -194,15 +199,18 @@ result, err := client.Product(nil).Load(
 ### Ruby
 
 ```ruby
-client = OpenfoodfactsSDK.test
-result = client.product.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = OpenfoodfactsSDK.test({
+  "entity" => { "product" => { "test01" => { "id" => "test01" } } },
+})
+product = client.Product.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:product():load({ id = "test01" })
+local result, err = client:Product():load({ id = "test01" })
 ```
 
 ## How it works
@@ -250,6 +258,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

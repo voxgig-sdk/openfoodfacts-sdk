@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:product():list() / client:product():load({ id = ... })
-function OpenfoodfactsSDK:product(data)
+-- Idiomatic facade: client:Product():list() / client:Product():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function OpenfoodfactsSDK:Product(data)
   local EntityMod = require("entity.product_entity")
   if data == nil then
     if self._product == nil then
@@ -256,15 +257,10 @@ function OpenfoodfactsSDK:product(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:product() instead.
-function OpenfoodfactsSDK:Product(data)
-  local EntityMod = require("entity.product_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:search():list() / client:search():load({ id = ... })
-function OpenfoodfactsSDK:search(data)
+-- Idiomatic facade: client:Search():list() / client:Search():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function OpenfoodfactsSDK:Search(data)
   local EntityMod = require("entity.search_entity")
   if data == nil then
     if self._search == nil then
@@ -272,12 +268,6 @@ function OpenfoodfactsSDK:search(data)
     end
     return self._search
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:search() instead.
-function OpenfoodfactsSDK:Search(data)
-  local EntityMod = require("entity.search_entity")
   return EntityMod.new(self, data)
 end
 
