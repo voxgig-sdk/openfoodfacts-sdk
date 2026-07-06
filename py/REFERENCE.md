@@ -92,10 +92,10 @@ product = client.Product()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$STRING`` | No |  |
-| `product` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
-| `status_verbose` | ``$STRING`` | No |  |
+| `code` | `str` | No |  |
+| `product` | `dict` | No |  |
+| `status` | `int` | No |  |
+| `status_verbose` | `str` | No |  |
 
 ### Operations
 
@@ -146,42 +146,42 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `additives_tag` | ``$ARRAY`` | No |  |
-| `allergen` | ``$STRING`` | No |  |
-| `brand` | ``$STRING`` | No |  |
-| `category` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `created_t` | ``$INTEGER`` | No |  |
-| `ecoscore_grade` | ``$STRING`` | No |  |
-| `ecoscore_score` | ``$INTEGER`` | No |  |
-| `generic_name` | ``$STRING`` | No |  |
-| `image_front_url` | ``$STRING`` | No |  |
-| `image_ingredients_url` | ``$STRING`` | No |  |
-| `image_nutrition_url` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `ingredients_analysis_tag` | ``$ARRAY`` | No |  |
-| `ingredients_text` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `last_modified_t` | ``$INTEGER`` | No |  |
-| `manufacturing_place` | ``$STRING`` | No |  |
-| `nova_group` | ``$INTEGER`` | No |  |
-| `nutriment` | ``$OBJECT`` | No |  |
-| `nutriscore_grade` | ``$STRING`` | No |  |
-| `nutriscore_score` | ``$INTEGER`` | No |  |
-| `packaging` | ``$STRING`` | No |  |
-| `product_name` | ``$STRING`` | No |  |
-| `quantity` | ``$STRING`` | No |  |
-| `store` | ``$STRING`` | No |  |
-| `trace` | ``$STRING`` | No |  |
+| `additives_tag` | `list` | No |  |
+| `allergen` | `str` | No |  |
+| `brand` | `str` | No |  |
+| `category` | `str` | No |  |
+| `country` | `str` | No |  |
+| `created_t` | `int` | No |  |
+| `ecoscore_grade` | `str` | No |  |
+| `ecoscore_score` | `int` | No |  |
+| `generic_name` | `str` | No |  |
+| `image_front_url` | `str` | No |  |
+| `image_ingredients_url` | `str` | No |  |
+| `image_nutrition_url` | `str` | No |  |
+| `image_url` | `str` | No |  |
+| `ingredients_analysis_tag` | `list` | No |  |
+| `ingredients_text` | `str` | No |  |
+| `label` | `str` | No |  |
+| `last_modified_t` | `int` | No |  |
+| `manufacturing_place` | `str` | No |  |
+| `nova_group` | `int` | No |  |
+| `nutriment` | `dict` | No |  |
+| `nutriscore_grade` | `str` | No |  |
+| `nutriscore_score` | `int` | No |  |
+| `packaging` | `str` | No |  |
+| `product_name` | `str` | No |  |
+| `quantity` | `str` | No |  |
+| `store` | `str` | No |  |
+| `trace` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Search().list({})
+results = client.Search().list()
 for search in results:
     print(search)
 ```

@@ -8,7 +8,7 @@ Complete API reference for the Openfoodfacts Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'openfoodfacts_sdk'
+require_relative 'Openfoodfacts_sdk'
 
 client = OpenfoodfactsSDK.new(options)
 ```
@@ -98,10 +98,10 @@ product = client.Product
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$STRING`` | No |  |
-| `product` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
-| `status_verbose` | ``$STRING`` | No |  |
+| `code` | `String` | No |  |
+| `product` | `Hash` | No |  |
+| `status` | `Integer` | No |  |
+| `status_verbose` | `String` | No |  |
 
 ### Operations
 
@@ -153,42 +153,42 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `additives_tag` | ``$ARRAY`` | No |  |
-| `allergen` | ``$STRING`` | No |  |
-| `brand` | ``$STRING`` | No |  |
-| `category` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `created_t` | ``$INTEGER`` | No |  |
-| `ecoscore_grade` | ``$STRING`` | No |  |
-| `ecoscore_score` | ``$INTEGER`` | No |  |
-| `generic_name` | ``$STRING`` | No |  |
-| `image_front_url` | ``$STRING`` | No |  |
-| `image_ingredients_url` | ``$STRING`` | No |  |
-| `image_nutrition_url` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `ingredients_analysis_tag` | ``$ARRAY`` | No |  |
-| `ingredients_text` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `last_modified_t` | ``$INTEGER`` | No |  |
-| `manufacturing_place` | ``$STRING`` | No |  |
-| `nova_group` | ``$INTEGER`` | No |  |
-| `nutriment` | ``$OBJECT`` | No |  |
-| `nutriscore_grade` | ``$STRING`` | No |  |
-| `nutriscore_score` | ``$INTEGER`` | No |  |
-| `packaging` | ``$STRING`` | No |  |
-| `product_name` | ``$STRING`` | No |  |
-| `quantity` | ``$STRING`` | No |  |
-| `store` | ``$STRING`` | No |  |
-| `trace` | ``$STRING`` | No |  |
+| `additives_tag` | `Array` | No |  |
+| `allergen` | `String` | No |  |
+| `brand` | `String` | No |  |
+| `category` | `String` | No |  |
+| `country` | `String` | No |  |
+| `created_t` | `Integer` | No |  |
+| `ecoscore_grade` | `String` | No |  |
+| `ecoscore_score` | `Integer` | No |  |
+| `generic_name` | `String` | No |  |
+| `image_front_url` | `String` | No |  |
+| `image_ingredients_url` | `String` | No |  |
+| `image_nutrition_url` | `String` | No |  |
+| `image_url` | `String` | No |  |
+| `ingredients_analysis_tag` | `Array` | No |  |
+| `ingredients_text` | `String` | No |  |
+| `label` | `String` | No |  |
+| `last_modified_t` | `Integer` | No |  |
+| `manufacturing_place` | `String` | No |  |
+| `nova_group` | `Integer` | No |  |
+| `nutriment` | `Hash` | No |  |
+| `nutriscore_grade` | `String` | No |  |
+| `nutriscore_score` | `Integer` | No |  |
+| `packaging` | `String` | No |  |
+| `product_name` | `String` | No |  |
+| `quantity` | `String` | No |  |
+| `store` | `String` | No |  |
+| `trace` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Search.list(nil)
+results = client.Search.list
 ```
 
 ### Common Methods

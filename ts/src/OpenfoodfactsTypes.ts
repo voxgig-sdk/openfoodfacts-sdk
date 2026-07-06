@@ -47,5 +47,33 @@ export interface Search {
   trace?: string
 }
 
-export type SearchListMatch = Partial<Search>
+export interface SearchListMatch {
+  additives_tag?: any[]
+  allergen?: string
+  brand?: string
+  category?: string
+  country?: string
+  created_t?: number
+  ecoscore_grade?: string
+  ecoscore_score?: number
+  generic_name?: string
+  image_front_url?: string
+  image_ingredients_url?: string
+  image_nutrition_url?: string
+  image_url?: string
+  ingredients_analysis_tag?: any[]
+  ingredients_text?: string
+  label?: string
+  last_modified_t?: number
+  manufacturing_place?: string
+  nova_group?: number
+  nutriment?: Record<string, any>
+  nutriscore_grade?: string
+  nutriscore_score?: number
+  packaging?: string
+  product_name?: string
+  quantity?: string
+  store?: string
+  trace?: string
+}
 

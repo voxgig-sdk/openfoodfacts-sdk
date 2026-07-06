@@ -53,8 +53,7 @@ type Search struct {
 	Trace *string `json:"trace,omitempty"`
 }
 
-// SearchListMatch mirrors the search fields as an all-optional match
-// filter (Go analog of Partial<Search>).
+// SearchListMatch is the typed request payload for Search.ListTyped.
 type SearchListMatch struct {
 	AdditivesTag *[]any `json:"additives_tag,omitempty"`
 	Allergen *string `json:"allergen,omitempty"`

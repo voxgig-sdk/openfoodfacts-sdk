@@ -50,11 +50,11 @@ Create a new `ProductEntity` instance. Pass `null` for no initial data.
 
 Create a new `SearchEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): OpenfoodfactsUtility`
 
 Return a copy of the SDK utility object.
 
@@ -97,10 +97,10 @@ $product = $client->Product();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$STRING`` | No |  |
-| `product` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
-| `status_verbose` | ``$STRING`` | No |  |
+| `code` | `string` | No |  |
+| `product` | `array` | No |  |
+| `status` | `int` | No |  |
+| `status_verbose` | `string` | No |  |
 
 ### Operations
 
@@ -114,19 +114,19 @@ $result = $client->Product()->load(["id" => "product_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -135,7 +135,7 @@ Set the entity match criteria.
 Create a new `ProductEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -152,59 +152,59 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `additives_tag` | ``$ARRAY`` | No |  |
-| `allergen` | ``$STRING`` | No |  |
-| `brand` | ``$STRING`` | No |  |
-| `category` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `created_t` | ``$INTEGER`` | No |  |
-| `ecoscore_grade` | ``$STRING`` | No |  |
-| `ecoscore_score` | ``$INTEGER`` | No |  |
-| `generic_name` | ``$STRING`` | No |  |
-| `image_front_url` | ``$STRING`` | No |  |
-| `image_ingredients_url` | ``$STRING`` | No |  |
-| `image_nutrition_url` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `ingredients_analysis_tag` | ``$ARRAY`` | No |  |
-| `ingredients_text` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `last_modified_t` | ``$INTEGER`` | No |  |
-| `manufacturing_place` | ``$STRING`` | No |  |
-| `nova_group` | ``$INTEGER`` | No |  |
-| `nutriment` | ``$OBJECT`` | No |  |
-| `nutriscore_grade` | ``$STRING`` | No |  |
-| `nutriscore_score` | ``$INTEGER`` | No |  |
-| `packaging` | ``$STRING`` | No |  |
-| `product_name` | ``$STRING`` | No |  |
-| `quantity` | ``$STRING`` | No |  |
-| `store` | ``$STRING`` | No |  |
-| `trace` | ``$STRING`` | No |  |
+| `additives_tag` | `array` | No |  |
+| `allergen` | `string` | No |  |
+| `brand` | `string` | No |  |
+| `category` | `string` | No |  |
+| `country` | `string` | No |  |
+| `created_t` | `int` | No |  |
+| `ecoscore_grade` | `string` | No |  |
+| `ecoscore_score` | `int` | No |  |
+| `generic_name` | `string` | No |  |
+| `image_front_url` | `string` | No |  |
+| `image_ingredients_url` | `string` | No |  |
+| `image_nutrition_url` | `string` | No |  |
+| `image_url` | `string` | No |  |
+| `ingredients_analysis_tag` | `array` | No |  |
+| `ingredients_text` | `string` | No |  |
+| `label` | `string` | No |  |
+| `last_modified_t` | `int` | No |  |
+| `manufacturing_place` | `string` | No |  |
+| `nova_group` | `int` | No |  |
+| `nutriment` | `array` | No |  |
+| `nutriscore_grade` | `string` | No |  |
+| `nutriscore_score` | `int` | No |  |
+| `packaging` | `string` | No |  |
+| `product_name` | `string` | No |  |
+| `quantity` | `string` | No |  |
+| `store` | `string` | No |  |
+| `trace` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Search()->list([]);
+$results = $client->Search()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -213,7 +213,7 @@ Set the entity match criteria.
 Create a new `SearchEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

@@ -102,10 +102,10 @@ product := client.Product(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$STRING`` | No |  |
-| `product` | ``$OBJECT`` | No |  |
-| `status` | ``$INTEGER`` | No |  |
-| `status_verbose` | ``$STRING`` | No |  |
+| `code` | `string` | No |  |
+| `product` | `map[string]any` | No |  |
+| `status` | `int` | No |  |
+| `status_verbose` | `string` | No |  |
 
 ### Operations
 
@@ -151,33 +151,33 @@ search := client.Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `additives_tag` | ``$ARRAY`` | No |  |
-| `allergen` | ``$STRING`` | No |  |
-| `brand` | ``$STRING`` | No |  |
-| `category` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `created_t` | ``$INTEGER`` | No |  |
-| `ecoscore_grade` | ``$STRING`` | No |  |
-| `ecoscore_score` | ``$INTEGER`` | No |  |
-| `generic_name` | ``$STRING`` | No |  |
-| `image_front_url` | ``$STRING`` | No |  |
-| `image_ingredients_url` | ``$STRING`` | No |  |
-| `image_nutrition_url` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `ingredients_analysis_tag` | ``$ARRAY`` | No |  |
-| `ingredients_text` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `last_modified_t` | ``$INTEGER`` | No |  |
-| `manufacturing_place` | ``$STRING`` | No |  |
-| `nova_group` | ``$INTEGER`` | No |  |
-| `nutriment` | ``$OBJECT`` | No |  |
-| `nutriscore_grade` | ``$STRING`` | No |  |
-| `nutriscore_score` | ``$INTEGER`` | No |  |
-| `packaging` | ``$STRING`` | No |  |
-| `product_name` | ``$STRING`` | No |  |
-| `quantity` | ``$STRING`` | No |  |
-| `store` | ``$STRING`` | No |  |
-| `trace` | ``$STRING`` | No |  |
+| `additives_tag` | `[]any` | No |  |
+| `allergen` | `string` | No |  |
+| `brand` | `string` | No |  |
+| `category` | `string` | No |  |
+| `country` | `string` | No |  |
+| `created_t` | `int` | No |  |
+| `ecoscore_grade` | `string` | No |  |
+| `ecoscore_score` | `int` | No |  |
+| `generic_name` | `string` | No |  |
+| `image_front_url` | `string` | No |  |
+| `image_ingredients_url` | `string` | No |  |
+| `image_nutrition_url` | `string` | No |  |
+| `image_url` | `string` | No |  |
+| `ingredients_analysis_tag` | `[]any` | No |  |
+| `ingredients_text` | `string` | No |  |
+| `label` | `string` | No |  |
+| `last_modified_t` | `int` | No |  |
+| `manufacturing_place` | `string` | No |  |
+| `nova_group` | `int` | No |  |
+| `nutriment` | `map[string]any` | No |  |
+| `nutriscore_grade` | `string` | No |  |
+| `nutriscore_score` | `int` | No |  |
+| `packaging` | `string` | No |  |
+| `product_name` | `string` | No |  |
+| `quantity` | `string` | No |  |
+| `store` | `string` | No |  |
+| `trace` | `string` | No |  |
 
 ### Operations
 

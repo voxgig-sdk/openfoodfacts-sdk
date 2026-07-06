@@ -4,6 +4,8 @@
 
 The Ruby SDK for the Openfoodfacts API — an entity-oriented client using idiomatic Ruby conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Product` — with named operations (`list`/`load`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -43,6 +45,33 @@ end
 ```
 
 
+## Error handling
+
+Entity operations raise on failure, so rescue them:
+
+```ruby
+begin
+  product = client.Product.load({ "id" => "example_id" })
+rescue => err
+  warn "load failed: #{err}"
+end
+```
+
+`direct` does **not** raise — it returns the result hash. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```ruby
+result = client.direct({
+  "path" => "/api/resource/{id}",
+  "method" => "GET",
+  "params" => { "id" => "example_id" },
+})
+
+warn "request failed: #{result["err"] || "HTTP #{result["status"]}"}" unless result["ok"]
+```
+
+
 ## How-to guides
 
 ### Make a direct HTTP request
@@ -60,7 +89,9 @@ if result["ok"]
   puts result["status"]  # 200
   puts result["data"]    # response body
 else
-  warn result["err"]
+  # On an HTTP error status there is no err (only a transport failure sets
+  # it), so fall back to the status code.
+  warn(result["err"] || "HTTP #{result["status"]}")
 end
 ```
 
@@ -91,7 +122,7 @@ client = OpenfoodfactsSDK.test({
   "entity" => { "product" => { "test01" => { "id" => "test01" } } },
 })
 
-# load returns the bare mock record (raises on error).
+# Entity ops return the bare mock record (raises on error).
 product = client.Product.load({ "id" => "test01" })
 puts product
 ```
@@ -181,10 +212,7 @@ All entities share the same interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
-| `list` | `(reqmatch, ctrl) -> Array` | List entities matching the criteria. Raises on error. |
-| `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
-| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
-| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
+| `list` | `(reqmatch = nil, ctrl) -> Array` | List entities matching the criteria (call with no argument to list all). Raises on error. |
 | `data_get` | `() -> Hash` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> Hash` | Get entity match criteria. |
@@ -279,10 +307,10 @@ Create an instance: `product = client.Product`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | ``$STRING`` |  |
-| `product` | ``$OBJECT`` |  |
-| `status` | ``$INTEGER`` |  |
-| `status_verbose` | ``$STRING`` |  |
+| `code` | `String` |  |
+| `product` | `Hash` |  |
+| `status` | `Integer` |  |
+| `status_verbose` | `String` |  |
 
 #### Example: Load
 
@@ -306,33 +334,33 @@ Create an instance: `search = client.Search`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `additives_tag` | ``$ARRAY`` |  |
-| `allergen` | ``$STRING`` |  |
-| `brand` | ``$STRING`` |  |
-| `category` | ``$STRING`` |  |
-| `country` | ``$STRING`` |  |
-| `created_t` | ``$INTEGER`` |  |
-| `ecoscore_grade` | ``$STRING`` |  |
-| `ecoscore_score` | ``$INTEGER`` |  |
-| `generic_name` | ``$STRING`` |  |
-| `image_front_url` | ``$STRING`` |  |
-| `image_ingredients_url` | ``$STRING`` |  |
-| `image_nutrition_url` | ``$STRING`` |  |
-| `image_url` | ``$STRING`` |  |
-| `ingredients_analysis_tag` | ``$ARRAY`` |  |
-| `ingredients_text` | ``$STRING`` |  |
-| `label` | ``$STRING`` |  |
-| `last_modified_t` | ``$INTEGER`` |  |
-| `manufacturing_place` | ``$STRING`` |  |
-| `nova_group` | ``$INTEGER`` |  |
-| `nutriment` | ``$OBJECT`` |  |
-| `nutriscore_grade` | ``$STRING`` |  |
-| `nutriscore_score` | ``$INTEGER`` |  |
-| `packaging` | ``$STRING`` |  |
-| `product_name` | ``$STRING`` |  |
-| `quantity` | ``$STRING`` |  |
-| `store` | ``$STRING`` |  |
-| `trace` | ``$STRING`` |  |
+| `additives_tag` | `Array` |  |
+| `allergen` | `String` |  |
+| `brand` | `String` |  |
+| `category` | `String` |  |
+| `country` | `String` |  |
+| `created_t` | `Integer` |  |
+| `ecoscore_grade` | `String` |  |
+| `ecoscore_score` | `Integer` |  |
+| `generic_name` | `String` |  |
+| `image_front_url` | `String` |  |
+| `image_ingredients_url` | `String` |  |
+| `image_nutrition_url` | `String` |  |
+| `image_url` | `String` |  |
+| `ingredients_analysis_tag` | `Array` |  |
+| `ingredients_text` | `String` |  |
+| `label` | `String` |  |
+| `last_modified_t` | `Integer` |  |
+| `manufacturing_place` | `String` |  |
+| `nova_group` | `Integer` |  |
+| `nutriment` | `Hash` |  |
+| `nutriscore_grade` | `String` |  |
+| `nutriscore_score` | `Integer` |  |
+| `packaging` | `String` |  |
+| `product_name` | `String` |  |
+| `quantity` | `String` |  |
+| `store` | `String` |  |
+| `trace` | `String` |  |
 
 #### Example: List
 
@@ -342,12 +370,16 @@ searchs = client.Search.list
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -364,8 +396,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as a second return value.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -416,7 +449,7 @@ stores the returned data and match criteria internally.
 product = client.Product
 product.load({ "id" => "example_id" })
 
-# product.data_get now returns the loaded product data
+# product.data_get now returns the product data from the last load
 # product.match_get returns the last match criteria
 ```
 

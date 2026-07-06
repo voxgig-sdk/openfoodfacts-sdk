@@ -60,7 +60,7 @@ class Search
     public ?string $trace = null;
 }
 
-/** Match filter for Search#list (any subset of Search fields). */
+/** Request payload for Search#list. */
 class SearchListMatch
 {
     public ?array $additives_tag = null;
