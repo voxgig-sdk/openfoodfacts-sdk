@@ -54,7 +54,7 @@ func main() {
     })
 
     // Load a single product — the value is the loaded record.
-    product, err := client.Product(nil).Load(map[string]any{"id": "example"}, nil)
+    product, err := client.Product(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }

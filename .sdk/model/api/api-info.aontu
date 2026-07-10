@@ -13,16 +13,23 @@ main: {
         name: "Open Database License"
         url: "https://opendatacommons.org/licenses/odbl/"
       }
+      security: {
+        in: "header"
+        name: "User-Agent"
+        prefix: ""
+        scheme: "UserAgent"
+        type: "apiKey"
+      }
       servers: [
         {
           description: "Production API server"
           url: "https://world.openfoodfacts.org/api/v2"
         }
       ]
+      summary: "Open Food Facts is a food products database made by everyone, for everyone."
       termsOfService: "https://world.openfoodfacts.org/terms-of-use"
       title: "OpenFoodFacts API"
       version: "2.0.0"
+      website: "https://world.openfoodfacts.org/data"
     }
   }
-}
-

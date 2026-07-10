@@ -24,7 +24,6 @@ class Product
 /** Request payload for Product#load. */
 class ProductLoadMatch
 {
-    public string $barcode;
     public string $id;
 }
 

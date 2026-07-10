@@ -31,13 +31,9 @@ Product = Struct.new(
 
 # Request payload for Product#load.
 #
-# @!attribute [rw] barcode
-#   @return [String]
-#
 # @!attribute [rw] id
 #   @return [String]
 ProductLoadMatch = Struct.new(
-  :barcode,
   :id,
   keyword_init: true
 )

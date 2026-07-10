@@ -15,7 +15,7 @@ func MakeConfig() map[string]any {
 		"options": map[string]any{
 			"base": "https://world.openfoodfacts.org/api/v2",
 			"auth": map[string]any{
-				"prefix": "Bearer",
+				"prefix": "",
 			},
 			"headers": map[string]any{
 				"content-type": "application/json",

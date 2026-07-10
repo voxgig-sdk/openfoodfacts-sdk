@@ -13,7 +13,6 @@
 ---@field status_verbose? string
 
 ---@class ProductLoadMatch
----@field barcode string
 ---@field id string
 
 ---@class Search

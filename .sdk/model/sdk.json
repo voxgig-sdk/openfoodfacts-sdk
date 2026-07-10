@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -602,15 +599,25 @@
           "name": "Open Database License",
           "url": "https://opendatacommons.org/licenses/odbl/"
         },
+        "meta_source": "https://www.freepublicapis.com",
+        "security": {
+          "in": "header",
+          "name": "User-Agent",
+          "prefix": "",
+          "scheme": "UserAgent",
+          "type": "apiKey"
+        },
         "servers": [
           {
             "description": "Production API server",
             "url": "https://world.openfoodfacts.org/api/v2"
           }
         ],
+        "summary": "Open Food Facts is a food products database made by everyone, for everyone.",
         "termsOfService": "https://world.openfoodfacts.org/terms-of-use",
         "title": "OpenFoodFacts API",
-        "version": "2.0.0"
+        "version": "2.0.0",
+        "website": "https://world.openfoodfacts.org/data"
       },
       "option": {},
       "target": {
@@ -663,6 +670,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -713,6 +723,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

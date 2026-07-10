@@ -24,7 +24,6 @@ class Product(TypedDict, total=False):
 
 
 class ProductLoadMatch(TypedDict):
-    barcode: str
     id: str
 
 

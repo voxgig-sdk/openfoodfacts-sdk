@@ -18,7 +18,6 @@ type Product struct {
 
 // ProductLoadMatch is the typed request payload for Product.LoadTyped.
 type ProductLoadMatch struct {
-	Barcode string `json:"barcode"`
 	Id string `json:"id"`
 }
 

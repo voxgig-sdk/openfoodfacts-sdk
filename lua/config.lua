@@ -15,7 +15,7 @@ local function make_config()
     options = {
       base = "https://world.openfoodfacts.org/api/v2",
       auth = {
-        prefix = "Bearer",
+        prefix = "",
       },
       headers = {
         ["content-type"] = "application/json",

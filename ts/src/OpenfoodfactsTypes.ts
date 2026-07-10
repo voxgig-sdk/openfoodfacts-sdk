@@ -13,7 +13,6 @@ export interface Product {
 }
 
 export interface ProductLoadMatch {
-  barcode: string
   id: string
 }
 

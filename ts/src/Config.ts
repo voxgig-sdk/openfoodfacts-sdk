@@ -39,7 +39,7 @@ class Config {
     base: 'https://world.openfoodfacts.org/api/v2',
 
     auth: {
-      prefix: 'Bearer',
+      prefix: '',
     },
 
     headers: {
