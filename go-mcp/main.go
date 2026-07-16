@@ -37,7 +37,20 @@ func main() {
 	addr := flag.String("addr", ":8080", "listen address for http transport")
 	flag.Parse()
 
-	client := sdk.NewOpenfoodfactsSDK(nil)
+	// Configure from the environment: OPENFOODFACTS_APIKEY carries the API key and
+	// OPENFOODFACTS_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("OPENFOODFACTS_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("OPENFOODFACTS_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewOpenfoodfactsSDK(opts)
 	server := mcp.NewServer(
 		&mcp.Implementation{
 			Name:    "openfoodfacts",
