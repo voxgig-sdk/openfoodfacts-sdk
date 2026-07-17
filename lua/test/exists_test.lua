@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Openfoodfacts SDK exists test
 
 local sdk = require("openfoodfacts_sdk")
 
