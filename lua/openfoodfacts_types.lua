@@ -7,20 +7,43 @@
 -- edit by hand.
 
 ---@class Product
----@field code? string
----@field product? table
----@field status? number
----@field status_verbose? string
+---@field additives_tags? table
+---@field allergens? string
+---@field brands? string
+---@field categories? string
+---@field countries? string
+---@field created_t? number
+---@field ecoscore_grade? string
+---@field ecoscore_score? number
+---@field generic_name? string
+---@field image_front_url? string
+---@field image_ingredients_url? string
+---@field image_nutrition_url? string
+---@field image_url? string
+---@field ingredients_analysis_tags? table
+---@field ingredients_text? string
+---@field labels? string
+---@field last_modified_t? number
+---@field manufacturing_places? string
+---@field nova_group? number
+---@field nutriments? table
+---@field nutriscore_grade? string
+---@field nutriscore_score? number
+---@field packaging? string
+---@field product_name? string
+---@field quantity? string
+---@field stores? string
+---@field traces? string
 
 ---@class ProductLoadMatch
 ---@field id string
 
 ---@class Search
----@field additives_tag? table
----@field allergen? string
----@field brand? string
----@field category? string
----@field country? string
+---@field additives_tags? table
+---@field allergens? string
+---@field brands? string
+---@field categories? string
+---@field countries? string
 ---@field created_t? number
 ---@field ecoscore_grade? string
 ---@field ecoscore_score? number
@@ -29,27 +52,27 @@
 ---@field image_ingredients_url? string
 ---@field image_nutrition_url? string
 ---@field image_url? string
----@field ingredients_analysis_tag? table
+---@field ingredients_analysis_tags? table
 ---@field ingredients_text? string
----@field label? string
+---@field labels? string
 ---@field last_modified_t? number
----@field manufacturing_place? string
+---@field manufacturing_places? string
 ---@field nova_group? number
----@field nutriment? table
+---@field nutriments? table
 ---@field nutriscore_grade? string
 ---@field nutriscore_score? number
 ---@field packaging? string
 ---@field product_name? string
 ---@field quantity? string
----@field store? string
----@field trace? string
+---@field stores? string
+---@field traces? string
 
 ---@class SearchListMatch
----@field additives_tag? table
----@field allergen? string
----@field brand? string
----@field category? string
----@field country? string
+---@field additives_tags? table
+---@field allergens? string
+---@field brands? string
+---@field categories? string
+---@field countries? string
 ---@field created_t? number
 ---@field ecoscore_grade? string
 ---@field ecoscore_score? number
@@ -58,20 +81,20 @@
 ---@field image_ingredients_url? string
 ---@field image_nutrition_url? string
 ---@field image_url? string
----@field ingredients_analysis_tag? table
+---@field ingredients_analysis_tags? table
 ---@field ingredients_text? string
----@field label? string
+---@field labels? string
 ---@field last_modified_t? number
----@field manufacturing_place? string
+---@field manufacturing_places? string
 ---@field nova_group? number
----@field nutriment? table
+---@field nutriments? table
 ---@field nutriscore_grade? string
 ---@field nutriscore_score? number
 ---@field packaging? string
 ---@field product_name? string
 ---@field quantity? string
----@field store? string
----@field trace? string
+---@field stores? string
+---@field traces? string
 
 local M = {}
 

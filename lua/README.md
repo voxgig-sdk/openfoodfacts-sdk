@@ -232,10 +232,33 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `product` |  |
-| `status` |  |
-| `status_verbose` |  |
+| `additives_tags` |  |
+| `allergens` |  |
+| `brands` |  |
+| `categories` |  |
+| `countries` |  |
+| `created_t` |  |
+| `ecoscore_grade` |  |
+| `ecoscore_score` |  |
+| `generic_name` |  |
+| `image_front_url` |  |
+| `image_ingredients_url` |  |
+| `image_nutrition_url` |  |
+| `image_url` |  |
+| `ingredients_analysis_tags` |  |
+| `ingredients_text` |  |
+| `labels` |  |
+| `last_modified_t` |  |
+| `manufacturing_places` |  |
+| `nova_group` |  |
+| `nutriments` |  |
+| `nutriscore_grade` |  |
+| `nutriscore_score` |  |
+| `packaging` |  |
+| `product_name` |  |
+| `quantity` |  |
+| `stores` |  |
+| `traces` |  |
 
 Operations: Load.
 
@@ -245,11 +268,11 @@ API path: `/product/{barcode}.json`
 
 | Field | Description |
 | --- | --- |
-| `additives_tag` |  |
-| `allergen` |  |
-| `brand` |  |
-| `category` |  |
-| `country` |  |
+| `additives_tags` |  |
+| `allergens` |  |
+| `brands` |  |
+| `categories` |  |
+| `countries` |  |
 | `created_t` |  |
 | `ecoscore_grade` |  |
 | `ecoscore_score` |  |
@@ -258,20 +281,20 @@ API path: `/product/{barcode}.json`
 | `image_ingredients_url` |  |
 | `image_nutrition_url` |  |
 | `image_url` |  |
-| `ingredients_analysis_tag` |  |
+| `ingredients_analysis_tags` |  |
 | `ingredients_text` |  |
-| `label` |  |
+| `labels` |  |
 | `last_modified_t` |  |
-| `manufacturing_place` |  |
+| `manufacturing_places` |  |
 | `nova_group` |  |
-| `nutriment` |  |
+| `nutriments` |  |
 | `nutriscore_grade` |  |
 | `nutriscore_score` |  |
 | `packaging` |  |
 | `product_name` |  |
 | `quantity` |  |
-| `store` |  |
-| `trace` |  |
+| `stores` |  |
+| `traces` |  |
 
 Operations: List.
 
@@ -296,10 +319,33 @@ Create an instance: `local product = client:Product(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `string` |  |
-| `product` | `table` |  |
-| `status` | `number` |  |
-| `status_verbose` | `string` |  |
+| `additives_tags` | `table` |  |
+| `allergens` | `string` |  |
+| `brands` | `string` |  |
+| `categories` | `string` |  |
+| `countries` | `string` |  |
+| `created_t` | `number` |  |
+| `ecoscore_grade` | `string` |  |
+| `ecoscore_score` | `number` |  |
+| `generic_name` | `string` |  |
+| `image_front_url` | `string` |  |
+| `image_ingredients_url` | `string` |  |
+| `image_nutrition_url` | `string` |  |
+| `image_url` | `string` |  |
+| `ingredients_analysis_tags` | `table` |  |
+| `ingredients_text` | `string` |  |
+| `labels` | `string` |  |
+| `last_modified_t` | `number` |  |
+| `manufacturing_places` | `string` |  |
+| `nova_group` | `number` |  |
+| `nutriments` | `table` |  |
+| `nutriscore_grade` | `string` |  |
+| `nutriscore_score` | `number` |  |
+| `packaging` | `string` |  |
+| `product_name` | `string` |  |
+| `quantity` | `string` |  |
+| `stores` | `string` |  |
+| `traces` | `string` |  |
 
 #### Example: Load
 
@@ -322,11 +368,11 @@ Create an instance: `local search = client:Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `additives_tag` | `table` |  |
-| `allergen` | `string` |  |
-| `brand` | `string` |  |
-| `category` | `string` |  |
-| `country` | `string` |  |
+| `additives_tags` | `table` |  |
+| `allergens` | `string` |  |
+| `brands` | `string` |  |
+| `categories` | `string` |  |
+| `countries` | `string` |  |
 | `created_t` | `number` |  |
 | `ecoscore_grade` | `string` |  |
 | `ecoscore_score` | `number` |  |
@@ -335,20 +381,20 @@ Create an instance: `local search = client:Search(nil)`
 | `image_ingredients_url` | `string` |  |
 | `image_nutrition_url` | `string` |  |
 | `image_url` | `string` |  |
-| `ingredients_analysis_tag` | `table` |  |
+| `ingredients_analysis_tags` | `table` |  |
 | `ingredients_text` | `string` |  |
-| `label` | `string` |  |
+| `labels` | `string` |  |
 | `last_modified_t` | `number` |  |
-| `manufacturing_place` | `string` |  |
+| `manufacturing_places` | `string` |  |
 | `nova_group` | `number` |  |
-| `nutriment` | `table` |  |
+| `nutriments` | `table` |  |
 | `nutriscore_grade` | `string` |  |
 | `nutriscore_score` | `number` |  |
 | `packaging` | `string` |  |
 | `product_name` | `string` |  |
 | `quantity` | `string` |  |
-| `store` | `string` |  |
-| `trace` | `string` |  |
+| `stores` | `string` |  |
+| `traces` | `string` |  |
 
 #### Example: List
 

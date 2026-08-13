@@ -33,3 +33,5 @@ main: {
       website: "https://world.openfoodfacts.org/data"
     }
   }
+}
+

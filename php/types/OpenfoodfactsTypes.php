@@ -15,10 +15,33 @@ declare(strict_types=1);
 /** Product entity data model. */
 class Product
 {
-    public ?string $code = null;
-    public ?array $product = null;
-    public ?int $status = null;
-    public ?string $status_verbose = null;
+    public ?array $additives_tags = null;
+    public ?string $allergens = null;
+    public ?string $brands = null;
+    public ?string $categories = null;
+    public ?string $countries = null;
+    public ?int $created_t = null;
+    public ?string $ecoscore_grade = null;
+    public ?int $ecoscore_score = null;
+    public ?string $generic_name = null;
+    public ?string $image_front_url = null;
+    public ?string $image_ingredients_url = null;
+    public ?string $image_nutrition_url = null;
+    public ?string $image_url = null;
+    public ?array $ingredients_analysis_tags = null;
+    public ?string $ingredients_text = null;
+    public ?string $labels = null;
+    public ?int $last_modified_t = null;
+    public ?string $manufacturing_places = null;
+    public ?int $nova_group = null;
+    public ?array $nutriments = null;
+    public ?string $nutriscore_grade = null;
+    public ?int $nutriscore_score = null;
+    public ?string $packaging = null;
+    public ?string $product_name = null;
+    public ?string $quantity = null;
+    public ?string $stores = null;
+    public ?string $traces = null;
 }
 
 /** Request payload for Product#load. */
@@ -30,11 +53,11 @@ class ProductLoadMatch
 /** Search entity data model. */
 class Search
 {
-    public ?array $additives_tag = null;
-    public ?string $allergen = null;
-    public ?string $brand = null;
-    public ?string $category = null;
-    public ?string $country = null;
+    public ?array $additives_tags = null;
+    public ?string $allergens = null;
+    public ?string $brands = null;
+    public ?string $categories = null;
+    public ?string $countries = null;
     public ?int $created_t = null;
     public ?string $ecoscore_grade = null;
     public ?int $ecoscore_score = null;
@@ -43,30 +66,30 @@ class Search
     public ?string $image_ingredients_url = null;
     public ?string $image_nutrition_url = null;
     public ?string $image_url = null;
-    public ?array $ingredients_analysis_tag = null;
+    public ?array $ingredients_analysis_tags = null;
     public ?string $ingredients_text = null;
-    public ?string $label = null;
+    public ?string $labels = null;
     public ?int $last_modified_t = null;
-    public ?string $manufacturing_place = null;
+    public ?string $manufacturing_places = null;
     public ?int $nova_group = null;
-    public ?array $nutriment = null;
+    public ?array $nutriments = null;
     public ?string $nutriscore_grade = null;
     public ?int $nutriscore_score = null;
     public ?string $packaging = null;
     public ?string $product_name = null;
     public ?string $quantity = null;
-    public ?string $store = null;
-    public ?string $trace = null;
+    public ?string $stores = null;
+    public ?string $traces = null;
 }
 
 /** Request payload for Search#list. */
 class SearchListMatch
 {
-    public ?array $additives_tag = null;
-    public ?string $allergen = null;
-    public ?string $brand = null;
-    public ?string $category = null;
-    public ?string $country = null;
+    public ?array $additives_tags = null;
+    public ?string $allergens = null;
+    public ?string $brands = null;
+    public ?string $categories = null;
+    public ?string $countries = null;
     public ?int $created_t = null;
     public ?string $ecoscore_grade = null;
     public ?int $ecoscore_score = null;
@@ -75,19 +98,19 @@ class SearchListMatch
     public ?string $image_ingredients_url = null;
     public ?string $image_nutrition_url = null;
     public ?string $image_url = null;
-    public ?array $ingredients_analysis_tag = null;
+    public ?array $ingredients_analysis_tags = null;
     public ?string $ingredients_text = null;
-    public ?string $label = null;
+    public ?string $labels = null;
     public ?int $last_modified_t = null;
-    public ?string $manufacturing_place = null;
+    public ?string $manufacturing_places = null;
     public ?int $nova_group = null;
-    public ?array $nutriment = null;
+    public ?array $nutriments = null;
     public ?string $nutriscore_grade = null;
     public ?int $nutriscore_score = null;
     public ?string $packaging = null;
     public ?string $product_name = null;
     public ?string $quantity = null;
-    public ?string $store = null;
-    public ?string $trace = null;
+    public ?string $stores = null;
+    public ?string $traces = null;
 }
 

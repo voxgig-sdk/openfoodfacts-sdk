@@ -30,190 +30,35 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "code",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 0,
-					},
-					map[string]any{
-						"active": true,
-						"name": "product",
-						"req": false,
-						"type": "`$OBJECT`",
-						"index$": 1,
-					},
-					map[string]any{
-						"active": true,
-						"name": "status",
-						"req": false,
-						"type": "`$INTEGER`",
-						"index$": 2,
-					},
-					map[string]any{
-						"active": true,
-						"name": "status_verbose",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 3,
-					},
-				},
-				"name": "product",
-				"op": map[string]any{
-					"load": map[string]any{
-						"input": "data",
-						"name": "load",
-						"points": []any{
-							map[string]any{
-								"active": true,
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"active": true,
-											"example": "737628064502",
-											"kind": "param",
-											"name": "barcode",
-											"orig": "barcode",
-											"reqd": true,
-											"type": "`$STRING`",
-											"index$": 0,
-										},
-									},
-								},
-								"method": "GET",
-								"orig": "/product/{barcode}.json",
-								"parts": []any{
-									"product",
-									"{barcode}.json",
-								},
-								"select": map[string]any{
-									"$action": "barcode",
-									"exist": []any{
-										"barcode",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.product`",
-								},
-								"index$": 0,
-							},
-							map[string]any{
-								"active": true,
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"active": true,
-											"example": "737628064502",
-											"kind": "param",
-											"name": "barcode",
-											"orig": "barcode",
-											"reqd": true,
-											"type": "`$STRING`",
-											"index$": 0,
-										},
-									},
-								},
-								"method": "GET",
-								"orig": "/product/{barcode}.xml",
-								"parts": []any{
-									"product",
-									"{barcode}.xml",
-								},
-								"select": map[string]any{
-									"$action": "barcode",
-									"exist": []any{
-										"barcode",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"index$": 1,
-							},
-							map[string]any{
-								"active": true,
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"active": true,
-											"example": "737628064502",
-											"kind": "param",
-											"name": "id",
-											"orig": "barcode",
-											"reqd": true,
-											"type": "`$STRING`",
-											"index$": 0,
-										},
-									},
-								},
-								"method": "GET",
-								"orig": "/product/{barcode}",
-								"parts": []any{
-									"product",
-									"{id}",
-								},
-								"rename": map[string]any{
-									"param": map[string]any{
-										"barcode": "id",
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.product`",
-								},
-								"index$": 2,
-							},
-						},
-						"key$": "load",
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"product",
-						},
-					},
-				},
-			},
-			"search": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"active": true,
-						"name": "additives_tag",
+						"name": "additives_tags",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "allergen",
+						"name": "allergens",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
 					},
 					map[string]any{
 						"active": true,
-						"name": "brand",
+						"name": "brands",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 2,
 					},
 					map[string]any{
 						"active": true,
-						"name": "category",
+						"name": "categories",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 3,
 					},
 					map[string]any{
 						"active": true,
-						"name": "country",
+						"name": "countries",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 4,
@@ -276,7 +121,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "ingredients_analysis_tag",
+						"name": "ingredients_analysis_tags",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 13,
@@ -290,7 +135,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "label",
+						"name": "labels",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 15,
@@ -304,7 +149,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "manufacturing_place",
+						"name": "manufacturing_places",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 17,
@@ -318,7 +163,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "nutriment",
+						"name": "nutriments",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 19,
@@ -360,14 +205,332 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "store",
+						"name": "stores",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 25,
 					},
 					map[string]any{
 						"active": true,
-						"name": "trace",
+						"name": "traces",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 26,
+					},
+				},
+				"name": "product",
+				"op": map[string]any{
+					"load": map[string]any{
+						"input": "data",
+						"name": "load",
+						"points": []any{
+							map[string]any{
+								"active": true,
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"active": true,
+											"example": "737628064502",
+											"kind": "param",
+											"name": "barcode",
+											"orig": "barcode",
+											"reqd": true,
+											"type": "`$STRING`",
+											"index$": 0,
+										},
+									},
+								},
+								"kind": "http",
+								"method": "GET",
+								"orig": "/product/{barcode}.json",
+								"parts": []any{
+									"product",
+									"{barcode}.json",
+								},
+								"select": map[string]any{
+									"$action": "barcode",
+									"exist": []any{
+										"barcode",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.product`",
+								},
+								"index$": 0,
+							},
+							map[string]any{
+								"active": true,
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"active": true,
+											"example": "737628064502",
+											"kind": "param",
+											"name": "barcode",
+											"orig": "barcode",
+											"reqd": true,
+											"type": "`$STRING`",
+											"index$": 0,
+										},
+									},
+								},
+								"kind": "http",
+								"method": "GET",
+								"orig": "/product/{barcode}.xml",
+								"parts": []any{
+									"product",
+									"{barcode}.xml",
+								},
+								"select": map[string]any{
+									"$action": "barcode",
+									"exist": []any{
+										"barcode",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"index$": 1,
+							},
+							map[string]any{
+								"active": true,
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"active": true,
+											"example": "737628064502",
+											"kind": "param",
+											"name": "id",
+											"orig": "barcode",
+											"reqd": true,
+											"type": "`$STRING`",
+											"index$": 0,
+										},
+									},
+								},
+								"kind": "http",
+								"method": "GET",
+								"orig": "/product/{barcode}",
+								"parts": []any{
+									"product",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"barcode": "id",
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.product`",
+								},
+								"index$": 2,
+							},
+						},
+					},
+				},
+				"relations": map[string]any{
+					"ancestors": []any{
+						[]any{
+							"product",
+						},
+					},
+				},
+			},
+			"search": map[string]any{
+				"fields": []any{
+					map[string]any{
+						"active": true,
+						"name": "additives_tags",
+						"req": false,
+						"type": "`$ARRAY`",
+						"index$": 0,
+					},
+					map[string]any{
+						"active": true,
+						"name": "allergens",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 1,
+					},
+					map[string]any{
+						"active": true,
+						"name": "brands",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 2,
+					},
+					map[string]any{
+						"active": true,
+						"name": "categories",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 3,
+					},
+					map[string]any{
+						"active": true,
+						"name": "countries",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 4,
+					},
+					map[string]any{
+						"active": true,
+						"name": "created_t",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 5,
+					},
+					map[string]any{
+						"active": true,
+						"name": "ecoscore_grade",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 6,
+					},
+					map[string]any{
+						"active": true,
+						"name": "ecoscore_score",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 7,
+					},
+					map[string]any{
+						"active": true,
+						"name": "generic_name",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 8,
+					},
+					map[string]any{
+						"active": true,
+						"name": "image_front_url",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 9,
+					},
+					map[string]any{
+						"active": true,
+						"name": "image_ingredients_url",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 10,
+					},
+					map[string]any{
+						"active": true,
+						"name": "image_nutrition_url",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 11,
+					},
+					map[string]any{
+						"active": true,
+						"name": "image_url",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 12,
+					},
+					map[string]any{
+						"active": true,
+						"name": "ingredients_analysis_tags",
+						"req": false,
+						"type": "`$ARRAY`",
+						"index$": 13,
+					},
+					map[string]any{
+						"active": true,
+						"name": "ingredients_text",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 14,
+					},
+					map[string]any{
+						"active": true,
+						"name": "labels",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 15,
+					},
+					map[string]any{
+						"active": true,
+						"name": "last_modified_t",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 16,
+					},
+					map[string]any{
+						"active": true,
+						"name": "manufacturing_places",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 17,
+					},
+					map[string]any{
+						"active": true,
+						"name": "nova_group",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 18,
+					},
+					map[string]any{
+						"active": true,
+						"name": "nutriments",
+						"req": false,
+						"type": "`$OBJECT`",
+						"index$": 19,
+					},
+					map[string]any{
+						"active": true,
+						"name": "nutriscore_grade",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 20,
+					},
+					map[string]any{
+						"active": true,
+						"name": "nutriscore_score",
+						"req": false,
+						"type": "`$INTEGER`",
+						"index$": 21,
+					},
+					map[string]any{
+						"active": true,
+						"name": "packaging",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 22,
+					},
+					map[string]any{
+						"active": true,
+						"name": "product_name",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 23,
+					},
+					map[string]any{
+						"active": true,
+						"name": "quantity",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 24,
+					},
+					map[string]any{
+						"active": true,
+						"name": "stores",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 25,
+					},
+					map[string]any{
+						"active": true,
+						"name": "traces",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 26,
@@ -444,6 +607,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/search",
 								"parts": []any{
@@ -462,12 +626,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.products`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

@@ -129,10 +129,54 @@ const product = client.Product()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `string` | No |  |
-| `product` | `Record<string, any>` | No |  |
-| `status` | `number` | No |  |
-| `status_verbose` | `string` | No |  |
+| `additives_tags` | `any[]` | No |  |
+| `allergens` | `string` | No |  |
+| `brands` | `string` | No |  |
+| `categories` | `string` | No |  |
+| `countries` | `string` | No |  |
+| `created_t` | `number` | No |  |
+| `ecoscore_grade` | `string` | No |  |
+| `ecoscore_score` | `number` | No |  |
+| `generic_name` | `string` | No |  |
+| `image_front_url` | `string` | No |  |
+| `image_ingredients_url` | `string` | No |  |
+| `image_nutrition_url` | `string` | No |  |
+| `image_url` | `string` | No |  |
+| `ingredients_analysis_tags` | `any[]` | No |  |
+| `ingredients_text` | `string` | No |  |
+| `labels` | `string` | No |  |
+| `last_modified_t` | `number` | No |  |
+| `manufacturing_places` | `string` | No |  |
+| `nova_group` | `number` | No |  |
+| `nutriments` | `Record<string, any>` | No |  |
+| `nutriscore_grade` | `string` | No |  |
+| `nutriscore_score` | `number` | No |  |
+| `packaging` | `string` | No |  |
+| `product_name` | `string` | No |  |
+| `quantity` | `string` | No |  |
+| `stores` | `string` | No |  |
+| `traces` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `barcode` | `/product/{barcode}.json` | `client.Product().load({ $action: 'barcode', ... })` |
+| `barcode` | `/product/{barcode}.xml` | `client.Product().load({ $action: 'barcode', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Product record — check the API definition for its shape.
+
+```ts
+const result = await client.Product().load({
+  $action: 'barcode',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
@@ -182,11 +226,11 @@ const search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `additives_tag` | `any[]` | No |  |
-| `allergen` | `string` | No |  |
-| `brand` | `string` | No |  |
-| `category` | `string` | No |  |
-| `country` | `string` | No |  |
+| `additives_tags` | `any[]` | No |  |
+| `allergens` | `string` | No |  |
+| `brands` | `string` | No |  |
+| `categories` | `string` | No |  |
+| `countries` | `string` | No |  |
 | `created_t` | `number` | No |  |
 | `ecoscore_grade` | `string` | No |  |
 | `ecoscore_score` | `number` | No |  |
@@ -195,20 +239,20 @@ const search = client.Search()
 | `image_ingredients_url` | `string` | No |  |
 | `image_nutrition_url` | `string` | No |  |
 | `image_url` | `string` | No |  |
-| `ingredients_analysis_tag` | `any[]` | No |  |
+| `ingredients_analysis_tags` | `any[]` | No |  |
 | `ingredients_text` | `string` | No |  |
-| `label` | `string` | No |  |
+| `labels` | `string` | No |  |
 | `last_modified_t` | `number` | No |  |
-| `manufacturing_place` | `string` | No |  |
+| `manufacturing_places` | `string` | No |  |
 | `nova_group` | `number` | No |  |
-| `nutriment` | `Record<string, any>` | No |  |
+| `nutriments` | `Record<string, any>` | No |  |
 | `nutriscore_grade` | `string` | No |  |
 | `nutriscore_score` | `number` | No |  |
 | `packaging` | `string` | No |  |
 | `product_name` | `string` | No |  |
 | `quantity` | `string` | No |  |
-| `store` | `string` | No |  |
-| `trace` | `string` | No |  |
+| `stores` | `string` | No |  |
+| `traces` | `string` | No |  |
 
 ### Operations
 

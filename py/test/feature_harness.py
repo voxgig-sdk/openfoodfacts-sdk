@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import OpenfoodfactsControl
-from core.error import OpenfoodfactsError
-from core.result import OpenfoodfactsResult
-from core.spec import OpenfoodfactsSpec
+from openfoodfacts_sdk.config import make_config
+from openfoodfacts_sdk.features import _make_feature
+from openfoodfacts_sdk.core.control import OpenfoodfactsControl
+from openfoodfacts_sdk.core.error import OpenfoodfactsError
+from openfoodfacts_sdk.core.result import OpenfoodfactsResult
+from openfoodfacts_sdk.core.spec import OpenfoodfactsSpec
 
 
 # True when this SDK was generated with the named feature.

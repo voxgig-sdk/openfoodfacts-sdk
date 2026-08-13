@@ -36,7 +36,7 @@ client = OpenfoodfactsSDK.new({
 
 ```ruby
 begin
-  # load returns the bare Product record (raises on error).
+  # load returns the ENTITY — call data_get for the Product record (raises on error).
   product = client.Product.load({ "id" => "example_id" })
   puts product
 rescue => err
@@ -122,7 +122,8 @@ client = OpenfoodfactsSDK.test({
   "entity" => { "product" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 product = client.Product.load({ "id" => "test01" })
 puts product
 ```
@@ -243,10 +244,33 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `product` |  |
-| `status` |  |
-| `status_verbose` |  |
+| `additives_tags` |  |
+| `allergens` |  |
+| `brands` |  |
+| `categories` |  |
+| `countries` |  |
+| `created_t` |  |
+| `ecoscore_grade` |  |
+| `ecoscore_score` |  |
+| `generic_name` |  |
+| `image_front_url` |  |
+| `image_ingredients_url` |  |
+| `image_nutrition_url` |  |
+| `image_url` |  |
+| `ingredients_analysis_tags` |  |
+| `ingredients_text` |  |
+| `labels` |  |
+| `last_modified_t` |  |
+| `manufacturing_places` |  |
+| `nova_group` |  |
+| `nutriments` |  |
+| `nutriscore_grade` |  |
+| `nutriscore_score` |  |
+| `packaging` |  |
+| `product_name` |  |
+| `quantity` |  |
+| `stores` |  |
+| `traces` |  |
 
 Operations: Load.
 
@@ -256,11 +280,11 @@ API path: `/product/{barcode}.json`
 
 | Field | Description |
 | --- | --- |
-| `additives_tag` |  |
-| `allergen` |  |
-| `brand` |  |
-| `category` |  |
-| `country` |  |
+| `additives_tags` |  |
+| `allergens` |  |
+| `brands` |  |
+| `categories` |  |
+| `countries` |  |
 | `created_t` |  |
 | `ecoscore_grade` |  |
 | `ecoscore_score` |  |
@@ -269,20 +293,20 @@ API path: `/product/{barcode}.json`
 | `image_ingredients_url` |  |
 | `image_nutrition_url` |  |
 | `image_url` |  |
-| `ingredients_analysis_tag` |  |
+| `ingredients_analysis_tags` |  |
 | `ingredients_text` |  |
-| `label` |  |
+| `labels` |  |
 | `last_modified_t` |  |
-| `manufacturing_place` |  |
+| `manufacturing_places` |  |
 | `nova_group` |  |
-| `nutriment` |  |
+| `nutriments` |  |
 | `nutriscore_grade` |  |
 | `nutriscore_score` |  |
 | `packaging` |  |
 | `product_name` |  |
 | `quantity` |  |
-| `store` |  |
-| `trace` |  |
+| `stores` |  |
+| `traces` |  |
 
 Operations: List.
 
@@ -307,15 +331,38 @@ Create an instance: `product = client.Product`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `String` |  |
-| `product` | `Hash` |  |
-| `status` | `Integer` |  |
-| `status_verbose` | `String` |  |
+| `additives_tags` | `Array` |  |
+| `allergens` | `String` |  |
+| `brands` | `String` |  |
+| `categories` | `String` |  |
+| `countries` | `String` |  |
+| `created_t` | `Integer` |  |
+| `ecoscore_grade` | `String` |  |
+| `ecoscore_score` | `Integer` |  |
+| `generic_name` | `String` |  |
+| `image_front_url` | `String` |  |
+| `image_ingredients_url` | `String` |  |
+| `image_nutrition_url` | `String` |  |
+| `image_url` | `String` |  |
+| `ingredients_analysis_tags` | `Array` |  |
+| `ingredients_text` | `String` |  |
+| `labels` | `String` |  |
+| `last_modified_t` | `Integer` |  |
+| `manufacturing_places` | `String` |  |
+| `nova_group` | `Integer` |  |
+| `nutriments` | `Hash` |  |
+| `nutriscore_grade` | `String` |  |
+| `nutriscore_score` | `Integer` |  |
+| `packaging` | `String` |  |
+| `product_name` | `String` |  |
+| `quantity` | `String` |  |
+| `stores` | `String` |  |
+| `traces` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Product record (raises on error).
+# load returns the ENTITY — call data_get for the Product record (raises on error).
 product = client.Product.load({ "id" => "product_id" })
 ```
 
@@ -334,11 +381,11 @@ Create an instance: `search = client.Search`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `additives_tag` | `Array` |  |
-| `allergen` | `String` |  |
-| `brand` | `String` |  |
-| `category` | `String` |  |
-| `country` | `String` |  |
+| `additives_tags` | `Array` |  |
+| `allergens` | `String` |  |
+| `brands` | `String` |  |
+| `categories` | `String` |  |
+| `countries` | `String` |  |
 | `created_t` | `Integer` |  |
 | `ecoscore_grade` | `String` |  |
 | `ecoscore_score` | `Integer` |  |
@@ -347,20 +394,20 @@ Create an instance: `search = client.Search`
 | `image_ingredients_url` | `String` |  |
 | `image_nutrition_url` | `String` |  |
 | `image_url` | `String` |  |
-| `ingredients_analysis_tag` | `Array` |  |
+| `ingredients_analysis_tags` | `Array` |  |
 | `ingredients_text` | `String` |  |
-| `label` | `String` |  |
+| `labels` | `String` |  |
 | `last_modified_t` | `Integer` |  |
-| `manufacturing_place` | `String` |  |
+| `manufacturing_places` | `String` |  |
 | `nova_group` | `Integer` |  |
-| `nutriment` | `Hash` |  |
+| `nutriments` | `Hash` |  |
 | `nutriscore_grade` | `String` |  |
 | `nutriscore_score` | `Integer` |  |
 | `packaging` | `String` |  |
 | `product_name` | `String` |  |
 | `quantity` | `String` |  |
-| `store` | `String` |  |
-| `trace` | `String` |  |
+| `stores` | `String` |  |
+| `traces` | `String` |  |
 
 #### Example: List
 

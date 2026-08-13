@@ -97,10 +97,33 @@ $product = $client->Product();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `string` | No |  |
-| `product` | `array` | No |  |
-| `status` | `int` | No |  |
-| `status_verbose` | `string` | No |  |
+| `additives_tags` | `array` | No |  |
+| `allergens` | `string` | No |  |
+| `brands` | `string` | No |  |
+| `categories` | `string` | No |  |
+| `countries` | `string` | No |  |
+| `created_t` | `int` | No |  |
+| `ecoscore_grade` | `string` | No |  |
+| `ecoscore_score` | `int` | No |  |
+| `generic_name` | `string` | No |  |
+| `image_front_url` | `string` | No |  |
+| `image_ingredients_url` | `string` | No |  |
+| `image_nutrition_url` | `string` | No |  |
+| `image_url` | `string` | No |  |
+| `ingredients_analysis_tags` | `array` | No |  |
+| `ingredients_text` | `string` | No |  |
+| `labels` | `string` | No |  |
+| `last_modified_t` | `int` | No |  |
+| `manufacturing_places` | `string` | No |  |
+| `nova_group` | `int` | No |  |
+| `nutriments` | `array` | No |  |
+| `nutriscore_grade` | `string` | No |  |
+| `nutriscore_score` | `int` | No |  |
+| `packaging` | `string` | No |  |
+| `product_name` | `string` | No |  |
+| `quantity` | `string` | No |  |
+| `stores` | `string` | No |  |
+| `traces` | `string` | No |  |
 
 ### Operations
 
@@ -152,11 +175,11 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `additives_tag` | `array` | No |  |
-| `allergen` | `string` | No |  |
-| `brand` | `string` | No |  |
-| `category` | `string` | No |  |
-| `country` | `string` | No |  |
+| `additives_tags` | `array` | No |  |
+| `allergens` | `string` | No |  |
+| `brands` | `string` | No |  |
+| `categories` | `string` | No |  |
+| `countries` | `string` | No |  |
 | `created_t` | `int` | No |  |
 | `ecoscore_grade` | `string` | No |  |
 | `ecoscore_score` | `int` | No |  |
@@ -165,20 +188,20 @@ $search = $client->Search();
 | `image_ingredients_url` | `string` | No |  |
 | `image_nutrition_url` | `string` | No |  |
 | `image_url` | `string` | No |  |
-| `ingredients_analysis_tag` | `array` | No |  |
+| `ingredients_analysis_tags` | `array` | No |  |
 | `ingredients_text` | `string` | No |  |
-| `label` | `string` | No |  |
+| `labels` | `string` | No |  |
 | `last_modified_t` | `int` | No |  |
-| `manufacturing_place` | `string` | No |  |
+| `manufacturing_places` | `string` | No |  |
 | `nova_group` | `int` | No |  |
-| `nutriment` | `array` | No |  |
+| `nutriments` | `array` | No |  |
 | `nutriscore_grade` | `string` | No |  |
 | `nutriscore_score` | `int` | No |  |
 | `packaging` | `string` | No |  |
 | `product_name` | `string` | No |  |
 | `quantity` | `string` | No |  |
-| `store` | `string` | No |  |
-| `trace` | `string` | No |  |
+| `stores` | `string` | No |  |
+| `traces` | `string` | No |  |
 
 ### Operations
 

@@ -98,10 +98,33 @@ product = client.Product
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `String` | No |  |
-| `product` | `Hash` | No |  |
-| `status` | `Integer` | No |  |
-| `status_verbose` | `String` | No |  |
+| `additives_tags` | `Array` | No |  |
+| `allergens` | `String` | No |  |
+| `brands` | `String` | No |  |
+| `categories` | `String` | No |  |
+| `countries` | `String` | No |  |
+| `created_t` | `Integer` | No |  |
+| `ecoscore_grade` | `String` | No |  |
+| `ecoscore_score` | `Integer` | No |  |
+| `generic_name` | `String` | No |  |
+| `image_front_url` | `String` | No |  |
+| `image_ingredients_url` | `String` | No |  |
+| `image_nutrition_url` | `String` | No |  |
+| `image_url` | `String` | No |  |
+| `ingredients_analysis_tags` | `Array` | No |  |
+| `ingredients_text` | `String` | No |  |
+| `labels` | `String` | No |  |
+| `last_modified_t` | `Integer` | No |  |
+| `manufacturing_places` | `String` | No |  |
+| `nova_group` | `Integer` | No |  |
+| `nutriments` | `Hash` | No |  |
+| `nutriscore_grade` | `String` | No |  |
+| `nutriscore_score` | `Integer` | No |  |
+| `packaging` | `String` | No |  |
+| `product_name` | `String` | No |  |
+| `quantity` | `String` | No |  |
+| `stores` | `String` | No |  |
+| `traces` | `String` | No |  |
 
 ### Operations
 
@@ -153,11 +176,11 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `additives_tag` | `Array` | No |  |
-| `allergen` | `String` | No |  |
-| `brand` | `String` | No |  |
-| `category` | `String` | No |  |
-| `country` | `String` | No |  |
+| `additives_tags` | `Array` | No |  |
+| `allergens` | `String` | No |  |
+| `brands` | `String` | No |  |
+| `categories` | `String` | No |  |
+| `countries` | `String` | No |  |
 | `created_t` | `Integer` | No |  |
 | `ecoscore_grade` | `String` | No |  |
 | `ecoscore_score` | `Integer` | No |  |
@@ -166,20 +189,20 @@ search = client.Search
 | `image_ingredients_url` | `String` | No |  |
 | `image_nutrition_url` | `String` | No |  |
 | `image_url` | `String` | No |  |
-| `ingredients_analysis_tag` | `Array` | No |  |
+| `ingredients_analysis_tags` | `Array` | No |  |
 | `ingredients_text` | `String` | No |  |
-| `label` | `String` | No |  |
+| `labels` | `String` | No |  |
 | `last_modified_t` | `Integer` | No |  |
-| `manufacturing_place` | `String` | No |  |
+| `manufacturing_places` | `String` | No |  |
 | `nova_group` | `Integer` | No |  |
-| `nutriment` | `Hash` | No |  |
+| `nutriments` | `Hash` | No |  |
 | `nutriscore_grade` | `String` | No |  |
 | `nutriscore_score` | `Integer` | No |  |
 | `packaging` | `String` | No |  |
 | `product_name` | `String` | No |  |
 | `quantity` | `String` | No |  |
-| `store` | `String` | No |  |
-| `trace` | `String` | No |  |
+| `stores` | `String` | No |  |
+| `traces` | `String` | No |  |
 
 ### Operations
 

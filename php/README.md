@@ -37,7 +37,7 @@ $client = new OpenfoodfactsSDK([
 
 ```php
 try {
-    // load() returns the bare Product record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Product record (throws on error).
     $product = $client->Product()->load(["id" => "example_id"]);
     print_r($product);
 } catch (\Throwable $err) {
@@ -128,7 +128,8 @@ $client = OpenfoodfactsSDK::test([
     "entity" => ["product" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $product = $client->Product()->load(["id" => "test01"]);
 print_r($product);
 ```
@@ -231,7 +232,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -253,10 +254,33 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `product` |  |
-| `status` |  |
-| `status_verbose` |  |
+| `additives_tags` |  |
+| `allergens` |  |
+| `brands` |  |
+| `categories` |  |
+| `countries` |  |
+| `created_t` |  |
+| `ecoscore_grade` |  |
+| `ecoscore_score` |  |
+| `generic_name` |  |
+| `image_front_url` |  |
+| `image_ingredients_url` |  |
+| `image_nutrition_url` |  |
+| `image_url` |  |
+| `ingredients_analysis_tags` |  |
+| `ingredients_text` |  |
+| `labels` |  |
+| `last_modified_t` |  |
+| `manufacturing_places` |  |
+| `nova_group` |  |
+| `nutriments` |  |
+| `nutriscore_grade` |  |
+| `nutriscore_score` |  |
+| `packaging` |  |
+| `product_name` |  |
+| `quantity` |  |
+| `stores` |  |
+| `traces` |  |
 
 Operations: Load.
 
@@ -266,11 +290,11 @@ API path: `/product/{barcode}.json`
 
 | Field | Description |
 | --- | --- |
-| `additives_tag` |  |
-| `allergen` |  |
-| `brand` |  |
-| `category` |  |
-| `country` |  |
+| `additives_tags` |  |
+| `allergens` |  |
+| `brands` |  |
+| `categories` |  |
+| `countries` |  |
 | `created_t` |  |
 | `ecoscore_grade` |  |
 | `ecoscore_score` |  |
@@ -279,20 +303,20 @@ API path: `/product/{barcode}.json`
 | `image_ingredients_url` |  |
 | `image_nutrition_url` |  |
 | `image_url` |  |
-| `ingredients_analysis_tag` |  |
+| `ingredients_analysis_tags` |  |
 | `ingredients_text` |  |
-| `label` |  |
+| `labels` |  |
 | `last_modified_t` |  |
-| `manufacturing_place` |  |
+| `manufacturing_places` |  |
 | `nova_group` |  |
-| `nutriment` |  |
+| `nutriments` |  |
 | `nutriscore_grade` |  |
 | `nutriscore_score` |  |
 | `packaging` |  |
 | `product_name` |  |
 | `quantity` |  |
-| `store` |  |
-| `trace` |  |
+| `stores` |  |
+| `traces` |  |
 
 Operations: List.
 
@@ -317,15 +341,38 @@ Create an instance: `$product = $client->Product();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `string` |  |
-| `product` | `array` |  |
-| `status` | `int` |  |
-| `status_verbose` | `string` |  |
+| `additives_tags` | `array` |  |
+| `allergens` | `string` |  |
+| `brands` | `string` |  |
+| `categories` | `string` |  |
+| `countries` | `string` |  |
+| `created_t` | `int` |  |
+| `ecoscore_grade` | `string` |  |
+| `ecoscore_score` | `int` |  |
+| `generic_name` | `string` |  |
+| `image_front_url` | `string` |  |
+| `image_ingredients_url` | `string` |  |
+| `image_nutrition_url` | `string` |  |
+| `image_url` | `string` |  |
+| `ingredients_analysis_tags` | `array` |  |
+| `ingredients_text` | `string` |  |
+| `labels` | `string` |  |
+| `last_modified_t` | `int` |  |
+| `manufacturing_places` | `string` |  |
+| `nova_group` | `int` |  |
+| `nutriments` | `array` |  |
+| `nutriscore_grade` | `string` |  |
+| `nutriscore_score` | `int` |  |
+| `packaging` | `string` |  |
+| `product_name` | `string` |  |
+| `quantity` | `string` |  |
+| `stores` | `string` |  |
+| `traces` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Product record (throws on error).
+// load() returns the ENTITY — call data_get() for the Product record (throws on error).
 $product = $client->Product()->load(["id" => "product_id"]);
 ```
 
@@ -344,11 +391,11 @@ Create an instance: `$search = $client->Search();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `additives_tag` | `array` |  |
-| `allergen` | `string` |  |
-| `brand` | `string` |  |
-| `category` | `string` |  |
-| `country` | `string` |  |
+| `additives_tags` | `array` |  |
+| `allergens` | `string` |  |
+| `brands` | `string` |  |
+| `categories` | `string` |  |
+| `countries` | `string` |  |
 | `created_t` | `int` |  |
 | `ecoscore_grade` | `string` |  |
 | `ecoscore_score` | `int` |  |
@@ -357,20 +404,20 @@ Create an instance: `$search = $client->Search();`
 | `image_ingredients_url` | `string` |  |
 | `image_nutrition_url` | `string` |  |
 | `image_url` | `string` |  |
-| `ingredients_analysis_tag` | `array` |  |
+| `ingredients_analysis_tags` | `array` |  |
 | `ingredients_text` | `string` |  |
-| `label` | `string` |  |
+| `labels` | `string` |  |
 | `last_modified_t` | `int` |  |
-| `manufacturing_place` | `string` |  |
+| `manufacturing_places` | `string` |  |
 | `nova_group` | `int` |  |
-| `nutriment` | `array` |  |
+| `nutriments` | `array` |  |
 | `nutriscore_grade` | `string` |  |
 | `nutriscore_score` | `int` |  |
 | `packaging` | `string` |  |
 | `product_name` | `string` |  |
 | `quantity` | `string` |  |
-| `store` | `string` |  |
-| `trace` | `string` |  |
+| `stores` | `string` |  |
+| `traces` | `string` |  |
 
 #### Example: List
 

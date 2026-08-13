@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 const client = OpenfoodfactsSDK.test()
 
 const product = await client.Product().load({ id: 'test01' })
-// product is a bare entity populated with mock response data
+// product is the entity, populated with mock response data
+// — call product.data() for the record itself
 console.log(product)
 ```
 
@@ -294,10 +295,33 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `product` |  |
-| `status` |  |
-| `status_verbose` |  |
+| `additives_tags` |  |
+| `allergens` |  |
+| `brands` |  |
+| `categories` |  |
+| `countries` |  |
+| `created_t` |  |
+| `ecoscore_grade` |  |
+| `ecoscore_score` |  |
+| `generic_name` |  |
+| `image_front_url` |  |
+| `image_ingredients_url` |  |
+| `image_nutrition_url` |  |
+| `image_url` |  |
+| `ingredients_analysis_tags` |  |
+| `ingredients_text` |  |
+| `labels` |  |
+| `last_modified_t` |  |
+| `manufacturing_places` |  |
+| `nova_group` |  |
+| `nutriments` |  |
+| `nutriscore_grade` |  |
+| `nutriscore_score` |  |
+| `packaging` |  |
+| `product_name` |  |
+| `quantity` |  |
+| `stores` |  |
+| `traces` |  |
 
 Operations: load.
 
@@ -307,11 +331,11 @@ API path: `/product/{barcode}.json`
 
 | Field | Description |
 | --- | --- |
-| `additives_tag` |  |
-| `allergen` |  |
-| `brand` |  |
-| `category` |  |
-| `country` |  |
+| `additives_tags` |  |
+| `allergens` |  |
+| `brands` |  |
+| `categories` |  |
+| `countries` |  |
 | `created_t` |  |
 | `ecoscore_grade` |  |
 | `ecoscore_score` |  |
@@ -320,20 +344,20 @@ API path: `/product/{barcode}.json`
 | `image_ingredients_url` |  |
 | `image_nutrition_url` |  |
 | `image_url` |  |
-| `ingredients_analysis_tag` |  |
+| `ingredients_analysis_tags` |  |
 | `ingredients_text` |  |
-| `label` |  |
+| `labels` |  |
 | `last_modified_t` |  |
-| `manufacturing_place` |  |
+| `manufacturing_places` |  |
 | `nova_group` |  |
-| `nutriment` |  |
+| `nutriments` |  |
 | `nutriscore_grade` |  |
 | `nutriscore_score` |  |
 | `packaging` |  |
 | `product_name` |  |
 | `quantity` |  |
-| `store` |  |
-| `trace` |  |
+| `stores` |  |
+| `traces` |  |
 
 Operations: list.
 
@@ -358,10 +382,33 @@ Create an instance: `const product = client.Product()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `string` |  |
-| `product` | `Record<string, any>` |  |
-| `status` | `number` |  |
-| `status_verbose` | `string` |  |
+| `additives_tags` | `any[]` |  |
+| `allergens` | `string` |  |
+| `brands` | `string` |  |
+| `categories` | `string` |  |
+| `countries` | `string` |  |
+| `created_t` | `number` |  |
+| `ecoscore_grade` | `string` |  |
+| `ecoscore_score` | `number` |  |
+| `generic_name` | `string` |  |
+| `image_front_url` | `string` |  |
+| `image_ingredients_url` | `string` |  |
+| `image_nutrition_url` | `string` |  |
+| `image_url` | `string` |  |
+| `ingredients_analysis_tags` | `any[]` |  |
+| `ingredients_text` | `string` |  |
+| `labels` | `string` |  |
+| `last_modified_t` | `number` |  |
+| `manufacturing_places` | `string` |  |
+| `nova_group` | `number` |  |
+| `nutriments` | `Record<string, any>` |  |
+| `nutriscore_grade` | `string` |  |
+| `nutriscore_score` | `number` |  |
+| `packaging` | `string` |  |
+| `product_name` | `string` |  |
+| `quantity` | `string` |  |
+| `stores` | `string` |  |
+| `traces` | `string` |  |
 
 #### Example: Load
 
@@ -384,11 +431,11 @@ Create an instance: `const search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `additives_tag` | `any[]` |  |
-| `allergen` | `string` |  |
-| `brand` | `string` |  |
-| `category` | `string` |  |
-| `country` | `string` |  |
+| `additives_tags` | `any[]` |  |
+| `allergens` | `string` |  |
+| `brands` | `string` |  |
+| `categories` | `string` |  |
+| `countries` | `string` |  |
 | `created_t` | `number` |  |
 | `ecoscore_grade` | `string` |  |
 | `ecoscore_score` | `number` |  |
@@ -397,20 +444,20 @@ Create an instance: `const search = client.Search()`
 | `image_ingredients_url` | `string` |  |
 | `image_nutrition_url` | `string` |  |
 | `image_url` | `string` |  |
-| `ingredients_analysis_tag` | `any[]` |  |
+| `ingredients_analysis_tags` | `any[]` |  |
 | `ingredients_text` | `string` |  |
-| `label` | `string` |  |
+| `labels` | `string` |  |
 | `last_modified_t` | `number` |  |
-| `manufacturing_place` | `string` |  |
+| `manufacturing_places` | `string` |  |
 | `nova_group` | `number` |  |
-| `nutriment` | `Record<string, any>` |  |
+| `nutriments` | `Record<string, any>` |  |
 | `nutriscore_grade` | `string` |  |
 | `nutriscore_score` | `number` |  |
 | `packaging` | `string` |  |
 | `product_name` | `string` |  |
 | `quantity` | `string` |  |
-| `store` | `string` |  |
-| `trace` | `string` |  |
+| `stores` | `string` |  |
+| `traces` | `string` |  |
 
 #### Example: List
 

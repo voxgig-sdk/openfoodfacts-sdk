@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Openfoodfacts SDK exists test
 
 import pytest
 from openfoodfacts_sdk import OpenfoodfactsSDK

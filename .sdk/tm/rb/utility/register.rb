@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ OpenfoodfactsUtility.registrar = ->(u) {
   u.prepare_params = OpenfoodfactsUtilities::PrepareParams
   u.prepare_path = OpenfoodfactsUtilities::PreparePath
   u.prepare_query = OpenfoodfactsUtilities::PrepareQuery
+  u.graphql_body = OpenfoodfactsUtilities::GraphqlBody
+  u.graphql_errors = OpenfoodfactsUtilities::GraphqlErrors
   u.result_basic = OpenfoodfactsUtilities::ResultBasic
   u.result_body = OpenfoodfactsUtilities::ResultBody
   u.result_headers = OpenfoodfactsUtilities::ResultHeaders

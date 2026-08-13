@@ -23,7 +23,7 @@ support (`list`, `load`):
 
 ```ts
 const client = new OpenfoodfactsSDK()
-const product = await client.Product().load()
+const product = await client.Product().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = OpenfoodfactsSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = OpenfoodfactsSDK.test({
+  entity: {
+    product: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const product = await client.Product().load({ id: 'test01' })
-// product is a bare Product populated with mock data
+// product is the Product entity, populated with mock data
+// — call product.data() for the record itself
 console.log(product)
 ```
 
@@ -155,7 +164,7 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Product** | The Product entity (load). | `/product/{barcode}.json` |
+| **Product** | The Product entity (load). | `/product/{barcode}` |
 | **Search** | The Search entity (list). | `/search` |
 
 The operations available across these entities are **load**, **list** — see each entity's
@@ -190,7 +199,7 @@ $client = new OpenfoodfactsSDK([
 ]);
 
 
-// Load a specific product (returns the bare record; throws on error)
+// Load a specific product (returns the ENTITY; call data_get() for the record; throws on error)
 $product = $client->Product()->load(["id" => "example_id"]);
 print_r($product);
 ```
@@ -222,7 +231,7 @@ client = OpenfoodfactsSDK.new({
 })
 
 
-# Load a specific product (returns the bare record; raises on error)
+# Load a specific product (returns the ENTITY; call data_get for the record)
 product = client.Product.load({ "id" => "example_id" })
 puts product
 ```
@@ -358,6 +367,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://world.openfoodfacts.org](https://world.openfoodfacts.org)
 

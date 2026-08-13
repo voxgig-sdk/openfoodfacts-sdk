@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Openfoodfacts',
   }
 
 
@@ -63,190 +63,35 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "code",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
-        },
-        {
-          "active": true,
-          "name": "product",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 1
-        },
-        {
-          "active": true,
-          "name": "status",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 2
-        },
-        {
-          "active": true,
-          "name": "status_verbose",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
-        }
-      ],
-      "name": "product",
-      "op": {
-        "load": {
-          "input": "data",
-          "name": "load",
-          "points": [
-            {
-              "active": true,
-              "args": {
-                "params": [
-                  {
-                    "active": true,
-                    "example": "737628064502",
-                    "kind": "param",
-                    "name": "barcode",
-                    "orig": "barcode",
-                    "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
-                  }
-                ]
-              },
-              "method": "GET",
-              "orig": "/product/{barcode}.json",
-              "parts": [
-                "product",
-                "{barcode}.json"
-              ],
-              "select": {
-                "$action": "barcode",
-                "exist": [
-                  "barcode"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.product`"
-              },
-              "index$": 0
-            },
-            {
-              "active": true,
-              "args": {
-                "params": [
-                  {
-                    "active": true,
-                    "example": "737628064502",
-                    "kind": "param",
-                    "name": "barcode",
-                    "orig": "barcode",
-                    "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
-                  }
-                ]
-              },
-              "method": "GET",
-              "orig": "/product/{barcode}.xml",
-              "parts": [
-                "product",
-                "{barcode}.xml"
-              ],
-              "select": {
-                "$action": "barcode",
-                "exist": [
-                  "barcode"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "index$": 1
-            },
-            {
-              "active": true,
-              "args": {
-                "params": [
-                  {
-                    "active": true,
-                    "example": "737628064502",
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "barcode",
-                    "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
-                  }
-                ]
-              },
-              "method": "GET",
-              "orig": "/product/{barcode}",
-              "parts": [
-                "product",
-                "{id}"
-              ],
-              "rename": {
-                "param": {
-                  "barcode": "id"
-                }
-              },
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.product`"
-              },
-              "index$": 2
-            }
-          ],
-          "key$": "load"
-        }
-      },
-      "relations": {
-        "ancestors": [
-          [
-            "product"
-          ]
-        ]
-      }
-    },
-    "search": {
-      "fields": [
-        {
-          "active": true,
-          "name": "additives_tag",
+          "name": "additives_tags",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "allergen",
+          "name": "allergens",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "brand",
+          "name": "brands",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "category",
+          "name": "categories",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "country",
+          "name": "countries",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
@@ -309,7 +154,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "ingredients_analysis_tag",
+          "name": "ingredients_analysis_tags",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 13
@@ -323,7 +168,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "label",
+          "name": "labels",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
@@ -337,7 +182,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "manufacturing_place",
+          "name": "manufacturing_places",
           "req": false,
           "type": "`$STRING`",
           "index$": 17
@@ -351,7 +196,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "nutriment",
+          "name": "nutriments",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 19
@@ -393,14 +238,333 @@ class Config {
         },
         {
           "active": true,
-          "name": "store",
+          "name": "stores",
           "req": false,
           "type": "`$STRING`",
           "index$": 25
         },
         {
           "active": true,
-          "name": "trace",
+          "name": "traces",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 26
+        }
+      ],
+      "name": "product",
+      "op": {
+        "load": {
+          "input": "data",
+          "name": "load",
+          "points": [
+            {
+              "active": true,
+              "args": {
+                "params": [
+                  {
+                    "active": true,
+                    "example": "737628064502",
+                    "kind": "param",
+                    "name": "barcode",
+                    "orig": "barcode",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "index$": 0
+                  }
+                ]
+              },
+              "kind": "http",
+              "method": "GET",
+              "orig": "/product/{barcode}.json",
+              "parts": [
+                "product",
+                "{barcode}.json"
+              ],
+              "select": {
+                "$action": "barcode",
+                "exist": [
+                  "barcode"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.product`"
+              },
+              "index$": 0
+            },
+            {
+              "active": true,
+              "args": {
+                "params": [
+                  {
+                    "active": true,
+                    "example": "737628064502",
+                    "kind": "param",
+                    "name": "barcode",
+                    "orig": "barcode",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "index$": 0
+                  }
+                ]
+              },
+              "kind": "http",
+              "method": "GET",
+              "orig": "/product/{barcode}.xml",
+              "parts": [
+                "product",
+                "{barcode}.xml"
+              ],
+              "select": {
+                "$action": "barcode",
+                "exist": [
+                  "barcode"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "index$": 1
+            },
+            {
+              "active": true,
+              "args": {
+                "params": [
+                  {
+                    "active": true,
+                    "example": "737628064502",
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "barcode",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "index$": 0
+                  }
+                ]
+              },
+              "kind": "http",
+              "method": "GET",
+              "orig": "/product/{barcode}",
+              "parts": [
+                "product",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "barcode": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.product`"
+              },
+              "index$": 2
+            }
+          ],
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "product"
+          ]
+        ]
+      }
+    },
+    "search": {
+      "fields": [
+        {
+          "active": true,
+          "name": "additives_tags",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 0
+        },
+        {
+          "active": true,
+          "name": "allergens",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 1
+        },
+        {
+          "active": true,
+          "name": "brands",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 2
+        },
+        {
+          "active": true,
+          "name": "categories",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 3
+        },
+        {
+          "active": true,
+          "name": "countries",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 4
+        },
+        {
+          "active": true,
+          "name": "created_t",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 5
+        },
+        {
+          "active": true,
+          "name": "ecoscore_grade",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 6
+        },
+        {
+          "active": true,
+          "name": "ecoscore_score",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 7
+        },
+        {
+          "active": true,
+          "name": "generic_name",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 8
+        },
+        {
+          "active": true,
+          "name": "image_front_url",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 9
+        },
+        {
+          "active": true,
+          "name": "image_ingredients_url",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 10
+        },
+        {
+          "active": true,
+          "name": "image_nutrition_url",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 11
+        },
+        {
+          "active": true,
+          "name": "image_url",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 12
+        },
+        {
+          "active": true,
+          "name": "ingredients_analysis_tags",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 13
+        },
+        {
+          "active": true,
+          "name": "ingredients_text",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 14
+        },
+        {
+          "active": true,
+          "name": "labels",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 15
+        },
+        {
+          "active": true,
+          "name": "last_modified_t",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 16
+        },
+        {
+          "active": true,
+          "name": "manufacturing_places",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 17
+        },
+        {
+          "active": true,
+          "name": "nova_group",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 18
+        },
+        {
+          "active": true,
+          "name": "nutriments",
+          "req": false,
+          "type": "`$OBJECT`",
+          "index$": 19
+        },
+        {
+          "active": true,
+          "name": "nutriscore_grade",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 20
+        },
+        {
+          "active": true,
+          "name": "nutriscore_score",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 21
+        },
+        {
+          "active": true,
+          "name": "packaging",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 22
+        },
+        {
+          "active": true,
+          "name": "product_name",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 23
+        },
+        {
+          "active": true,
+          "name": "quantity",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 24
+        },
+        {
+          "active": true,
+          "name": "stores",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 25
+        },
+        {
+          "active": true,
+          "name": "traces",
           "req": false,
           "type": "`$STRING`",
           "index$": 26
@@ -477,6 +641,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/search",
               "parts": [
@@ -495,7 +660,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.products`"
               },
               "index$": 0
             }

@@ -6,22 +6,137 @@ main: kit: entity: product: {
 
   fields: [
     {
-      name: "code"
+      name: "additives_tags"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "allergens"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "product"
+      name: "brands"
       req: false
-      type: "`$OBJECT`"
+      type: "`$STRING`"
     }
     {
-      name: "status"
+      name: "categories"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "countries"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "created_t"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "status_verbose"
+      name: "ecoscore_grade"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ecoscore_score"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "generic_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "image_front_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "image_ingredients_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "image_nutrition_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "image_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ingredients_analysis_tags"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "ingredients_text"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "labels"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_modified_t"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "manufacturing_places"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "nova_group"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "nutriments"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "nutriscore_grade"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "nutriscore_score"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "packaging"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "product_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "quantity"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "stores"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "traces"
       req: false
       type: "`$STRING`"
     }

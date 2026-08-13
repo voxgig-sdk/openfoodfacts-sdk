@@ -10,22 +10,114 @@
 
 # Product entity data model.
 #
-# @!attribute [rw] code
+# @!attribute [rw] additives_tags
+#   @return [Array, nil]
+#
+# @!attribute [rw] allergens
 #   @return [String, nil]
 #
-# @!attribute [rw] product
-#   @return [Hash, nil]
+# @!attribute [rw] brands
+#   @return [String, nil]
 #
-# @!attribute [rw] status
+# @!attribute [rw] categories
+#   @return [String, nil]
+#
+# @!attribute [rw] countries
+#   @return [String, nil]
+#
+# @!attribute [rw] created_t
 #   @return [Integer, nil]
 #
-# @!attribute [rw] status_verbose
+# @!attribute [rw] ecoscore_grade
+#   @return [String, nil]
+#
+# @!attribute [rw] ecoscore_score
+#   @return [Integer, nil]
+#
+# @!attribute [rw] generic_name
+#   @return [String, nil]
+#
+# @!attribute [rw] image_front_url
+#   @return [String, nil]
+#
+# @!attribute [rw] image_ingredients_url
+#   @return [String, nil]
+#
+# @!attribute [rw] image_nutrition_url
+#   @return [String, nil]
+#
+# @!attribute [rw] image_url
+#   @return [String, nil]
+#
+# @!attribute [rw] ingredients_analysis_tags
+#   @return [Array, nil]
+#
+# @!attribute [rw] ingredients_text
+#   @return [String, nil]
+#
+# @!attribute [rw] labels
+#   @return [String, nil]
+#
+# @!attribute [rw] last_modified_t
+#   @return [Integer, nil]
+#
+# @!attribute [rw] manufacturing_places
+#   @return [String, nil]
+#
+# @!attribute [rw] nova_group
+#   @return [Integer, nil]
+#
+# @!attribute [rw] nutriments
+#   @return [Hash, nil]
+#
+# @!attribute [rw] nutriscore_grade
+#   @return [String, nil]
+#
+# @!attribute [rw] nutriscore_score
+#   @return [Integer, nil]
+#
+# @!attribute [rw] packaging
+#   @return [String, nil]
+#
+# @!attribute [rw] product_name
+#   @return [String, nil]
+#
+# @!attribute [rw] quantity
+#   @return [String, nil]
+#
+# @!attribute [rw] stores
+#   @return [String, nil]
+#
+# @!attribute [rw] traces
 #   @return [String, nil]
 Product = Struct.new(
-  :code,
-  :product,
-  :status,
-  :status_verbose,
+  :additives_tags,
+  :allergens,
+  :brands,
+  :categories,
+  :countries,
+  :created_t,
+  :ecoscore_grade,
+  :ecoscore_score,
+  :generic_name,
+  :image_front_url,
+  :image_ingredients_url,
+  :image_nutrition_url,
+  :image_url,
+  :ingredients_analysis_tags,
+  :ingredients_text,
+  :labels,
+  :last_modified_t,
+  :manufacturing_places,
+  :nova_group,
+  :nutriments,
+  :nutriscore_grade,
+  :nutriscore_score,
+  :packaging,
+  :product_name,
+  :quantity,
+  :stores,
+  :traces,
   keyword_init: true
 )
 
@@ -40,19 +132,19 @@ ProductLoadMatch = Struct.new(
 
 # Search entity data model.
 #
-# @!attribute [rw] additives_tag
+# @!attribute [rw] additives_tags
 #   @return [Array, nil]
 #
-# @!attribute [rw] allergen
+# @!attribute [rw] allergens
 #   @return [String, nil]
 #
-# @!attribute [rw] brand
+# @!attribute [rw] brands
 #   @return [String, nil]
 #
-# @!attribute [rw] category
+# @!attribute [rw] categories
 #   @return [String, nil]
 #
-# @!attribute [rw] country
+# @!attribute [rw] countries
 #   @return [String, nil]
 #
 # @!attribute [rw] created_t
@@ -79,25 +171,25 @@ ProductLoadMatch = Struct.new(
 # @!attribute [rw] image_url
 #   @return [String, nil]
 #
-# @!attribute [rw] ingredients_analysis_tag
+# @!attribute [rw] ingredients_analysis_tags
 #   @return [Array, nil]
 #
 # @!attribute [rw] ingredients_text
 #   @return [String, nil]
 #
-# @!attribute [rw] label
+# @!attribute [rw] labels
 #   @return [String, nil]
 #
 # @!attribute [rw] last_modified_t
 #   @return [Integer, nil]
 #
-# @!attribute [rw] manufacturing_place
+# @!attribute [rw] manufacturing_places
 #   @return [String, nil]
 #
 # @!attribute [rw] nova_group
 #   @return [Integer, nil]
 #
-# @!attribute [rw] nutriment
+# @!attribute [rw] nutriments
 #   @return [Hash, nil]
 #
 # @!attribute [rw] nutriscore_grade
@@ -115,17 +207,17 @@ ProductLoadMatch = Struct.new(
 # @!attribute [rw] quantity
 #   @return [String, nil]
 #
-# @!attribute [rw] store
+# @!attribute [rw] stores
 #   @return [String, nil]
 #
-# @!attribute [rw] trace
+# @!attribute [rw] traces
 #   @return [String, nil]
 Search = Struct.new(
-  :additives_tag,
-  :allergen,
-  :brand,
-  :category,
-  :country,
+  :additives_tags,
+  :allergens,
+  :brands,
+  :categories,
+  :countries,
   :created_t,
   :ecoscore_grade,
   :ecoscore_score,
@@ -134,38 +226,38 @@ Search = Struct.new(
   :image_ingredients_url,
   :image_nutrition_url,
   :image_url,
-  :ingredients_analysis_tag,
+  :ingredients_analysis_tags,
   :ingredients_text,
-  :label,
+  :labels,
   :last_modified_t,
-  :manufacturing_place,
+  :manufacturing_places,
   :nova_group,
-  :nutriment,
+  :nutriments,
   :nutriscore_grade,
   :nutriscore_score,
   :packaging,
   :product_name,
   :quantity,
-  :store,
-  :trace,
+  :stores,
+  :traces,
   keyword_init: true
 )
 
 # Request payload for Search#list.
 #
-# @!attribute [rw] additives_tag
+# @!attribute [rw] additives_tags
 #   @return [Array, nil]
 #
-# @!attribute [rw] allergen
+# @!attribute [rw] allergens
 #   @return [String, nil]
 #
-# @!attribute [rw] brand
+# @!attribute [rw] brands
 #   @return [String, nil]
 #
-# @!attribute [rw] category
+# @!attribute [rw] categories
 #   @return [String, nil]
 #
-# @!attribute [rw] country
+# @!attribute [rw] countries
 #   @return [String, nil]
 #
 # @!attribute [rw] created_t
@@ -192,25 +284,25 @@ Search = Struct.new(
 # @!attribute [rw] image_url
 #   @return [String, nil]
 #
-# @!attribute [rw] ingredients_analysis_tag
+# @!attribute [rw] ingredients_analysis_tags
 #   @return [Array, nil]
 #
 # @!attribute [rw] ingredients_text
 #   @return [String, nil]
 #
-# @!attribute [rw] label
+# @!attribute [rw] labels
 #   @return [String, nil]
 #
 # @!attribute [rw] last_modified_t
 #   @return [Integer, nil]
 #
-# @!attribute [rw] manufacturing_place
+# @!attribute [rw] manufacturing_places
 #   @return [String, nil]
 #
 # @!attribute [rw] nova_group
 #   @return [Integer, nil]
 #
-# @!attribute [rw] nutriment
+# @!attribute [rw] nutriments
 #   @return [Hash, nil]
 #
 # @!attribute [rw] nutriscore_grade
@@ -228,17 +320,17 @@ Search = Struct.new(
 # @!attribute [rw] quantity
 #   @return [String, nil]
 #
-# @!attribute [rw] store
+# @!attribute [rw] stores
 #   @return [String, nil]
 #
-# @!attribute [rw] trace
+# @!attribute [rw] traces
 #   @return [String, nil]
 SearchListMatch = Struct.new(
-  :additives_tag,
-  :allergen,
-  :brand,
-  :category,
-  :country,
+  :additives_tags,
+  :allergens,
+  :brands,
+  :categories,
+  :countries,
   :created_t,
   :ecoscore_grade,
   :ecoscore_score,
@@ -247,20 +339,20 @@ SearchListMatch = Struct.new(
   :image_ingredients_url,
   :image_nutrition_url,
   :image_url,
-  :ingredients_analysis_tag,
+  :ingredients_analysis_tags,
   :ingredients_text,
-  :label,
+  :labels,
   :last_modified_t,
-  :manufacturing_place,
+  :manufacturing_places,
   :nova_group,
-  :nutriment,
+  :nutriments,
   :nutriscore_grade,
   :nutriscore_score,
   :packaging,
   :product_name,
   :quantity,
-  :store,
-  :trace,
+  :stores,
+  :traces,
   keyword_init: true
 )
 

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from openfoodfacts_sdk.utility.voxgig_struct import voxgig_struct as vs
 from openfoodfacts_sdk import OpenfoodfactsSDK
-from core import helpers
+from openfoodfacts_sdk.core import helpers
 from test import runner
 
 

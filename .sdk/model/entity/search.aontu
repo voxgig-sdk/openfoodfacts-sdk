@@ -6,27 +6,27 @@ main: kit: entity: search: {
 
   fields: [
     {
-      name: "additives_tag"
+      name: "additives_tags"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "allergen"
+      name: "allergens"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "brand"
+      name: "brands"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "category"
+      name: "categories"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "country"
+      name: "countries"
       req: false
       type: "`$STRING`"
     }
@@ -71,7 +71,7 @@ main: kit: entity: search: {
       type: "`$STRING`"
     }
     {
-      name: "ingredients_analysis_tag"
+      name: "ingredients_analysis_tags"
       req: false
       type: "`$ARRAY`"
     }
@@ -81,7 +81,7 @@ main: kit: entity: search: {
       type: "`$STRING`"
     }
     {
-      name: "label"
+      name: "labels"
       req: false
       type: "`$STRING`"
     }
@@ -91,7 +91,7 @@ main: kit: entity: search: {
       type: "`$INTEGER`"
     }
     {
-      name: "manufacturing_place"
+      name: "manufacturing_places"
       req: false
       type: "`$STRING`"
     }
@@ -101,7 +101,7 @@ main: kit: entity: search: {
       type: "`$INTEGER`"
     }
     {
-      name: "nutriment"
+      name: "nutriments"
       req: false
       type: "`$OBJECT`"
     }
@@ -131,12 +131,12 @@ main: kit: entity: search: {
       type: "`$STRING`"
     }
     {
-      name: "store"
+      name: "stores"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "trace"
+      name: "traces"
       req: false
       type: "`$STRING`"
     }
@@ -222,7 +222,7 @@ main: kit: entity: search: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.products`"
           }
         }
       ]

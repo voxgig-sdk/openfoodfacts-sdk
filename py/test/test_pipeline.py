@@ -16,11 +16,11 @@
 import pytest
 
 from openfoodfacts_sdk import OpenfoodfactsSDK
-from core.error import OpenfoodfactsError
-from core.result import OpenfoodfactsResult
-from core.response import OpenfoodfactsResponse
-from core.spec import OpenfoodfactsSpec
-from feature.base_feature import OpenfoodfactsBaseFeature
+from openfoodfacts_sdk.core.error import OpenfoodfactsError
+from openfoodfacts_sdk.core.result import OpenfoodfactsResult
+from openfoodfacts_sdk.core.response import OpenfoodfactsResponse
+from openfoodfacts_sdk.core.spec import OpenfoodfactsSpec
+from openfoodfacts_sdk.feature.base_feature import OpenfoodfactsBaseFeature
 
 
 def _client():

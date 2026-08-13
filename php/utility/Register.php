@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ OpenfoodfactsUtility::setRegistrar(function (OpenfoodfactsUtility $u): void {
     $u->prepare_params = [OpenfoodfactsPrepareParams::class, 'call'];
     $u->prepare_path = [OpenfoodfactsPreparePath::class, 'call'];
     $u->prepare_query = [OpenfoodfactsPrepareQuery::class, 'call'];
+    $u->graphql_body = [OpenfoodfactsGraphql::class, 'body'];
+    $u->graphql_errors = [OpenfoodfactsGraphql::class, 'errors'];
     $u->result_basic = [OpenfoodfactsResultBasic::class, 'call'];
     $u->result_body = [OpenfoodfactsResultBody::class, 'call'];
     $u->result_headers = [OpenfoodfactsResultHeaders::class, 'call'];
