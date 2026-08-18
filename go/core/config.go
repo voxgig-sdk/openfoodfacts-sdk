@@ -1,5 +1,12 @@
 package core
 
+import (
+	"sync"
+)
+
+// MakeConfig builds a fresh, fully materialised config map. Every call
+// rebuilds the whole structure, so prefer SharedConfig unless you need a
+// private copy you intend to mutate.
 func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
@@ -29,193 +36,112 @@ func MakeConfig() map[string]any {
 			"product": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "additives_tags",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "allergens",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "brands",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "categories",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "countries",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "created_t",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ecoscore_grade",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 6,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ecoscore_score",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 7,
 					},
 					map[string]any{
-						"active": true,
 						"name": "generic_name",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 8,
 					},
 					map[string]any{
-						"active": true,
 						"name": "image_front_url",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 9,
 					},
 					map[string]any{
-						"active": true,
 						"name": "image_ingredients_url",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 10,
 					},
 					map[string]any{
-						"active": true,
 						"name": "image_nutrition_url",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 11,
 					},
 					map[string]any{
-						"active": true,
 						"name": "image_url",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 12,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ingredients_analysis_tags",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 13,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ingredients_text",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 14,
 					},
 					map[string]any{
-						"active": true,
 						"name": "labels",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 15,
 					},
 					map[string]any{
-						"active": true,
 						"name": "last_modified_t",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 16,
 					},
 					map[string]any{
-						"active": true,
 						"name": "manufacturing_places",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 17,
 					},
 					map[string]any{
-						"active": true,
 						"name": "nova_group",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 18,
 					},
 					map[string]any{
-						"active": true,
 						"name": "nutriments",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 19,
 					},
 					map[string]any{
-						"active": true,
 						"name": "nutriscore_grade",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 20,
 					},
 					map[string]any{
-						"active": true,
 						"name": "nutriscore_score",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 21,
 					},
 					map[string]any{
-						"active": true,
 						"name": "packaging",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 22,
 					},
 					map[string]any{
-						"active": true,
 						"name": "product_name",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 23,
 					},
 					map[string]any{
-						"active": true,
 						"name": "quantity",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 24,
 					},
 					map[string]any{
-						"active": true,
 						"name": "stores",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 25,
 					},
 					map[string]any{
-						"active": true,
 						"name": "traces",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 26,
 					},
 				},
 				"name": "product",
@@ -225,18 +151,15 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"active": true,
 											"example": "737628064502",
 											"kind": "param",
 											"name": "barcode",
 											"orig": "barcode",
 											"reqd": true,
 											"type": "`$STRING`",
-											"index$": 0,
 										},
 									},
 								},
@@ -257,21 +180,17 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.product`",
 								},
-								"index$": 0,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"active": true,
 											"example": "737628064502",
 											"kind": "param",
 											"name": "barcode",
 											"orig": "barcode",
 											"reqd": true,
 											"type": "`$STRING`",
-											"index$": 0,
 										},
 									},
 								},
@@ -292,21 +211,17 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 1,
 							},
 							map[string]any{
-								"active": true,
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"active": true,
 											"example": "737628064502",
 											"kind": "param",
 											"name": "id",
 											"orig": "barcode",
 											"reqd": true,
 											"type": "`$STRING`",
-											"index$": 0,
 										},
 									},
 								},
@@ -331,7 +246,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.product`",
 								},
-								"index$": 2,
 							},
 						},
 					},
@@ -347,193 +261,112 @@ func MakeConfig() map[string]any {
 			"search": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"active": true,
 						"name": "additives_tags",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 0,
 					},
 					map[string]any{
-						"active": true,
 						"name": "allergens",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 1,
 					},
 					map[string]any{
-						"active": true,
 						"name": "brands",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 2,
 					},
 					map[string]any{
-						"active": true,
 						"name": "categories",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 3,
 					},
 					map[string]any{
-						"active": true,
 						"name": "countries",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 4,
 					},
 					map[string]any{
-						"active": true,
 						"name": "created_t",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 5,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ecoscore_grade",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 6,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ecoscore_score",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 7,
 					},
 					map[string]any{
-						"active": true,
 						"name": "generic_name",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 8,
 					},
 					map[string]any{
-						"active": true,
 						"name": "image_front_url",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 9,
 					},
 					map[string]any{
-						"active": true,
 						"name": "image_ingredients_url",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 10,
 					},
 					map[string]any{
-						"active": true,
 						"name": "image_nutrition_url",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 11,
 					},
 					map[string]any{
-						"active": true,
 						"name": "image_url",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 12,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ingredients_analysis_tags",
-						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 13,
 					},
 					map[string]any{
-						"active": true,
 						"name": "ingredients_text",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 14,
 					},
 					map[string]any{
-						"active": true,
 						"name": "labels",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 15,
 					},
 					map[string]any{
-						"active": true,
 						"name": "last_modified_t",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 16,
 					},
 					map[string]any{
-						"active": true,
 						"name": "manufacturing_places",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 17,
 					},
 					map[string]any{
-						"active": true,
 						"name": "nova_group",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 18,
 					},
 					map[string]any{
-						"active": true,
 						"name": "nutriments",
-						"req": false,
 						"type": "`$OBJECT`",
-						"index$": 19,
 					},
 					map[string]any{
-						"active": true,
 						"name": "nutriscore_grade",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 20,
 					},
 					map[string]any{
-						"active": true,
 						"name": "nutriscore_score",
-						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 21,
 					},
 					map[string]any{
-						"active": true,
 						"name": "packaging",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 22,
 					},
 					map[string]any{
-						"active": true,
 						"name": "product_name",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 23,
 					},
 					map[string]any{
-						"active": true,
 						"name": "quantity",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 24,
 					},
 					map[string]any{
-						"active": true,
 						"name": "stores",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 25,
 					},
 					map[string]any{
-						"active": true,
 						"name": "traces",
-						"req": false,
 						"type": "`$STRING`",
-						"index$": 26,
 					},
 				},
 				"name": "search",
@@ -543,66 +376,51 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
-											"active": true,
 											"kind": "query",
 											"name": "brand",
 											"orig": "brand",
-											"reqd": false,
 											"type": "`$STRING`",
 										},
 										map[string]any{
-											"active": true,
 											"kind": "query",
 											"name": "category",
 											"orig": "category",
-											"reqd": false,
 											"type": "`$STRING`",
 										},
 										map[string]any{
-											"active": true,
 											"example": true,
 											"kind": "query",
 											"name": "json",
 											"orig": "json",
-											"reqd": false,
 											"type": "`$BOOLEAN`",
 										},
 										map[string]any{
-											"active": true,
 											"kind": "query",
 											"name": "label",
 											"orig": "label",
-											"reqd": false,
 											"type": "`$STRING`",
 										},
 										map[string]any{
-											"active": true,
 											"example": 1,
 											"kind": "query",
 											"name": "page",
 											"orig": "page",
-											"reqd": false,
 											"type": "`$INTEGER`",
 										},
 										map[string]any{
-											"active": true,
 											"example": 20,
 											"kind": "query",
 											"name": "page_size",
 											"orig": "page_size",
-											"reqd": false,
 											"type": "`$INTEGER`",
 										},
 										map[string]any{
-											"active": true,
 											"kind": "query",
 											"name": "search_term",
 											"orig": "search_term",
-											"reqd": false,
 											"type": "`$STRING`",
 										},
 									},
@@ -628,7 +446,6 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.products`",
 								},
-								"index$": 0,
 							},
 						},
 					},
@@ -639,6 +456,24 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+var (
+	sharedConfigOnce sync.Once
+	sharedConfigVal  map[string]any
+)
+
+// SharedConfig returns the process-wide config, built once on first use.
+// The SDK reads the config on every request and never writes to it, so one
+// instance is shared by every client rather than rebuilt per client.
+//
+// The returned map is shared: treat it as read-only. Callers that need to
+// mutate should use MakeConfig, which always returns a fresh copy.
+func SharedConfig() map[string]any {
+	sharedConfigOnce.Do(func() {
+		sharedConfigVal = MakeConfig()
+	})
+	return sharedConfigVal
 }
 
 func makeFeature(name string) Feature {

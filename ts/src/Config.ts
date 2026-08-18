@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://world.openfoodfacts.org/api/v2',
+    base: "https://world.openfoodfacts.org/api/v2",
 
     auth: {
       prefix: '',
@@ -62,193 +62,112 @@ class Config {
     "product": {
       "fields": [
         {
-          "active": true,
           "name": "additives_tags",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 0
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "allergens",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "brands",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "categories",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "countries",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "created_t",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 5
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "ecoscore_grade",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "ecoscore_score",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 7
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "generic_name",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 8
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "image_front_url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 9
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "image_ingredients_url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 10
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "image_nutrition_url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 11
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "image_url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 12
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "ingredients_analysis_tags",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 13
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "ingredients_text",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 14
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "labels",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 15
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "last_modified_t",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 16
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "manufacturing_places",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 17
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "nova_group",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 18
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "nutriments",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 19
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "nutriscore_grade",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 20
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "nutriscore_score",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 21
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "packaging",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 22
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "product_name",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 23
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "quantity",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 24
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "stores",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 25
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "traces",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 26
+          "type": "`$STRING`"
         }
       ],
       "name": "product",
@@ -258,18 +177,15 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "params": [
                   {
-                    "active": true,
                     "example": "737628064502",
                     "kind": "param",
                     "name": "barcode",
                     "orig": "barcode",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -289,22 +205,18 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.product`"
-              },
-              "index$": 0
+              }
             },
             {
-              "active": true,
               "args": {
                 "params": [
                   {
-                    "active": true,
                     "example": "737628064502",
                     "kind": "param",
                     "name": "barcode",
                     "orig": "barcode",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -324,22 +236,18 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 1
+              }
             },
             {
-              "active": true,
               "args": {
                 "params": [
                   {
-                    "active": true,
                     "example": "737628064502",
                     "kind": "param",
                     "name": "id",
                     "orig": "barcode",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -363,11 +271,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.product`"
-              },
-              "index$": 2
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -381,193 +287,112 @@ class Config {
     "search": {
       "fields": [
         {
-          "active": true,
           "name": "additives_tags",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 0
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "allergens",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "brands",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "categories",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "countries",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "created_t",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 5
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "ecoscore_grade",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "ecoscore_score",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 7
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "generic_name",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 8
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "image_front_url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 9
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "image_ingredients_url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 10
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "image_nutrition_url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 11
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "image_url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 12
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "ingredients_analysis_tags",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 13
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "ingredients_text",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 14
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "labels",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 15
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "last_modified_t",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 16
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "manufacturing_places",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 17
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "nova_group",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 18
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "nutriments",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 19
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "nutriscore_grade",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 20
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "nutriscore_score",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 21
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "packaging",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 22
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "product_name",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 23
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "quantity",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 24
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "stores",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 25
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "traces",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 26
+          "type": "`$STRING`"
         }
       ],
       "name": "search",
@@ -577,66 +402,51 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "brand",
                     "orig": "brand",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "category",
                     "orig": "category",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": true,
                     "kind": "query",
                     "name": "json",
                     "orig": "json",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "label",
                     "orig": "label",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "page",
                     "orig": "page",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": 20,
                     "kind": "query",
                     "name": "page_size",
                     "orig": "page_size",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "search_term",
                     "orig": "search_term",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -661,11 +471,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.products`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {

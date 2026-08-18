@@ -15,7 +15,7 @@ require_relative "../Openfoodfacts_sdk"
 module OpenfoodfactsFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = OpenfoodfactsConfig.make_config["feature"]
+    f = OpenfoodfactsConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

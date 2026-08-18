@@ -28,7 +28,7 @@ class OpenfoodfactsSDK
     utility = OpenfoodfactsUtility.new
     @_utility = utility
 
-    config = OpenfoodfactsConfig.make_config
+    config = OpenfoodfactsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

@@ -40,7 +40,7 @@ class OpenfoodfactsSDK
         $utility = new OpenfoodfactsUtility();
         $this->_utility = $utility;
 
-        $config = OpenfoodfactsConfig::make_config();
+        $config = OpenfoodfactsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
