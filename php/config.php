@@ -33,6 +33,9 @@ class OpenfoodfactsConfig
         return [
             "main" => [
                 "name" => "Openfoodfacts",
+                "slug" => "openfoodfacts",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -59,110 +62,137 @@ class OpenfoodfactsConfig
           'fields' => [
             [
               'name' => 'additives_tags',
+              'short' => 'List of additives',
               'type' => '`$ARRAY`',
             ],
             [
               'name' => 'allergens',
+              'short' => 'Allergens present in the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'brands',
+              'short' => 'Brands of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'categories',
+              'short' => 'Categories the product belongs to',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'countries',
+              'short' => 'Countries where the product is sold',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'created_t',
+              'short' => 'Creation timestamp',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'ecoscore_grade',
+              'short' => 'Eco-Score grade for environmental impact (a, b, c, d, e)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'ecoscore_score',
+              'short' => 'Eco-Score numerical score',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'generic_name',
+              'short' => 'Generic name of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'image_front_url',
+              'short' => 'URL of the front image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'image_ingredients_url',
+              'short' => 'URL of the ingredients image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'image_nutrition_url',
+              'short' => 'URL of the nutrition facts image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'image_url',
+              'short' => 'URL of the product\'s front image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'ingredients_analysis_tags',
+              'short' => 'Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)',
               'type' => '`$ARRAY`',
             ],
             [
               'name' => 'ingredients_text',
+              'short' => 'List of ingredients as text',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'labels',
+              'short' => 'Labels associated with the product (e.g., Organic, Fair Trade)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'last_modified_t',
+              'short' => 'Last modification timestamp',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'manufacturing_places',
+              'short' => 'Manufacturing or processing places',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'nova_group',
+              'short' => 'NOVA group for food processing level (1-4)',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'nutriments',
+              'short' => 'Nutritional information',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'nutriscore_grade',
+              'short' => 'Nutri-Score grade (a, b, c, d, e)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'nutriscore_score',
+              'short' => 'Nutri-Score numerical score',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'packaging',
+              'short' => 'Packaging type',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'product_name',
+              'short' => 'Name of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'quantity',
+              'short' => 'Quantity or volume of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'stores',
+              'short' => 'Stores where the product is available',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'traces',
+              'short' => 'Traces of allergens',
               'type' => '`$STRING`',
             ],
           ],
@@ -284,110 +314,137 @@ class OpenfoodfactsConfig
           'fields' => [
             [
               'name' => 'additives_tags',
+              'short' => 'List of additives',
               'type' => '`$ARRAY`',
             ],
             [
               'name' => 'allergens',
+              'short' => 'Allergens present in the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'brands',
+              'short' => 'Brands of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'categories',
+              'short' => 'Categories the product belongs to',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'countries',
+              'short' => 'Countries where the product is sold',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'created_t',
+              'short' => 'Creation timestamp',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'ecoscore_grade',
+              'short' => 'Eco-Score grade for environmental impact (a, b, c, d, e)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'ecoscore_score',
+              'short' => 'Eco-Score numerical score',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'generic_name',
+              'short' => 'Generic name of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'image_front_url',
+              'short' => 'URL of the front image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'image_ingredients_url',
+              'short' => 'URL of the ingredients image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'image_nutrition_url',
+              'short' => 'URL of the nutrition facts image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'image_url',
+              'short' => 'URL of the product\'s front image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'ingredients_analysis_tags',
+              'short' => 'Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)',
               'type' => '`$ARRAY`',
             ],
             [
               'name' => 'ingredients_text',
+              'short' => 'List of ingredients as text',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'labels',
+              'short' => 'Labels associated with the product (e.g., Organic, Fair Trade)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'last_modified_t',
+              'short' => 'Last modification timestamp',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'manufacturing_places',
+              'short' => 'Manufacturing or processing places',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'nova_group',
+              'short' => 'NOVA group for food processing level (1-4)',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'nutriments',
+              'short' => 'Nutritional information',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'nutriscore_grade',
+              'short' => 'Nutri-Score grade (a, b, c, d, e)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'nutriscore_score',
+              'short' => 'Nutri-Score numerical score',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'packaging',
+              'short' => 'Packaging type',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'product_name',
+              'short' => 'Name of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'quantity',
+              'short' => 'Quantity or volume of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'stores',
+              'short' => 'Stores where the product is available',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'traces',
+              'short' => 'Traces of allergens',
               'type' => '`$STRING`',
             ],
           ],

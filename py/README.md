@@ -248,33 +248,33 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `additives_tags` |  |
-| `allergens` |  |
-| `brands` |  |
-| `categories` |  |
-| `countries` |  |
-| `created_t` |  |
-| `ecoscore_grade` |  |
-| `ecoscore_score` |  |
-| `generic_name` |  |
-| `image_front_url` |  |
-| `image_ingredients_url` |  |
-| `image_nutrition_url` |  |
-| `image_url` |  |
-| `ingredients_analysis_tags` |  |
-| `ingredients_text` |  |
-| `labels` |  |
-| `last_modified_t` |  |
-| `manufacturing_places` |  |
-| `nova_group` |  |
-| `nutriments` |  |
-| `nutriscore_grade` |  |
-| `nutriscore_score` |  |
-| `packaging` |  |
-| `product_name` |  |
-| `quantity` |  |
-| `stores` |  |
-| `traces` |  |
+| `additives_tags` | List of additives |
+| `allergens` | Allergens present in the product |
+| `brands` | Brands of the product |
+| `categories` | Categories the product belongs to |
+| `countries` | Countries where the product is sold |
+| `created_t` | Creation timestamp |
+| `ecoscore_grade` | Eco-Score grade for environmental impact (a, b, c, d, e) |
+| `ecoscore_score` | Eco-Score numerical score |
+| `generic_name` | Generic name of the product |
+| `image_front_url` | URL of the front image |
+| `image_ingredients_url` | URL of the ingredients image |
+| `image_nutrition_url` | URL of the nutrition facts image |
+| `image_url` | URL of the product's front image |
+| `ingredients_analysis_tags` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
+| `ingredients_text` | List of ingredients as text |
+| `labels` | Labels associated with the product (e.g., Organic, Fair Trade) |
+| `last_modified_t` | Last modification timestamp |
+| `manufacturing_places` | Manufacturing or processing places |
+| `nova_group` | NOVA group for food processing level (1-4) |
+| `nutriments` | Nutritional information |
+| `nutriscore_grade` | Nutri-Score grade (a, b, c, d, e) |
+| `nutriscore_score` | Nutri-Score numerical score |
+| `packaging` | Packaging type |
+| `product_name` | Name of the product |
+| `quantity` | Quantity or volume of the product |
+| `stores` | Stores where the product is available |
+| `traces` | Traces of allergens |
 
 Operations: Load.
 
@@ -284,33 +284,33 @@ API path: `/product/{barcode}.json`
 
 | Field | Description |
 | --- | --- |
-| `additives_tags` |  |
-| `allergens` |  |
-| `brands` |  |
-| `categories` |  |
-| `countries` |  |
-| `created_t` |  |
-| `ecoscore_grade` |  |
-| `ecoscore_score` |  |
-| `generic_name` |  |
-| `image_front_url` |  |
-| `image_ingredients_url` |  |
-| `image_nutrition_url` |  |
-| `image_url` |  |
-| `ingredients_analysis_tags` |  |
-| `ingredients_text` |  |
-| `labels` |  |
-| `last_modified_t` |  |
-| `manufacturing_places` |  |
-| `nova_group` |  |
-| `nutriments` |  |
-| `nutriscore_grade` |  |
-| `nutriscore_score` |  |
-| `packaging` |  |
-| `product_name` |  |
-| `quantity` |  |
-| `stores` |  |
-| `traces` |  |
+| `additives_tags` | List of additives |
+| `allergens` | Allergens present in the product |
+| `brands` | Brands of the product |
+| `categories` | Categories the product belongs to |
+| `countries` | Countries where the product is sold |
+| `created_t` | Creation timestamp |
+| `ecoscore_grade` | Eco-Score grade for environmental impact (a, b, c, d, e) |
+| `ecoscore_score` | Eco-Score numerical score |
+| `generic_name` | Generic name of the product |
+| `image_front_url` | URL of the front image |
+| `image_ingredients_url` | URL of the ingredients image |
+| `image_nutrition_url` | URL of the nutrition facts image |
+| `image_url` | URL of the product's front image |
+| `ingredients_analysis_tags` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
+| `ingredients_text` | List of ingredients as text |
+| `labels` | Labels associated with the product (e.g., Organic, Fair Trade) |
+| `last_modified_t` | Last modification timestamp |
+| `manufacturing_places` | Manufacturing or processing places |
+| `nova_group` | NOVA group for food processing level (1-4) |
+| `nutriments` | Nutritional information |
+| `nutriscore_grade` | Nutri-Score grade (a, b, c, d, e) |
+| `nutriscore_score` | Nutri-Score numerical score |
+| `packaging` | Packaging type |
+| `product_name` | Name of the product |
+| `quantity` | Quantity or volume of the product |
+| `stores` | Stores where the product is available |
+| `traces` | Traces of allergens |
 
 Operations: List.
 
@@ -335,33 +335,33 @@ Create an instance: `product = client.Product()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `additives_tags` | `list` |  |
-| `allergens` | `str` |  |
-| `brands` | `str` |  |
-| `categories` | `str` |  |
-| `countries` | `str` |  |
-| `created_t` | `int` |  |
-| `ecoscore_grade` | `str` |  |
-| `ecoscore_score` | `int` |  |
-| `generic_name` | `str` |  |
-| `image_front_url` | `str` |  |
-| `image_ingredients_url` | `str` |  |
-| `image_nutrition_url` | `str` |  |
-| `image_url` | `str` |  |
-| `ingredients_analysis_tags` | `list` |  |
-| `ingredients_text` | `str` |  |
-| `labels` | `str` |  |
-| `last_modified_t` | `int` |  |
-| `manufacturing_places` | `str` |  |
-| `nova_group` | `int` |  |
-| `nutriments` | `dict` |  |
-| `nutriscore_grade` | `str` |  |
-| `nutriscore_score` | `int` |  |
-| `packaging` | `str` |  |
-| `product_name` | `str` |  |
-| `quantity` | `str` |  |
-| `stores` | `str` |  |
-| `traces` | `str` |  |
+| `additives_tags` | `list` | List of additives |
+| `allergens` | `str` | Allergens present in the product |
+| `brands` | `str` | Brands of the product |
+| `categories` | `str` | Categories the product belongs to |
+| `countries` | `str` | Countries where the product is sold |
+| `created_t` | `int` | Creation timestamp |
+| `ecoscore_grade` | `str` | Eco-Score grade for environmental impact (a, b, c, d, e) |
+| `ecoscore_score` | `int` | Eco-Score numerical score |
+| `generic_name` | `str` | Generic name of the product |
+| `image_front_url` | `str` | URL of the front image |
+| `image_ingredients_url` | `str` | URL of the ingredients image |
+| `image_nutrition_url` | `str` | URL of the nutrition facts image |
+| `image_url` | `str` | URL of the product's front image |
+| `ingredients_analysis_tags` | `list` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
+| `ingredients_text` | `str` | List of ingredients as text |
+| `labels` | `str` | Labels associated with the product (e.g., Organic, Fair Trade) |
+| `last_modified_t` | `int` | Last modification timestamp |
+| `manufacturing_places` | `str` | Manufacturing or processing places |
+| `nova_group` | `int` | NOVA group for food processing level (1-4) |
+| `nutriments` | `dict` | Nutritional information |
+| `nutriscore_grade` | `str` | Nutri-Score grade (a, b, c, d, e) |
+| `nutriscore_score` | `int` | Nutri-Score numerical score |
+| `packaging` | `str` | Packaging type |
+| `product_name` | `str` | Name of the product |
+| `quantity` | `str` | Quantity or volume of the product |
+| `stores` | `str` | Stores where the product is available |
+| `traces` | `str` | Traces of allergens |
 
 #### Example: Load
 
@@ -384,33 +384,33 @@ Create an instance: `search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `additives_tags` | `list` |  |
-| `allergens` | `str` |  |
-| `brands` | `str` |  |
-| `categories` | `str` |  |
-| `countries` | `str` |  |
-| `created_t` | `int` |  |
-| `ecoscore_grade` | `str` |  |
-| `ecoscore_score` | `int` |  |
-| `generic_name` | `str` |  |
-| `image_front_url` | `str` |  |
-| `image_ingredients_url` | `str` |  |
-| `image_nutrition_url` | `str` |  |
-| `image_url` | `str` |  |
-| `ingredients_analysis_tags` | `list` |  |
-| `ingredients_text` | `str` |  |
-| `labels` | `str` |  |
-| `last_modified_t` | `int` |  |
-| `manufacturing_places` | `str` |  |
-| `nova_group` | `int` |  |
-| `nutriments` | `dict` |  |
-| `nutriscore_grade` | `str` |  |
-| `nutriscore_score` | `int` |  |
-| `packaging` | `str` |  |
-| `product_name` | `str` |  |
-| `quantity` | `str` |  |
-| `stores` | `str` |  |
-| `traces` | `str` |  |
+| `additives_tags` | `list` | List of additives |
+| `allergens` | `str` | Allergens present in the product |
+| `brands` | `str` | Brands of the product |
+| `categories` | `str` | Categories the product belongs to |
+| `countries` | `str` | Countries where the product is sold |
+| `created_t` | `int` | Creation timestamp |
+| `ecoscore_grade` | `str` | Eco-Score grade for environmental impact (a, b, c, d, e) |
+| `ecoscore_score` | `int` | Eco-Score numerical score |
+| `generic_name` | `str` | Generic name of the product |
+| `image_front_url` | `str` | URL of the front image |
+| `image_ingredients_url` | `str` | URL of the ingredients image |
+| `image_nutrition_url` | `str` | URL of the nutrition facts image |
+| `image_url` | `str` | URL of the product's front image |
+| `ingredients_analysis_tags` | `list` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
+| `ingredients_text` | `str` | List of ingredients as text |
+| `labels` | `str` | Labels associated with the product (e.g., Organic, Fair Trade) |
+| `last_modified_t` | `int` | Last modification timestamp |
+| `manufacturing_places` | `str` | Manufacturing or processing places |
+| `nova_group` | `int` | NOVA group for food processing level (1-4) |
+| `nutriments` | `dict` | Nutritional information |
+| `nutriscore_grade` | `str` | Nutri-Score grade (a, b, c, d, e) |
+| `nutriscore_score` | `int` | Nutri-Score numerical score |
+| `packaging` | `str` | Packaging type |
+| `product_name` | `str` | Name of the product |
+| `quantity` | `str` | Quantity or volume of the product |
+| `stores` | `str` | Stores where the product is available |
+| `traces` | `str` | Traces of allergens |
 
 #### Example: List
 

@@ -36,162 +36,189 @@
               "active": true,
               "name": "additives_tags",
               "req": false,
+              "short": "List of additives",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "allergens",
               "req": false,
+              "short": "Allergens present in the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "brands",
               "req": false,
+              "short": "Brands of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "categories",
               "req": false,
+              "short": "Categories the product belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countries",
               "req": false,
+              "short": "Countries where the product is sold",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_t",
               "req": false,
+              "short": "Creation timestamp",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ecoscore_grade",
               "req": false,
+              "short": "Eco-Score grade for environmental impact (a, b, c, d, e)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ecoscore_score",
               "req": false,
+              "short": "Eco-Score numerical score",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "generic_name",
               "req": false,
+              "short": "Generic name of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "image_front_url",
               "req": false,
+              "short": "URL of the front image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "image_ingredients_url",
               "req": false,
+              "short": "URL of the ingredients image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "image_nutrition_url",
               "req": false,
+              "short": "URL of the nutrition facts image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "image_url",
               "req": false,
+              "short": "URL of the product's front image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ingredients_analysis_tags",
               "req": false,
+              "short": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "ingredients_text",
               "req": false,
+              "short": "List of ingredients as text",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "labels",
               "req": false,
+              "short": "Labels associated with the product (e.g., Organic, Fair Trade)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "last_modified_t",
               "req": false,
+              "short": "Last modification timestamp",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "manufacturing_places",
               "req": false,
+              "short": "Manufacturing or processing places",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nova_group",
               "req": false,
+              "short": "NOVA group for food processing level (1-4)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "nutriments",
               "req": false,
+              "short": "Nutritional information",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "nutriscore_grade",
               "req": false,
+              "short": "Nutri-Score grade (a, b, c, d, e)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nutriscore_score",
               "req": false,
+              "short": "Nutri-Score numerical score",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "packaging",
               "req": false,
+              "short": "Packaging type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "product_name",
               "req": false,
+              "short": "Name of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "quantity",
               "req": false,
+              "short": "Quantity or volume of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "stores",
               "req": false,
+              "short": "Stores where the product is available",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "traces",
               "req": false,
+              "short": "Traces of allergens",
               "type": "`$STRING`"
             }
           ],
@@ -325,162 +352,189 @@
               "active": true,
               "name": "additives_tags",
               "req": false,
+              "short": "List of additives",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "allergens",
               "req": false,
+              "short": "Allergens present in the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "brands",
               "req": false,
+              "short": "Brands of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "categories",
               "req": false,
+              "short": "Categories the product belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "countries",
               "req": false,
+              "short": "Countries where the product is sold",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "created_t",
               "req": false,
+              "short": "Creation timestamp",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "ecoscore_grade",
               "req": false,
+              "short": "Eco-Score grade for environmental impact (a, b, c, d, e)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ecoscore_score",
               "req": false,
+              "short": "Eco-Score numerical score",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "generic_name",
               "req": false,
+              "short": "Generic name of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "image_front_url",
               "req": false,
+              "short": "URL of the front image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "image_ingredients_url",
               "req": false,
+              "short": "URL of the ingredients image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "image_nutrition_url",
               "req": false,
+              "short": "URL of the nutrition facts image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "image_url",
               "req": false,
+              "short": "URL of the product's front image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ingredients_analysis_tags",
               "req": false,
+              "short": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "ingredients_text",
               "req": false,
+              "short": "List of ingredients as text",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "labels",
               "req": false,
+              "short": "Labels associated with the product (e.g., Organic, Fair Trade)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "last_modified_t",
               "req": false,
+              "short": "Last modification timestamp",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "manufacturing_places",
               "req": false,
+              "short": "Manufacturing or processing places",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nova_group",
               "req": false,
+              "short": "NOVA group for food processing level (1-4)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "nutriments",
               "req": false,
+              "short": "Nutritional information",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "nutriscore_grade",
               "req": false,
+              "short": "Nutri-Score grade (a, b, c, d, e)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nutriscore_score",
               "req": false,
+              "short": "Nutri-Score numerical score",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "packaging",
               "req": false,
+              "short": "Packaging type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "product_name",
               "req": false,
+              "short": "Name of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "quantity",
               "req": false,
+              "short": "Quantity or volume of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "stores",
               "req": false,
+              "short": "Stores where the product is available",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "traces",
               "req": false,
+              "short": "Traces of allergens",
               "type": "`$STRING`"
             }
           ],
