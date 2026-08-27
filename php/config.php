@@ -42,6 +42,7 @@ class OpenfoodfactsConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -103,6 +104,10 @@ class OpenfoodfactsConfig
             [
               'name' => 'generic_name',
               'short' => 'Generic name of the product',
+              'type' => '`$STRING`',
+            ],
+            [
+              'name' => 'id',
               'type' => '`$STRING`',
             ],
             [

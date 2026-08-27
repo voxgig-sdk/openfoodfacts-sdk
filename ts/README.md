@@ -147,7 +147,7 @@ await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -304,6 +304,7 @@ The `prepare()` method returns:
 | `ecoscore_grade` | Eco-Score grade for environmental impact (a, b, c, d, e) |
 | `ecoscore_score` | Eco-Score numerical score |
 | `generic_name` | Generic name of the product |
+| `id` |  |
 | `image_front_url` | URL of the front image |
 | `image_ingredients_url` | URL of the ingredients image |
 | `image_nutrition_url` | URL of the nutrition facts image |
@@ -391,6 +392,7 @@ Create an instance: `const product = client.Product()`
 | `ecoscore_grade` | `string` | Eco-Score grade for environmental impact (a, b, c, d, e) |
 | `ecoscore_score` | `number` | Eco-Score numerical score |
 | `generic_name` | `string` | Generic name of the product |
+| `id` | `string` |  |
 | `image_front_url` | `string` | URL of the front image |
 | `image_ingredients_url` | `string` | URL of the ingredients image |
 | `image_nutrition_url` | `string` | URL of the nutrition facts image |

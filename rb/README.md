@@ -253,6 +253,7 @@ returns a result `Hash` with these keys:
 | `ecoscore_grade` | Eco-Score grade for environmental impact (a, b, c, d, e) |
 | `ecoscore_score` | Eco-Score numerical score |
 | `generic_name` | Generic name of the product |
+| `id` |  |
 | `image_front_url` | URL of the front image |
 | `image_ingredients_url` | URL of the ingredients image |
 | `image_nutrition_url` | URL of the nutrition facts image |
@@ -340,6 +341,7 @@ Create an instance: `product = client.Product`
 | `ecoscore_grade` | `String` | Eco-Score grade for environmental impact (a, b, c, d, e) |
 | `ecoscore_score` | `Integer` | Eco-Score numerical score |
 | `generic_name` | `String` | Generic name of the product |
+| `id` | `String` |  |
 | `image_front_url` | `String` | URL of the front image |
 | `image_ingredients_url` | `String` | URL of the ingredients image |
 | `image_nutrition_url` | `String` | URL of the nutrition facts image |

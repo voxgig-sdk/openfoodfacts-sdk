@@ -28,6 +28,7 @@ module OpenfoodfactsConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -89,6 +90,10 @@ module OpenfoodfactsConfig
             {
               "name" => "generic_name",
               "short" => "Generic name of the product",
+              "type" => "`$STRING`",
+            },
+            {
+              "name" => "id",
               "type" => "`$STRING`",
             },
             {

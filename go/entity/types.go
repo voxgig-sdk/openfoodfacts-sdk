@@ -23,6 +23,7 @@ type Product struct {
 	EcoscoreGrade *string `json:"ecoscore_grade,omitempty"`
 	EcoscoreScore *int `json:"ecoscore_score,omitempty"`
 	GenericName *string `json:"generic_name,omitempty"`
+	Id *string `json:"id,omitempty"`
 	ImageFrontUrl *string `json:"image_front_url,omitempty"`
 	ImageIngredientsUrl *string `json:"image_ingredients_url,omitempty"`
 	ImageNutritionUrl *string `json:"image_nutrition_url,omitempty"`

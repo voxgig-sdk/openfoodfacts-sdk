@@ -37,6 +37,9 @@
 # @!attribute [rw] generic_name
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] image_front_url
 #   @return [String, nil]
 #
@@ -100,6 +103,7 @@ Product = Struct.new(
   :ecoscore_grade,
   :ecoscore_score,
   :generic_name,
+  :id,
   :image_front_url,
   :image_ingredients_url,
   :image_nutrition_url,

@@ -24,6 +24,7 @@ class Product
     public ?string $ecoscore_grade = null;
     public ?int $ecoscore_score = null;
     public ?string $generic_name = null;
+    public ?string $id = null;
     public ?string $image_front_url = null;
     public ?string $image_ingredients_url = null;
     public ?string $image_nutrition_url = null;

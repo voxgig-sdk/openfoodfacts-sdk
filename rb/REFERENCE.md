@@ -107,6 +107,7 @@ product = client.Product
 | `ecoscore_grade` | `String` | No | Eco-Score grade for environmental impact (a, b, c, d, e) |
 | `ecoscore_score` | `Integer` | No | Eco-Score numerical score |
 | `generic_name` | `String` | No | Generic name of the product |
+| `id` | `String` | No |  |
 | `image_front_url` | `String` | No | URL of the front image |
 | `image_ingredients_url` | `String` | No | URL of the ingredients image |
 | `image_nutrition_url` | `String` | No | URL of the nutrition facts image |

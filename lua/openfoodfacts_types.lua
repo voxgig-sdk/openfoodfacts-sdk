@@ -16,6 +16,7 @@
 ---@field ecoscore_grade? string
 ---@field ecoscore_score? number
 ---@field generic_name? string
+---@field id? string
 ---@field image_front_url? string
 ---@field image_ingredients_url? string
 ---@field image_nutrition_url? string

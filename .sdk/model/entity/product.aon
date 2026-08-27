@@ -60,6 +60,11 @@ main: kit: entity: product: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "image_front_url"
       req: false
       short: "URL of the front image"
@@ -168,6 +173,11 @@ main: kit: entity: product: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "product"
   op: {

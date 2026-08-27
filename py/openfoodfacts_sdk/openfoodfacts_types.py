@@ -26,6 +26,7 @@ class Product(TypedDict, total=False):
     ecoscore_grade: str
     ecoscore_score: int
     generic_name: str
+    id: str
     image_front_url: str
     image_ingredients_url: str
     image_nutrition_url: str

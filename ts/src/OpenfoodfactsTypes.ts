@@ -15,6 +15,7 @@ export interface Product {
   ecoscore_grade?: string
   ecoscore_score?: number
   generic_name?: string
+  id?: string
   image_front_url?: string
   image_ingredients_url?: string
   image_nutrition_url?: string

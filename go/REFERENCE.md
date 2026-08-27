@@ -112,6 +112,7 @@ fmt.Println(product.GetName()) // "product"
 | `ecoscore_grade` | `string` | No | Eco-Score grade for environmental impact (a, b, c, d, e) |
 | `ecoscore_score` | `int` | No | Eco-Score numerical score |
 | `generic_name` | `string` | No | Generic name of the product |
+| `id` | `string` | No |  |
 | `image_front_url` | `string` | No | URL of the front image |
 | `image_ingredients_url` | `string` | No | URL of the ingredients image |
 | `image_nutrition_url` | `string` | No | URL of the nutrition facts image |
