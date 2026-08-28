@@ -69,33 +69,13 @@
 ---@field traces? string
 
 ---@class SearchListMatch
----@field additives_tags? table
----@field allergens? string
----@field brands? string
----@field categories? string
----@field countries? string
----@field created_t? number
----@field ecoscore_grade? string
----@field ecoscore_score? number
----@field generic_name? string
----@field image_front_url? string
----@field image_ingredients_url? string
----@field image_nutrition_url? string
----@field image_url? string
----@field ingredients_analysis_tags? table
----@field ingredients_text? string
----@field labels? string
----@field last_modified_t? number
----@field manufacturing_places? string
----@field nova_group? number
----@field nutriments? table
----@field nutriscore_grade? string
----@field nutriscore_score? number
----@field packaging? string
----@field product_name? string
----@field quantity? string
----@field stores? string
----@field traces? string
+---@field brand? string
+---@field category? string
+---@field json? boolean
+---@field label? string
+---@field page? number
+---@field page_size? number
+---@field search_term? string
 
 local M = {}
 

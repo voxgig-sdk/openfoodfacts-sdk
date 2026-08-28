@@ -77,32 +77,12 @@ export interface Search {
 }
 
 export interface SearchListMatch {
-  additives_tags?: any[]
-  allergens?: string
-  brands?: string
-  categories?: string
-  countries?: string
-  created_t?: number
-  ecoscore_grade?: string
-  ecoscore_score?: number
-  generic_name?: string
-  image_front_url?: string
-  image_ingredients_url?: string
-  image_nutrition_url?: string
-  image_url?: string
-  ingredients_analysis_tags?: any[]
-  ingredients_text?: string
-  labels?: string
-  last_modified_t?: number
-  manufacturing_places?: string
-  nova_group?: number
-  nutriments?: Record<string, any>
-  nutriscore_grade?: string
-  nutriscore_score?: number
-  packaging?: string
-  product_name?: string
-  quantity?: string
-  stores?: string
-  traces?: string
+  brand?: string
+  category?: string
+  json?: boolean
+  label?: string
+  page?: number
+  page_size?: number
+  search_term?: string
 }
 

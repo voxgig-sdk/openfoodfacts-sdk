@@ -82,33 +82,13 @@ type Search struct {
 
 // SearchListMatch is the typed request payload for Search.ListTyped.
 type SearchListMatch struct {
-	AdditivesTags *[]any `json:"additives_tags,omitempty"`
-	Allergens *string `json:"allergens,omitempty"`
-	Brands *string `json:"brands,omitempty"`
-	Categories *string `json:"categories,omitempty"`
-	Countries *string `json:"countries,omitempty"`
-	CreatedT *int `json:"created_t,omitempty"`
-	EcoscoreGrade *string `json:"ecoscore_grade,omitempty"`
-	EcoscoreScore *int `json:"ecoscore_score,omitempty"`
-	GenericName *string `json:"generic_name,omitempty"`
-	ImageFrontUrl *string `json:"image_front_url,omitempty"`
-	ImageIngredientsUrl *string `json:"image_ingredients_url,omitempty"`
-	ImageNutritionUrl *string `json:"image_nutrition_url,omitempty"`
-	ImageUrl *string `json:"image_url,omitempty"`
-	IngredientsAnalysisTags *[]any `json:"ingredients_analysis_tags,omitempty"`
-	IngredientsText *string `json:"ingredients_text,omitempty"`
-	Labels *string `json:"labels,omitempty"`
-	LastModifiedT *int `json:"last_modified_t,omitempty"`
-	ManufacturingPlaces *string `json:"manufacturing_places,omitempty"`
-	NovaGroup *int `json:"nova_group,omitempty"`
-	Nutriments *map[string]any `json:"nutriments,omitempty"`
-	NutriscoreGrade *string `json:"nutriscore_grade,omitempty"`
-	NutriscoreScore *int `json:"nutriscore_score,omitempty"`
-	Packaging *string `json:"packaging,omitempty"`
-	ProductName *string `json:"product_name,omitempty"`
-	Quantity *string `json:"quantity,omitempty"`
-	Stores *string `json:"stores,omitempty"`
-	Traces *string `json:"traces,omitempty"`
+	Brand *string `json:"brand,omitempty"`
+	Category *string `json:"category,omitempty"`
+	Json *bool `json:"json,omitempty"`
+	Label *string `json:"label,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	SearchTerm *string `json:"search_term,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

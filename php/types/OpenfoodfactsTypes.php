@@ -86,32 +86,12 @@ class Search
 /** Request payload for Search#list. */
 class SearchListMatch
 {
-    public ?array $additives_tags = null;
-    public ?string $allergens = null;
-    public ?string $brands = null;
-    public ?string $categories = null;
-    public ?string $countries = null;
-    public ?int $created_t = null;
-    public ?string $ecoscore_grade = null;
-    public ?int $ecoscore_score = null;
-    public ?string $generic_name = null;
-    public ?string $image_front_url = null;
-    public ?string $image_ingredients_url = null;
-    public ?string $image_nutrition_url = null;
-    public ?string $image_url = null;
-    public ?array $ingredients_analysis_tags = null;
-    public ?string $ingredients_text = null;
-    public ?string $labels = null;
-    public ?int $last_modified_t = null;
-    public ?string $manufacturing_places = null;
-    public ?int $nova_group = null;
-    public ?array $nutriments = null;
-    public ?string $nutriscore_grade = null;
-    public ?int $nutriscore_score = null;
-    public ?string $packaging = null;
-    public ?string $product_name = null;
-    public ?string $quantity = null;
-    public ?string $stores = null;
-    public ?string $traces = null;
+    public ?string $brand = null;
+    public ?string $category = null;
+    public ?bool $json = null;
+    public ?string $label = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public ?string $search_term = null;
 }
 
