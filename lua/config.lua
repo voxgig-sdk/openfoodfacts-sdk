@@ -175,6 +175,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "product",
         ["op"] = {
           ["load"] = {
@@ -197,9 +201,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/product/{barcode}.json",
-                ["parts"] = {
-                  "product",
-                  "{barcode}.json",
+                ["segments"] = {
+                  {
+                    ["lit"] = "product",
+                  },
+                  {
+                    ["lit"] = "{barcode}.json",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "barcode",
@@ -210,6 +218,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.product`",
+                },
+                ["parts"] = {
+                  "product",
+                  "{barcode}.json",
                 },
               },
               {
@@ -228,9 +240,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/product/{barcode}.xml",
-                ["parts"] = {
-                  "product",
-                  "{barcode}.xml",
+                ["segments"] = {
+                  {
+                    ["lit"] = "product",
+                  },
+                  {
+                    ["lit"] = "{barcode}.xml",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "barcode",
@@ -241,6 +257,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "product",
+                  "{barcode}.xml",
                 },
               },
               {
@@ -259,13 +279,17 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/product/{barcode}",
-                ["parts"] = {
-                  "product",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["barcode"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "product",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -277,16 +301,16 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.product`",
                 },
+                ["parts"] = {
+                  "product",
+                  "{id}",
+                },
               },
             },
           },
         },
         ["relations"] = {
-          ["ancestors"] = {
-            {
-              "product",
-            },
-          },
+          ["ancestors"] = {},
         },
       },
       ["search"] = {
@@ -486,8 +510,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/search",
-                ["parts"] = {
-                  "search",
+                ["segments"] = {
+                  {
+                    ["lit"] = "search",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -503,6 +529,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.products`",
+                },
+                ["parts"] = {
+                  "search",
                 },
               },
             },

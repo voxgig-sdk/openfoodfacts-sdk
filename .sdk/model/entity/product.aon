@@ -199,9 +199,13 @@ main: kit: entity: product: {
           }
           method: "GET"
           orig: "/product/{barcode}.json"
-          parts: [
-            "product"
-            "{barcode}.json"
+          segments: [
+            {
+              lit: "product"
+            }
+            {
+              lit: "{barcode}.json"
+            }
           ]
           select: {
             "$action": "barcode"
@@ -229,9 +233,13 @@ main: kit: entity: product: {
           }
           method: "GET"
           orig: "/product/{barcode}.xml"
-          parts: [
-            "product"
-            "{barcode}.xml"
+          segments: [
+            {
+              lit: "product"
+            }
+            {
+              lit: "{barcode}.xml"
+            }
           ]
           select: {
             "$action": "barcode"
@@ -259,15 +267,19 @@ main: kit: entity: product: {
           }
           method: "GET"
           orig: "/product/{barcode}"
-          parts: [
-            "product"
-            "{id}"
-          ]
           rename: {
             param: {
               barcode: "id"
             }
           }
+          segments: [
+            {
+              lit: "product"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -280,14 +292,6 @@ main: kit: entity: product: {
         }
       ]
     }
-  }
-
-  relations: {
-    ancestors: [
-      [
-        "product"
-      ]
-    ]
   }
 
 

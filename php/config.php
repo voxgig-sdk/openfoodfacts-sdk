@@ -201,6 +201,10 @@ class OpenfoodfactsConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'product',
           'op' => [
             'load' => [
@@ -223,9 +227,13 @@ class OpenfoodfactsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/product/{barcode}.json',
-                  'parts' => [
-                    'product',
-                    '{barcode}.json',
+                  'segments' => [
+                    [
+                      'lit' => 'product',
+                    ],
+                    [
+                      'lit' => '{barcode}.json',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'barcode',
@@ -236,6 +244,10 @@ class OpenfoodfactsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.product`',
+                  ],
+                  'parts' => [
+                    'product',
+                    '{barcode}.json',
                   ],
                 ],
                 [
@@ -254,9 +266,13 @@ class OpenfoodfactsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/product/{barcode}.xml',
-                  'parts' => [
-                    'product',
-                    '{barcode}.xml',
+                  'segments' => [
+                    [
+                      'lit' => 'product',
+                    ],
+                    [
+                      'lit' => '{barcode}.xml',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'barcode',
@@ -267,6 +283,10 @@ class OpenfoodfactsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'product',
+                    '{barcode}.xml',
                   ],
                 ],
                 [
@@ -285,13 +305,17 @@ class OpenfoodfactsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/product/{barcode}',
-                  'parts' => [
-                    'product',
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'barcode' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'lit' => 'product',
+                    ],
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -303,16 +327,16 @@ class OpenfoodfactsConfig
                     'req' => '`reqdata`',
                     'res' => '`body.product`',
                   ],
+                  'parts' => [
+                    'product',
+                    '{id}',
+                  ],
                 ],
               ],
             ],
           ],
           'relations' => [
-            'ancestors' => [
-              [
-                'product',
-              ],
-            ],
+            'ancestors' => [],
           ],
         ],
         'search' => [
@@ -512,8 +536,10 @@ class OpenfoodfactsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/search',
-                  'parts' => [
-                    'search',
+                  'segments' => [
+                    [
+                      'lit' => 'search',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -529,6 +555,9 @@ class OpenfoodfactsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.products`',
+                  ],
+                  'parts' => [
+                    'search',
                   ],
                 ],
               ],

@@ -1,6 +1,14 @@
 # Openfoodfacts SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -196,6 +204,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "product",
         "op": {
           "load": {
@@ -218,9 +230,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/product/{barcode}.json",
-                "parts": [
-                  "product",
-                  "{barcode}.json",
+                "segments": [
+                  {
+                    "lit": "product",
+                  },
+                  {
+                    "lit": "{barcode}.json",
+                  },
                 ],
                 "select": {
                   "$action": "barcode",
@@ -232,6 +248,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.product`",
                 },
+                "parts": [
+                  "product",
+                  "{barcode}.json",
+                ],
               },
               {
                 "args": {
@@ -249,9 +269,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/product/{barcode}.xml",
-                "parts": [
-                  "product",
-                  "{barcode}.xml",
+                "segments": [
+                  {
+                    "lit": "product",
+                  },
+                  {
+                    "lit": "{barcode}.xml",
+                  },
                 ],
                 "select": {
                   "$action": "barcode",
@@ -263,6 +287,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "product",
+                  "{barcode}.xml",
+                ],
               },
               {
                 "args": {
@@ -280,15 +308,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/product/{barcode}",
-                "parts": [
-                  "product",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "barcode": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "product",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -298,16 +330,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.product`",
                 },
+                "parts": [
+                  "product",
+                  "{id}",
+                ],
               },
             ],
           },
         },
         "relations": {
-          "ancestors": [
-            [
-              "product",
-            ],
-          ],
+          "ancestors": [],
         },
       },
       "search": {
@@ -507,8 +539,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/search",
-                "parts": [
-                  "search",
+                "segments": [
+                  {
+                    "lit": "search",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -525,6 +559,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.products`",
                 },
+                "parts": [
+                  "search",
+                ],
               },
             ],
           },
