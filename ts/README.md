@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OpenfoodfactsSDK } from '@voxgig-sdk/openfoodfacts'
+import { OpenfoodfactsSDK } from '@voxgig-sdk/openfoodfacts-sdk'
 
 const client = new OpenfoodfactsSDK({
   apikey: process.env.OPENFOODFACTS_APIKEY,
@@ -550,7 +550,7 @@ openfoodfacts/
 Import the SDK from the package root:
 
 ```ts
-import { OpenfoodfactsSDK } from '@voxgig-sdk/openfoodfacts'
+import { OpenfoodfactsSDK } from '@voxgig-sdk/openfoodfacts-sdk'
 ```
 
 ### Entity state

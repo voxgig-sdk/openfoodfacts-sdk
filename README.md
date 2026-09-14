@@ -105,7 +105,7 @@ local result, err = client:Product():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases) |
+| TypeScript | `@voxgig-sdk/openfoodfacts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases) |
 | Python | `voxgig-sdk-openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases) |
 | PHP | `voxgig-sdk/openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/openfoodfacts-sdk/go` | `go get github.com/voxgig-sdk/openfoodfacts-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Product():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { OpenfoodfactsSDK } from '@voxgig-sdk/openfoodfacts'
+import { OpenfoodfactsSDK } from '@voxgig-sdk/openfoodfacts-sdk'
 
 const client = new OpenfoodfactsSDK({
   apikey: process.env.OPENFOODFACTS_APIKEY,
