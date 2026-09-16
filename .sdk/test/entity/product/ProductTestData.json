@@ -7,9 +7,9 @@
         "brands": "s11a",
         "categories": "s11b",
         "countries": "s11c",
-        "created_t": "s11d",
+        "created_t": 285,
         "ecoscore_grade": "s11e",
-        "ecoscore_score": "s11f",
+        "ecoscore_score": 287,
         "generic_name": "s120",
         "id": "PRODUCT00",
         "image_front_url": "s122",
@@ -19,12 +19,12 @@
         "ingredients_analysis_tags": [],
         "ingredients_text": "s127",
         "labels": "s128",
-        "last_modified_t": "s129",
+        "last_modified_t": 297,
         "manufacturing_places": "s12a",
-        "nova_group": "s12b",
+        "nova_group": 299,
         "nutriments": {},
         "nutriscore_grade": "s12d",
-        "nutriscore_score": "s12e",
+        "nutriscore_score": 302,
         "packaging": "s12f",
         "product_name": "s130",
         "quantity": "s131",
@@ -38,9 +38,9 @@
         "brands": "s232",
         "categories": "s233",
         "countries": "s234",
-        "created_t": "s235",
+        "created_t": 565,
         "ecoscore_grade": "s236",
-        "ecoscore_score": "s237",
+        "ecoscore_score": 567,
         "generic_name": "s238",
         "id": "PRODUCT01",
         "image_front_url": "s23a",
@@ -50,12 +50,12 @@
         "ingredients_analysis_tags": [],
         "ingredients_text": "s23f",
         "labels": "s240",
-        "last_modified_t": "s241",
+        "last_modified_t": 577,
         "manufacturing_places": "s242",
-        "nova_group": "s243",
+        "nova_group": 579,
         "nutriments": {},
         "nutriscore_grade": "s245",
-        "nutriscore_score": "s246",
+        "nutriscore_score": 582,
         "packaging": "s247",
         "product_name": "s248",
         "quantity": "s249",
@@ -69,9 +69,9 @@
         "brands": "s34a",
         "categories": "s34b",
         "countries": "s34c",
-        "created_t": "s34d",
+        "created_t": 845,
         "ecoscore_grade": "s34e",
-        "ecoscore_score": "s34f",
+        "ecoscore_score": 847,
         "generic_name": "s350",
         "id": "PRODUCT02",
         "image_front_url": "s352",
@@ -81,12 +81,12 @@
         "ingredients_analysis_tags": [],
         "ingredients_text": "s357",
         "labels": "s358",
-        "last_modified_t": "s359",
+        "last_modified_t": 857,
         "manufacturing_places": "s35a",
-        "nova_group": "s35b",
+        "nova_group": 859,
         "nutriments": {},
         "nutriscore_grade": "s35d",
-        "nutriscore_score": "s35e",
+        "nutriscore_score": 862,
         "packaging": "s35f",
         "product_name": "s360",
         "quantity": "s361",
@@ -104,9 +104,9 @@
         "brands": "s462",
         "categories": "s463",
         "countries": "s464",
-        "created_t": "s465",
+        "created_t": 1125,
         "ecoscore_grade": "s466",
-        "ecoscore_score": "s467",
+        "ecoscore_score": 1127,
         "generic_name": "s468",
         "image_front_url": "s46a",
         "image_ingredients_url": "s46b",
@@ -115,17 +115,615 @@
         "ingredients_analysis_tags": [],
         "ingredients_text": "s46f",
         "labels": "s470",
-        "last_modified_t": "s471",
+        "last_modified_t": 1137,
         "manufacturing_places": "s472",
-        "nova_group": "s473",
+        "nova_group": 1139,
         "nutriments": {},
         "nutriscore_grade": "s475",
-        "nutriscore_score": "s476",
+        "nutriscore_score": 1142,
         "packaging": "s477",
         "product_name": "s478",
         "quantity": "s479",
         "stores": "s47a",
         "traces": "s47b"
+      }
+    }
+  },
+  "requests": {
+    "GET /product/{barcode}.json": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getProductByBarcodeJson",
+        "parameters": [
+          {
+            "description": "The barcode of the product",
+            "in": "path",
+            "name": "barcode",
+            "required": true,
+            "schema": {
+              "example": "737628064502",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "The product barcode",
+                      "type": "string"
+                    },
+                    "product": {
+                      "properties": {
+                        "additives_tags": {
+                          "description": "List of additives",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "allergens": {
+                          "description": "Allergens present in the product",
+                          "type": "string"
+                        },
+                        "brands": {
+                          "description": "Brands of the product",
+                          "type": "string"
+                        },
+                        "categories": {
+                          "description": "Categories the product belongs to",
+                          "type": "string"
+                        },
+                        "countries": {
+                          "description": "Countries where the product is sold",
+                          "type": "string"
+                        },
+                        "created_t": {
+                          "description": "Creation timestamp",
+                          "type": "integer"
+                        },
+                        "ecoscore_grade": {
+                          "description": "Eco-Score grade for environmental impact (a, b, c, d, e)",
+                          "enum": [
+                            "a",
+                            "b",
+                            "c",
+                            "d",
+                            "e"
+                          ],
+                          "type": "string"
+                        },
+                        "ecoscore_score": {
+                          "description": "Eco-Score numerical score",
+                          "type": "integer"
+                        },
+                        "generic_name": {
+                          "description": "Generic name of the product",
+                          "type": "string"
+                        },
+                        "image_front_url": {
+                          "description": "URL of the front image",
+                          "type": "string"
+                        },
+                        "image_ingredients_url": {
+                          "description": "URL of the ingredients image",
+                          "type": "string"
+                        },
+                        "image_nutrition_url": {
+                          "description": "URL of the nutrition facts image",
+                          "type": "string"
+                        },
+                        "image_url": {
+                          "description": "URL of the product's front image",
+                          "type": "string"
+                        },
+                        "ingredients_analysis_tags": {
+                          "description": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "ingredients_text": {
+                          "description": "List of ingredients as text",
+                          "type": "string"
+                        },
+                        "labels": {
+                          "description": "Labels associated with the product (e.g., Organic, Fair Trade)",
+                          "type": "string"
+                        },
+                        "last_modified_t": {
+                          "description": "Last modification timestamp",
+                          "type": "integer"
+                        },
+                        "manufacturing_places": {
+                          "description": "Manufacturing or processing places",
+                          "type": "string"
+                        },
+                        "nova_group": {
+                          "description": "NOVA group for food processing level (1-4)",
+                          "maximum": 4,
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "nutriments": {
+                          "description": "Nutritional information",
+                          "properties": {
+                            "carbohydrates": {
+                              "description": "Carbohydrates per 100g",
+                              "type": "number"
+                            },
+                            "energy-kcal": {
+                              "description": "Energy in kcal per 100g",
+                              "type": "number"
+                            },
+                            "energy-kj": {
+                              "description": "Energy in kJ per 100g",
+                              "type": "number"
+                            },
+                            "fat": {
+                              "description": "Fat content per 100g",
+                              "type": "number"
+                            },
+                            "fiber": {
+                              "description": "Dietary fiber per 100g",
+                              "type": "number"
+                            },
+                            "proteins": {
+                              "description": "Proteins per 100g",
+                              "type": "number"
+                            },
+                            "salt": {
+                              "description": "Salt content per 100g",
+                              "type": "number"
+                            },
+                            "saturated-fat": {
+                              "description": "Saturated fat content per 100g",
+                              "type": "number"
+                            },
+                            "sodium": {
+                              "description": "Sodium content per 100g",
+                              "type": "number"
+                            },
+                            "sugars": {
+                              "description": "Sugars per 100g",
+                              "type": "number"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "nutriscore_grade": {
+                          "description": "Nutri-Score grade (a, b, c, d, e)",
+                          "enum": [
+                            "a",
+                            "b",
+                            "c",
+                            "d",
+                            "e"
+                          ],
+                          "type": "string"
+                        },
+                        "nutriscore_score": {
+                          "description": "Nutri-Score numerical score",
+                          "type": "integer"
+                        },
+                        "packaging": {
+                          "description": "Packaging type",
+                          "type": "string"
+                        },
+                        "product_name": {
+                          "description": "Name of the product",
+                          "type": "string"
+                        },
+                        "quantity": {
+                          "description": "Quantity or volume of the product",
+                          "type": "string"
+                        },
+                        "stores": {
+                          "description": "Stores where the product is available",
+                          "type": "string"
+                        },
+                        "traces": {
+                          "description": "Traces of allergens",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "status": {
+                      "description": "Status code: 1 for found, 0 for not found",
+                      "type": "integer"
+                    },
+                    "status_verbose": {
+                      "description": "Human-readable status message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with product information in JSON"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "The barcode that was queried",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Status code (0 for error)",
+                      "type": "integer"
+                    },
+                    "status_verbose": {
+                      "description": "Human-readable error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Product not found"
+          }
+        },
+        "securitySchemes": {
+          "UserAgent": {
+            "description": "It is recommended to send a User-Agent header with your API calls to help identify your application",
+            "in": "header",
+            "name": "User-Agent",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /product/{barcode}.xml": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getProductByBarcodeXml",
+        "parameters": [
+          {
+            "description": "The barcode of the product",
+            "in": "path",
+            "name": "barcode",
+            "required": true,
+            "schema": {
+              "example": "737628064502",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with product information in XML"
+          },
+          "404": {
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Product not found"
+          }
+        },
+        "securitySchemes": {
+          "UserAgent": {
+            "description": "It is recommended to send a User-Agent header with your API calls to help identify your application",
+            "in": "header",
+            "name": "User-Agent",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /product/{barcode}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getProductByBarcode",
+        "parameters": [
+          {
+            "description": "The barcode of the product (e.g., EAN-13, UPC)",
+            "in": "path",
+            "name": "barcode",
+            "required": true,
+            "schema": {
+              "example": "737628064502",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "code": "737628064502",
+                  "product": {
+                    "allergens": "gluten",
+                    "brands": "Example Brand",
+                    "categories": "Snacks",
+                    "ecoscore_grade": "b",
+                    "image_url": "https://images.openfoodfacts.org/images/products/737/628/064/502/front_en.jpg",
+                    "ingredients_text": "Wheat flour, sugar, salt",
+                    "labels": "Organic",
+                    "nova_group": 3,
+                    "nutriments": {
+                      "carbohydrates": 50,
+                      "energy-kcal": 450,
+                      "fat": 20,
+                      "proteins": 8,
+                      "salt": 1.5,
+                      "saturated-fat": 5,
+                      "sugars": 10
+                    },
+                    "nutriscore_grade": "c",
+                    "product_name": "Example Product"
+                  },
+                  "status": 1,
+                  "status_verbose": "product found"
+                },
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "The product barcode",
+                      "type": "string"
+                    },
+                    "product": {
+                      "properties": {
+                        "additives_tags": {
+                          "description": "List of additives",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "allergens": {
+                          "description": "Allergens present in the product",
+                          "type": "string"
+                        },
+                        "brands": {
+                          "description": "Brands of the product",
+                          "type": "string"
+                        },
+                        "categories": {
+                          "description": "Categories the product belongs to",
+                          "type": "string"
+                        },
+                        "countries": {
+                          "description": "Countries where the product is sold",
+                          "type": "string"
+                        },
+                        "created_t": {
+                          "description": "Creation timestamp",
+                          "type": "integer"
+                        },
+                        "ecoscore_grade": {
+                          "description": "Eco-Score grade for environmental impact (a, b, c, d, e)",
+                          "enum": [
+                            "a",
+                            "b",
+                            "c",
+                            "d",
+                            "e"
+                          ],
+                          "type": "string"
+                        },
+                        "ecoscore_score": {
+                          "description": "Eco-Score numerical score",
+                          "type": "integer"
+                        },
+                        "generic_name": {
+                          "description": "Generic name of the product",
+                          "type": "string"
+                        },
+                        "image_front_url": {
+                          "description": "URL of the front image",
+                          "type": "string"
+                        },
+                        "image_ingredients_url": {
+                          "description": "URL of the ingredients image",
+                          "type": "string"
+                        },
+                        "image_nutrition_url": {
+                          "description": "URL of the nutrition facts image",
+                          "type": "string"
+                        },
+                        "image_url": {
+                          "description": "URL of the product's front image",
+                          "type": "string"
+                        },
+                        "ingredients_analysis_tags": {
+                          "description": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "ingredients_text": {
+                          "description": "List of ingredients as text",
+                          "type": "string"
+                        },
+                        "labels": {
+                          "description": "Labels associated with the product (e.g., Organic, Fair Trade)",
+                          "type": "string"
+                        },
+                        "last_modified_t": {
+                          "description": "Last modification timestamp",
+                          "type": "integer"
+                        },
+                        "manufacturing_places": {
+                          "description": "Manufacturing or processing places",
+                          "type": "string"
+                        },
+                        "nova_group": {
+                          "description": "NOVA group for food processing level (1-4)",
+                          "maximum": 4,
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "nutriments": {
+                          "description": "Nutritional information",
+                          "properties": {
+                            "carbohydrates": {
+                              "description": "Carbohydrates per 100g",
+                              "type": "number"
+                            },
+                            "energy-kcal": {
+                              "description": "Energy in kcal per 100g",
+                              "type": "number"
+                            },
+                            "energy-kj": {
+                              "description": "Energy in kJ per 100g",
+                              "type": "number"
+                            },
+                            "fat": {
+                              "description": "Fat content per 100g",
+                              "type": "number"
+                            },
+                            "fiber": {
+                              "description": "Dietary fiber per 100g",
+                              "type": "number"
+                            },
+                            "proteins": {
+                              "description": "Proteins per 100g",
+                              "type": "number"
+                            },
+                            "salt": {
+                              "description": "Salt content per 100g",
+                              "type": "number"
+                            },
+                            "saturated-fat": {
+                              "description": "Saturated fat content per 100g",
+                              "type": "number"
+                            },
+                            "sodium": {
+                              "description": "Sodium content per 100g",
+                              "type": "number"
+                            },
+                            "sugars": {
+                              "description": "Sugars per 100g",
+                              "type": "number"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "nutriscore_grade": {
+                          "description": "Nutri-Score grade (a, b, c, d, e)",
+                          "enum": [
+                            "a",
+                            "b",
+                            "c",
+                            "d",
+                            "e"
+                          ],
+                          "type": "string"
+                        },
+                        "nutriscore_score": {
+                          "description": "Nutri-Score numerical score",
+                          "type": "integer"
+                        },
+                        "packaging": {
+                          "description": "Packaging type",
+                          "type": "string"
+                        },
+                        "product_name": {
+                          "description": "Name of the product",
+                          "type": "string"
+                        },
+                        "quantity": {
+                          "description": "Quantity or volume of the product",
+                          "type": "string"
+                        },
+                        "stores": {
+                          "description": "Stores where the product is available",
+                          "type": "string"
+                        },
+                        "traces": {
+                          "description": "Traces of allergens",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "status": {
+                      "description": "Status code: 1 for found, 0 for not found",
+                      "type": "integer"
+                    },
+                    "status_verbose": {
+                      "description": "Human-readable status message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with product information"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "code": "737628064502",
+                  "status": 0,
+                  "status_verbose": "product not found"
+                },
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "The barcode that was queried",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Status code (0 for error)",
+                      "type": "integer"
+                    },
+                    "status_verbose": {
+                      "description": "Human-readable error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Product not found"
+          }
+        },
+        "securitySchemes": {
+          "UserAgent": {
+            "description": "It is recommended to send a User-Agent header with your API calls to help identify your application",
+            "in": "header",
+            "name": "User-Agent",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Openfoodfacts SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class OpenfoodfactsFeatures
@@ -14,8 +17,14 @@ class OpenfoodfactsFeatures
         switch ($name) {
             case "base":
                 return new OpenfoodfactsBaseFeature();
+            case "ratelimit":
+                return new OpenfoodfactsRatelimitFeature();
+            case "retry":
+                return new OpenfoodfactsRetryFeature();
             case "test":
                 return new OpenfoodfactsTestFeature();
+            case "timeout":
+                return new OpenfoodfactsTimeoutFeature();
             default:
                 return new OpenfoodfactsBaseFeature();
         }
@@ -31,7 +40,10 @@ class OpenfoodfactsFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

@@ -1,12 +1,18 @@
 # Openfoodfacts SDK feature factory
 
 from openfoodfacts_sdk.feature.base_feature import OpenfoodfactsBaseFeature
+from openfoodfacts_sdk.feature.ratelimit_feature import OpenfoodfactsRatelimitFeature
+from openfoodfacts_sdk.feature.retry_feature import OpenfoodfactsRetryFeature
 from openfoodfacts_sdk.feature.test_feature import OpenfoodfactsTestFeature
+from openfoodfacts_sdk.feature.timeout_feature import OpenfoodfactsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: OpenfoodfactsBaseFeature(),
+    "ratelimit": lambda: OpenfoodfactsRatelimitFeature(),
+    "retry": lambda: OpenfoodfactsRetryFeature(),
     "test": lambda: OpenfoodfactsTestFeature(),
+    "timeout": lambda: OpenfoodfactsTimeoutFeature(),
 }
 
 

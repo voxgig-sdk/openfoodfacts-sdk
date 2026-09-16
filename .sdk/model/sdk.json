@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "product": {
           "active": true,
@@ -253,6 +317,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /product/{barcode}.json",
+                    "json": "{\"operationId\":\"getProductByBarcodeJson\",\"parameters\":[{\"description\":\"The barcode of the product\",\"in\":\"path\",\"name\":\"barcode\",\"required\":true,\"schema\":{\"example\":\"737628064502\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"The product barcode\",\"type\":\"string\"},\"product\":{\"properties\":{\"additives_tags\":{\"description\":\"List of additives\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"allergens\":{\"description\":\"Allergens present in the product\",\"type\":\"string\"},\"brands\":{\"description\":\"Brands of the product\",\"type\":\"string\"},\"categories\":{\"description\":\"Categories the product belongs to\",\"type\":\"string\"},\"countries\":{\"description\":\"Countries where the product is sold\",\"type\":\"string\"},\"created_t\":{\"description\":\"Creation timestamp\",\"type\":\"integer\"},\"ecoscore_grade\":{\"description\":\"Eco-Score grade for environmental impact (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"ecoscore_score\":{\"description\":\"Eco-Score numerical score\",\"type\":\"integer\"},\"generic_name\":{\"description\":\"Generic name of the product\",\"type\":\"string\"},\"image_front_url\":{\"description\":\"URL of the front image\",\"type\":\"string\"},\"image_ingredients_url\":{\"description\":\"URL of the ingredients image\",\"type\":\"string\"},\"image_nutrition_url\":{\"description\":\"URL of the nutrition facts image\",\"type\":\"string\"},\"image_url\":{\"description\":\"URL of the product's front image\",\"type\":\"string\"},\"ingredients_analysis_tags\":{\"description\":\"Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"ingredients_text\":{\"description\":\"List of ingredients as text\",\"type\":\"string\"},\"labels\":{\"description\":\"Labels associated with the product (e.g., Organic, Fair Trade)\",\"type\":\"string\"},\"last_modified_t\":{\"description\":\"Last modification timestamp\",\"type\":\"integer\"},\"manufacturing_places\":{\"description\":\"Manufacturing or processing places\",\"type\":\"string\"},\"nova_group\":{\"description\":\"NOVA group for food processing level (1-4)\",\"maximum\":4,\"minimum\":1,\"type\":\"integer\"},\"nutriments\":{\"description\":\"Nutritional information\",\"properties\":{\"carbohydrates\":{\"description\":\"Carbohydrates per 100g\",\"type\":\"number\"},\"energy-kcal\":{\"description\":\"Energy in kcal per 100g\",\"type\":\"number\"},\"energy-kj\":{\"description\":\"Energy in kJ per 100g\",\"type\":\"number\"},\"fat\":{\"description\":\"Fat content per 100g\",\"type\":\"number\"},\"fiber\":{\"description\":\"Dietary fiber per 100g\",\"type\":\"number\"},\"proteins\":{\"description\":\"Proteins per 100g\",\"type\":\"number\"},\"salt\":{\"description\":\"Salt content per 100g\",\"type\":\"number\"},\"saturated-fat\":{\"description\":\"Saturated fat content per 100g\",\"type\":\"number\"},\"sodium\":{\"description\":\"Sodium content per 100g\",\"type\":\"number\"},\"sugars\":{\"description\":\"Sugars per 100g\",\"type\":\"number\"}},\"type\":\"object\"},\"nutriscore_grade\":{\"description\":\"Nutri-Score grade (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"nutriscore_score\":{\"description\":\"Nutri-Score numerical score\",\"type\":\"integer\"},\"packaging\":{\"description\":\"Packaging type\",\"type\":\"string\"},\"product_name\":{\"description\":\"Name of the product\",\"type\":\"string\"},\"quantity\":{\"description\":\"Quantity or volume of the product\",\"type\":\"string\"},\"stores\":{\"description\":\"Stores where the product is available\",\"type\":\"string\"},\"traces\":{\"description\":\"Traces of allergens\",\"type\":\"string\"}},\"type\":\"object\"},\"status\":{\"description\":\"Status code: 1 for found, 0 for not found\",\"type\":\"integer\"},\"status_verbose\":{\"description\":\"Human-readable status message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with product information in JSON\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"The barcode that was queried\",\"type\":\"string\"},\"status\":{\"description\":\"Status code (0 for error)\",\"type\":\"integer\"},\"status_verbose\":{\"description\":\"Human-readable error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Product not found\"}},\"securitySchemes\":{\"UserAgent\":{\"description\":\"It is recommended to send a User-Agent header with your API calls to help identify your application\",\"in\":\"header\",\"name\":\"User-Agent\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/product/{barcode}.json",
@@ -290,6 +360,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /product/{barcode}.xml",
+                    "json": "{\"operationId\":\"getProductByBarcodeXml\",\"parameters\":[{\"description\":\"The barcode of the product\",\"in\":\"path\",\"name\":\"barcode\",\"required\":true,\"schema\":{\"example\":\"737628064502\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/xml\":{\"schema\":{\"type\":\"object\"}}},\"description\":\"Successful response with product information in XML\"},\"404\":{\"content\":{\"application/xml\":{\"schema\":{\"type\":\"object\"}}},\"description\":\"Product not found\"}},\"securitySchemes\":{\"UserAgent\":{\"description\":\"It is recommended to send a User-Agent header with your API calls to help identify your application\",\"in\":\"header\",\"name\":\"User-Agent\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/product/{barcode}.xml",
@@ -326,6 +402,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /product/{barcode}",
+                    "json": "{\"operationId\":\"getProductByBarcode\",\"parameters\":[{\"description\":\"The barcode of the product (e.g., EAN-13, UPC)\",\"in\":\"path\",\"name\":\"barcode\",\"required\":true,\"schema\":{\"example\":\"737628064502\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"code\":\"737628064502\",\"product\":{\"allergens\":\"gluten\",\"brands\":\"Example Brand\",\"categories\":\"Snacks\",\"ecoscore_grade\":\"b\",\"image_url\":\"https://images.openfoodfacts.org/images/products/737/628/064/502/front_en.jpg\",\"ingredients_text\":\"Wheat flour, sugar, salt\",\"labels\":\"Organic\",\"nova_group\":3,\"nutriments\":{\"carbohydrates\":50,\"energy-kcal\":450,\"fat\":20,\"proteins\":8,\"salt\":1.5,\"saturated-fat\":5,\"sugars\":10},\"nutriscore_grade\":\"c\",\"product_name\":\"Example Product\"},\"status\":1,\"status_verbose\":\"product found\"},\"schema\":{\"properties\":{\"code\":{\"description\":\"The product barcode\",\"type\":\"string\"},\"product\":{\"properties\":{\"additives_tags\":{\"description\":\"List of additives\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"allergens\":{\"description\":\"Allergens present in the product\",\"type\":\"string\"},\"brands\":{\"description\":\"Brands of the product\",\"type\":\"string\"},\"categories\":{\"description\":\"Categories the product belongs to\",\"type\":\"string\"},\"countries\":{\"description\":\"Countries where the product is sold\",\"type\":\"string\"},\"created_t\":{\"description\":\"Creation timestamp\",\"type\":\"integer\"},\"ecoscore_grade\":{\"description\":\"Eco-Score grade for environmental impact (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"ecoscore_score\":{\"description\":\"Eco-Score numerical score\",\"type\":\"integer\"},\"generic_name\":{\"description\":\"Generic name of the product\",\"type\":\"string\"},\"image_front_url\":{\"description\":\"URL of the front image\",\"type\":\"string\"},\"image_ingredients_url\":{\"description\":\"URL of the ingredients image\",\"type\":\"string\"},\"image_nutrition_url\":{\"description\":\"URL of the nutrition facts image\",\"type\":\"string\"},\"image_url\":{\"description\":\"URL of the product's front image\",\"type\":\"string\"},\"ingredients_analysis_tags\":{\"description\":\"Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"ingredients_text\":{\"description\":\"List of ingredients as text\",\"type\":\"string\"},\"labels\":{\"description\":\"Labels associated with the product (e.g., Organic, Fair Trade)\",\"type\":\"string\"},\"last_modified_t\":{\"description\":\"Last modification timestamp\",\"type\":\"integer\"},\"manufacturing_places\":{\"description\":\"Manufacturing or processing places\",\"type\":\"string\"},\"nova_group\":{\"description\":\"NOVA group for food processing level (1-4)\",\"maximum\":4,\"minimum\":1,\"type\":\"integer\"},\"nutriments\":{\"description\":\"Nutritional information\",\"properties\":{\"carbohydrates\":{\"description\":\"Carbohydrates per 100g\",\"type\":\"number\"},\"energy-kcal\":{\"description\":\"Energy in kcal per 100g\",\"type\":\"number\"},\"energy-kj\":{\"description\":\"Energy in kJ per 100g\",\"type\":\"number\"},\"fat\":{\"description\":\"Fat content per 100g\",\"type\":\"number\"},\"fiber\":{\"description\":\"Dietary fiber per 100g\",\"type\":\"number\"},\"proteins\":{\"description\":\"Proteins per 100g\",\"type\":\"number\"},\"salt\":{\"description\":\"Salt content per 100g\",\"type\":\"number\"},\"saturated-fat\":{\"description\":\"Saturated fat content per 100g\",\"type\":\"number\"},\"sodium\":{\"description\":\"Sodium content per 100g\",\"type\":\"number\"},\"sugars\":{\"description\":\"Sugars per 100g\",\"type\":\"number\"}},\"type\":\"object\"},\"nutriscore_grade\":{\"description\":\"Nutri-Score grade (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"nutriscore_score\":{\"description\":\"Nutri-Score numerical score\",\"type\":\"integer\"},\"packaging\":{\"description\":\"Packaging type\",\"type\":\"string\"},\"product_name\":{\"description\":\"Name of the product\",\"type\":\"string\"},\"quantity\":{\"description\":\"Quantity or volume of the product\",\"type\":\"string\"},\"stores\":{\"description\":\"Stores where the product is available\",\"type\":\"string\"},\"traces\":{\"description\":\"Traces of allergens\",\"type\":\"string\"}},\"type\":\"object\"},\"status\":{\"description\":\"Status code: 1 for found, 0 for not found\",\"type\":\"integer\"},\"status_verbose\":{\"description\":\"Human-readable status message\",\"type\":\"string\"}},\"type\":\"object\"}},\"application/xml\":{\"schema\":{\"type\":\"object\"}}},\"description\":\"Successful response with product information\"},\"404\":{\"content\":{\"application/json\":{\"example\":{\"code\":\"737628064502\",\"status\":0,\"status_verbose\":\"product not found\"},\"schema\":{\"properties\":{\"code\":{\"description\":\"The barcode that was queried\",\"type\":\"string\"},\"status\":{\"description\":\"Status code (0 for error)\",\"type\":\"integer\"},\"status_verbose\":{\"description\":\"Human-readable error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Product not found\"}},\"securitySchemes\":{\"UserAgent\":{\"description\":\"It is recommended to send a User-Agent header with your API calls to help identify your application\",\"in\":\"header\",\"name\":\"User-Agent\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -627,6 +709,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /search",
+                    "json": "{\"operationId\":\"searchProducts\",\"parameters\":[{\"description\":\"Search terms for product name, brand, or other text fields\",\"in\":\"query\",\"name\":\"search_terms\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by product category\",\"in\":\"query\",\"name\":\"categories\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by brand name\",\"in\":\"query\",\"name\":\"brands\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by labels (e.g., organic, fair-trade)\",\"in\":\"query\",\"name\":\"labels\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Number of products per page\",\"in\":\"query\",\"name\":\"page_size\",\"schema\":{\"default\":20,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Return results in JSON format\",\"in\":\"query\",\"name\":\"json\",\"schema\":{\"default\":true,\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"count\":{\"description\":\"Total number of products matching the search\",\"type\":\"integer\"},\"page\":{\"description\":\"Current page number\",\"type\":\"integer\"},\"page_count\":{\"description\":\"Total number of pages\",\"type\":\"integer\"},\"page_size\":{\"description\":\"Number of products per page\",\"type\":\"integer\"},\"products\":{\"description\":\"Array of products matching the search criteria\",\"items\":{\"properties\":{\"additives_tags\":{\"description\":\"List of additives\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"allergens\":{\"description\":\"Allergens present in the product\",\"type\":\"string\"},\"brands\":{\"description\":\"Brands of the product\",\"type\":\"string\"},\"categories\":{\"description\":\"Categories the product belongs to\",\"type\":\"string\"},\"countries\":{\"description\":\"Countries where the product is sold\",\"type\":\"string\"},\"created_t\":{\"description\":\"Creation timestamp\",\"type\":\"integer\"},\"ecoscore_grade\":{\"description\":\"Eco-Score grade for environmental impact (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"ecoscore_score\":{\"description\":\"Eco-Score numerical score\",\"type\":\"integer\"},\"generic_name\":{\"description\":\"Generic name of the product\",\"type\":\"string\"},\"image_front_url\":{\"description\":\"URL of the front image\",\"type\":\"string\"},\"image_ingredients_url\":{\"description\":\"URL of the ingredients image\",\"type\":\"string\"},\"image_nutrition_url\":{\"description\":\"URL of the nutrition facts image\",\"type\":\"string\"},\"image_url\":{\"description\":\"URL of the product's front image\",\"type\":\"string\"},\"ingredients_analysis_tags\":{\"description\":\"Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"ingredients_text\":{\"description\":\"List of ingredients as text\",\"type\":\"string\"},\"labels\":{\"description\":\"Labels associated with the product (e.g., Organic, Fair Trade)\",\"type\":\"string\"},\"last_modified_t\":{\"description\":\"Last modification timestamp\",\"type\":\"integer\"},\"manufacturing_places\":{\"description\":\"Manufacturing or processing places\",\"type\":\"string\"},\"nova_group\":{\"description\":\"NOVA group for food processing level (1-4)\",\"maximum\":4,\"minimum\":1,\"type\":\"integer\"},\"nutriments\":{\"description\":\"Nutritional information\",\"properties\":{\"carbohydrates\":{\"description\":\"Carbohydrates per 100g\",\"type\":\"number\"},\"energy-kcal\":{\"description\":\"Energy in kcal per 100g\",\"type\":\"number\"},\"energy-kj\":{\"description\":\"Energy in kJ per 100g\",\"type\":\"number\"},\"fat\":{\"description\":\"Fat content per 100g\",\"type\":\"number\"},\"fiber\":{\"description\":\"Dietary fiber per 100g\",\"type\":\"number\"},\"proteins\":{\"description\":\"Proteins per 100g\",\"type\":\"number\"},\"salt\":{\"description\":\"Salt content per 100g\",\"type\":\"number\"},\"saturated-fat\":{\"description\":\"Saturated fat content per 100g\",\"type\":\"number\"},\"sodium\":{\"description\":\"Sodium content per 100g\",\"type\":\"number\"},\"sugars\":{\"description\":\"Sugars per 100g\",\"type\":\"number\"}},\"type\":\"object\"},\"nutriscore_grade\":{\"description\":\"Nutri-Score grade (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"nutriscore_score\":{\"description\":\"Nutri-Score numerical score\",\"type\":\"integer\"},\"packaging\":{\"description\":\"Packaging type\",\"type\":\"string\"},\"product_name\":{\"description\":\"Name of the product\",\"type\":\"string\"},\"quantity\":{\"description\":\"Quantity or volume of the product\",\"type\":\"string\"},\"stores\":{\"description\":\"Stores where the product is available\",\"type\":\"string\"},\"traces\":{\"description\":\"Traces of allergens\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful search response\"}},\"securitySchemes\":{\"UserAgent\":{\"description\":\"It is recommended to send a User-Agent header with your API calls to help identify your application\",\"in\":\"header\",\"name\":\"User-Agent\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/search",
@@ -660,13 +748,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -756,6 +1054,102 @@
           },
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
           "version": "0.0.1"
         }
       },
@@ -850,6 +1244,48 @@
         "website": "https://world.openfoodfacts.org/data"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1404,6 +1840,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1445,7 +1882,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }
