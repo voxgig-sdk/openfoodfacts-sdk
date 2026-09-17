@@ -105,12 +105,12 @@ local result, err = client:Product():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/openfoodfacts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases) |
-| Python | `voxgig-sdk-openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases) |
-| PHP | `voxgig-sdk/openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases) |
+| TypeScript | `@voxgig-sdk/openfoodfacts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
+| Python | `voxgig-sdk-openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
+| PHP | `voxgig-sdk/openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/openfoodfacts-sdk/go` | `go get github.com/voxgig-sdk/openfoodfacts-sdk/go@latest` |
-| Ruby | `voxgig-sdk-openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases) |
-| Lua | `voxgig-sdk-openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/releases) |
+| Ruby | `voxgig-sdk-openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
+| Lua | `voxgig-sdk-openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/openfoodfacts-sdk/go-cli` | `go install github.com/voxgig-sdk/openfoodfacts-sdk/go-cli/cmd/openfoodfacts@latest` |
 | Go MCP server | `github.com/voxgig-sdk/openfoodfacts-sdk/go-mcp` | `go get github.com/voxgig-sdk/openfoodfacts-sdk/go-mcp@latest` |
 

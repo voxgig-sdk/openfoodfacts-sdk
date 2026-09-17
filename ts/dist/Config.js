@@ -104,6 +104,7 @@ class Config {
         base: "https://world.openfoodfacts.org/api/v2",
         auth: {
             prefix: '',
+            name: 'User-Agent',
         },
         headers: {
             "content-type": "application/json"

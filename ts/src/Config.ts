@@ -123,6 +123,7 @@ class Config {
 
     auth: {
       prefix: '',
+      name: 'User-Agent',
     },
 
     headers: {
@@ -131,12 +132,12 @@ class Config {
 
     entity: {
       
-      product: {
-      },
-
-      search: {
-      },
-
+        product: {
+        },
+  
+        search: {
+        },
+  
     }
   }
 
