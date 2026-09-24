@@ -14,20 +14,20 @@ Metadata kindly supplied by [www.freepublicapis.com](https://www.freepublicapis.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI with an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
-> **Features:** `ratelimit`, `retry`, `test`, `timeout` — opt-in,
+> **Features:** `undefined`, `undefined`, `undefined`, `undefined` — opt-in,
 > inactive until switched on, and configured per client. See the Features
 > section of any SDK README below for what each one does.
 
 ## Entities, not endpoints
 
-This SDK exposes the API as a small set of **semantic entities** — Product and Search — that you
+This SDK exposes the API as a small set of **semantic entities** — Product — that you
 call directly, instead of assembling URL paths and query strings. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`):
 
 ```ts
 const client = new OpenfoodfactsSDK()
-const product = await client.Product().load({ id: "example_id" })
+const items = await client.Product().list()
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -51,18 +51,18 @@ const client = OpenfoodfactsSDK.test({
     },
   },
 })
-const product = await client.Product().load({ id: 'test01' })
-// product is the Product entity, populated with mock data
-// — call product.data() for the record itself
-console.log(product)
+const products = await client.Product().list()
+// products is an array of Product entities, populated with mock data
+// — call products[0].data() for the record itself
+console.log(products)
 ```
 
 ### Python
 
 ```python
 client = OpenfoodfactsSDK.test()
-product = client.Product().load({"id": "test01"})
-print(product)
+products = client.Product().list()
+print(products)
 ```
 
 ### PHP
@@ -72,15 +72,15 @@ print(product)
 $client = OpenfoodfactsSDK::test([
     "entity" => ["product" => ["test01" => ["id" => "test01"]]],
 ]);
-$product = $client->Product()->load(["id" => "test01"]);
+$products = $client->Product()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Product(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+result, err := client.Product(nil).List(
+    nil, nil,
 )
 ```
 
@@ -91,14 +91,14 @@ result, err := client.Product(nil).Load(
 client = OpenfoodfactsSDK.test({
   "entity" => { "product" => { "test01" => { "id" => "test01" } } },
 })
-product = client.Product.load({ "id" => "test01" })
+products = client.Product.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Product():load({ id = "test01" })
+local results, err = client:Product():list()
 ```
 
 ## Packages
@@ -125,9 +125,11 @@ const client = new OpenfoodfactsSDK({
   apikey: process.env.OPENFOODFACTS_APIKEY,
 })
 
-// Load product data (returns a Product)
-const product = await client.Product().load()
-console.log(product)
+// List all products (returns ProductEntity[] — .data() for the record)
+const products = await client.Product().list()
+for (const product of products) {
+  console.log(product)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -164,12 +166,11 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes 2 entities:
+The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Product** | The Product entity (load). | `/product/{barcode}` |
-| **Search** | The Search entity (list). | `/search` |
+| **Product** | The Product entity (list, load). | `/search` |
 
 The operations available across these entities are **load**, **list** — see each entity's
 own list above for exactly which it supports.
@@ -186,6 +187,10 @@ client = OpenfoodfactsSDK({
     "apikey": os.environ.get("OPENFOODFACTS_APIKEY"),
 })
 
+# List all products (returns a list, raises on error)
+products = client.Product().list()
+for product in products:
+    print(product)
 
 # Load a specific product (returns the record, raises on error)
 product = client.Product().load({"id": "example_id"})
@@ -202,6 +207,9 @@ $client = new OpenfoodfactsSDK([
     "apikey" => getenv("OPENFOODFACTS_APIKEY"),
 ]);
 
+// List all products (returns an array; throws on error)
+$products = $client->Product()->list();
+print_r(array_map(fn($item) => $item->data_get(), $products));
 
 // Load a specific product (returns the ENTITY; call data_get() for the record; throws on error)
 $product = $client->Product()->load(["id" => "example_id"]);
@@ -217,12 +225,12 @@ client := sdk.NewOpenfoodfactsSDK(map[string]any{
     "apikey": os.Getenv("OPENFOODFACTS_APIKEY"),
 })
 
-// Load product data
-product, err := client.Product(nil).Load(map[string]any{"id": "example_id"}, nil)
+// List all products
+products, err := client.Product(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(product)
+fmt.Println(products)
 ```
 
 ### Ruby
@@ -234,6 +242,9 @@ client = OpenfoodfactsSDK.new({
   "apikey" => ENV["OPENFOODFACTS_APIKEY"],
 })
 
+# List all products (returns an Array; raises on error)
+products = client.Product.list
+puts products
 
 # Load a specific product (returns the ENTITY; call data_get for the record)
 product = client.Product.load({ "id" => "example_id" })
@@ -249,6 +260,9 @@ local client = sdk.new({
   apikey = os.getenv("OPENFOODFACTS_APIKEY"),
 })
 
+-- List all products
+local products, err = client:Product():list()
+print(products)
 
 -- Load a specific product
 local product, err = client:Product():load({ id = "example_id" })

@@ -46,10 +46,6 @@ client = OpenfoodfactsSDK.test()
 
 Create a new `ProductEntity` instance. Pass `None` for no initial data.
 
-#### `Search(data=None)`
-
-Create a new `SearchEntity` instance. Pass `None` for no initial data.
-
 #### `options_map() -> dict`
 
 Return a deep copy of the current SDK options.
@@ -123,6 +119,16 @@ product = client.Product()
 
 ### Operations
 
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Product().list()
+for product in results:
+    print(product)
+```
+
 #### `load(reqmatch, ctrl=None) -> dict`
 
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
@@ -152,85 +158,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ProductEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## SearchEntity
-
-```python
-search = client.Search()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `additives_tags` | `list` | No | List of additives |
-| `allergens` | `str` | No | Allergens present in the product |
-| `brands` | `str` | No | Brands of the product |
-| `categories` | `str` | No | Categories the product belongs to |
-| `countries` | `str` | No | Countries where the product is sold |
-| `created_t` | `int` | No | Creation timestamp |
-| `ecoscore_grade` | `str` | No | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | `int` | No | Eco-Score numerical score |
-| `generic_name` | `str` | No | Generic name of the product |
-| `image_front_url` | `str` | No | URL of the front image |
-| `image_ingredients_url` | `str` | No | URL of the ingredients image |
-| `image_nutrition_url` | `str` | No | URL of the nutrition facts image |
-| `image_url` | `str` | No | URL of the product's front image |
-| `ingredients_analysis_tags` | `list` | No | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | `str` | No | List of ingredients as text |
-| `labels` | `str` | No | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | `int` | No | Last modification timestamp |
-| `manufacturing_places` | `str` | No | Manufacturing or processing places |
-| `nova_group` | `int` | No | NOVA group for food processing level (1-4) |
-| `nutriments` | `dict` | No | Nutritional information |
-| `nutriscore_grade` | `str` | No | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | `int` | No | Nutri-Score numerical score |
-| `packaging` | `str` | No | Packaging type |
-| `product_name` | `str` | No | Name of the product |
-| `quantity` | `str` | No | Quantity or volume of the product |
-| `stores` | `str` | No | Stores where the product is available |
-| `traces` | `str` | No | Traces of allergens |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.Search().list()
-for search in results:
-    print(search)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `SearchEntity` instance with the same options.
 
 #### `get_name() -> str`
 

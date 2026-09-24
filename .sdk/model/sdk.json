@@ -24,641 +24,387 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "product": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "additives_tags",
-              "req": false,
-              "short": "List of additives",
-              "type": "`$ARRAY`"
+          "fields": {
+            "additives_tags": {
+              "a": true,
+              "h": "Additives Tags",
+              "n": "additives_tags",
+              "r": false,
+              "sh": "List of additives",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "allergens",
-              "req": false,
-              "short": "Allergens present in the product",
-              "type": "`$STRING`"
+            "allergens": {
+              "a": true,
+              "h": "Allergens",
+              "n": "allergens",
+              "r": false,
+              "sh": "Allergens present in the product",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "brands",
-              "req": false,
-              "short": "Brands of the product",
-              "type": "`$STRING`"
+            "brands": {
+              "a": true,
+              "h": "Brands",
+              "n": "brands",
+              "r": false,
+              "sh": "Brands of the product",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "categories",
-              "req": false,
-              "short": "Categories the product belongs to",
-              "type": "`$STRING`"
+            "categories": {
+              "a": true,
+              "h": "Categories",
+              "n": "categories",
+              "r": false,
+              "sh": "Categories the product belongs to",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "countries",
-              "req": false,
-              "short": "Countries where the product is sold",
-              "type": "`$STRING`"
+            "countries": {
+              "a": true,
+              "h": "Countries",
+              "n": "countries",
+              "r": false,
+              "sh": "Countries where the product is sold",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "created_t",
-              "req": false,
-              "short": "Creation timestamp",
-              "type": "`$INTEGER`"
+            "created_t": {
+              "a": true,
+              "h": "Created T",
+              "n": "created_t",
+              "r": false,
+              "sh": "Creation timestamp",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "ecoscore_grade",
-              "req": false,
-              "short": "Eco-Score grade for environmental impact (a, b, c, d, e)",
-              "type": "`$STRING`"
+            "ecoscore_grade": {
+              "a": true,
+              "h": "Ecoscore Grade",
+              "n": "ecoscore_grade",
+              "r": false,
+              "sh": "Eco-Score grade for environmental impact (a, b, c, d, e)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "ecoscore_score",
-              "req": false,
-              "short": "Eco-Score numerical score",
-              "type": "`$INTEGER`"
+            "ecoscore_score": {
+              "a": true,
+              "h": "Ecoscore Score",
+              "n": "ecoscore_score",
+              "r": false,
+              "sh": "Eco-Score numerical score",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "generic_name",
-              "req": false,
-              "short": "Generic name of the product",
-              "type": "`$STRING`"
+            "generic_name": {
+              "a": true,
+              "h": "Generic Name",
+              "n": "generic_name",
+              "r": false,
+              "sh": "Generic name of the product",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "image_front_url",
-              "req": false,
-              "short": "URL of the front image",
-              "type": "`$STRING`"
+            "image_front_url": {
+              "a": true,
+              "h": "Image Front Url",
+              "n": "image_front_url",
+              "r": false,
+              "sh": "URL of the front image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "image_ingredients_url",
-              "req": false,
-              "short": "URL of the ingredients image",
-              "type": "`$STRING`"
+            "image_ingredients_url": {
+              "a": true,
+              "h": "Image Ingredients Url",
+              "n": "image_ingredients_url",
+              "r": false,
+              "sh": "URL of the ingredients image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "image_nutrition_url",
-              "req": false,
-              "short": "URL of the nutrition facts image",
-              "type": "`$STRING`"
+            "image_nutrition_url": {
+              "a": true,
+              "h": "Image Nutrition Url",
+              "n": "image_nutrition_url",
+              "r": false,
+              "sh": "URL of the nutrition facts image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "image_url",
-              "req": false,
-              "short": "URL of the product's front image",
-              "type": "`$STRING`"
+            "image_url": {
+              "a": true,
+              "h": "Image Url",
+              "n": "image_url",
+              "r": false,
+              "sh": "URL of the product's front image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "ingredients_analysis_tags",
-              "req": false,
-              "short": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
-              "type": "`$ARRAY`"
+            "ingredients_analysis_tags": {
+              "a": true,
+              "h": "Ingredients Analysis Tags",
+              "n": "ingredients_analysis_tags",
+              "r": false,
+              "sh": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "ingredients_text",
-              "req": false,
-              "short": "List of ingredients as text",
-              "type": "`$STRING`"
+            "ingredients_text": {
+              "a": true,
+              "h": "Ingredients Text",
+              "n": "ingredients_text",
+              "r": false,
+              "sh": "List of ingredients as text",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "labels",
-              "req": false,
-              "short": "Labels associated with the product (e.g., Organic, Fair Trade)",
-              "type": "`$STRING`"
+            "labels": {
+              "a": true,
+              "h": "Labels",
+              "n": "labels",
+              "r": false,
+              "sh": "Labels associated with the product (e.g., Organic, Fair Trade)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "last_modified_t",
-              "req": false,
-              "short": "Last modification timestamp",
-              "type": "`$INTEGER`"
+            "last_modified_t": {
+              "a": true,
+              "h": "Last Modified T",
+              "n": "last_modified_t",
+              "r": false,
+              "sh": "Last modification timestamp",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "manufacturing_places",
-              "req": false,
-              "short": "Manufacturing or processing places",
-              "type": "`$STRING`"
+            "manufacturing_places": {
+              "a": true,
+              "h": "Manufacturing Places",
+              "n": "manufacturing_places",
+              "r": false,
+              "sh": "Manufacturing or processing places",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "nova_group",
-              "req": false,
-              "short": "NOVA group for food processing level (1-4)",
-              "type": "`$INTEGER`"
+            "nova_group": {
+              "a": true,
+              "h": "Nova Group",
+              "n": "nova_group",
+              "r": false,
+              "sh": "NOVA group for food processing level (1-4)",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "nutriments",
-              "req": false,
-              "short": "Nutritional information",
-              "type": "`$OBJECT`"
+            "nutriments": {
+              "a": true,
+              "h": "Nutriments",
+              "n": "nutriments",
+              "r": false,
+              "sh": "Nutritional information",
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "nutriscore_grade",
-              "req": false,
-              "short": "Nutri-Score grade (a, b, c, d, e)",
-              "type": "`$STRING`"
+            "nutriscore_grade": {
+              "a": true,
+              "h": "Nutriscore Grade",
+              "n": "nutriscore_grade",
+              "r": false,
+              "sh": "Nutri-Score grade (a, b, c, d, e)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "nutriscore_score",
-              "req": false,
-              "short": "Nutri-Score numerical score",
-              "type": "`$INTEGER`"
+            "nutriscore_score": {
+              "a": true,
+              "h": "Nutriscore Score",
+              "n": "nutriscore_score",
+              "r": false,
+              "sh": "Nutri-Score numerical score",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "packaging",
-              "req": false,
-              "short": "Packaging type",
-              "type": "`$STRING`"
+            "packaging": {
+              "a": true,
+              "h": "Packaging",
+              "n": "packaging",
+              "r": false,
+              "sh": "Packaging type",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "product_name",
-              "req": false,
-              "short": "Name of the product",
-              "type": "`$STRING`"
+            "product_name": {
+              "a": true,
+              "h": "Product Name",
+              "n": "product_name",
+              "r": false,
+              "sh": "Name of the product",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "quantity",
-              "req": false,
-              "short": "Quantity or volume of the product",
-              "type": "`$STRING`"
+            "quantity": {
+              "a": true,
+              "h": "Quantity",
+              "n": "quantity",
+              "r": false,
+              "sh": "Quantity or volume of the product",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "stores",
-              "req": false,
-              "short": "Stores where the product is available",
-              "type": "`$STRING`"
+            "stores": {
+              "a": true,
+              "h": "Stores",
+              "n": "stores",
+              "r": false,
+              "sh": "Stores where the product is available",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "traces",
-              "req": false,
-              "short": "Traces of allergens",
-              "type": "`$STRING`"
+            "traces": {
+              "a": true,
+              "h": "Traces",
+              "n": "traces",
+              "r": false,
+              "sh": "Traces of allergens",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
           },
           "name": "product",
           "op": {
-            "load": {
-              "input": "data",
-              "name": "load",
-              "points": [
-                {
-                  "active": true,
-                  "args": {
-                    "params": [
-                      {
-                        "active": true,
-                        "example": "737628064502",
-                        "kind": "param",
-                        "name": "barcode",
-                        "orig": "barcode",
-                        "reqd": true,
-                        "type": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "contract": {
-                    "id": "GET /product/{barcode}.json",
-                    "json": "{\"operationId\":\"getProductByBarcodeJson\",\"parameters\":[{\"description\":\"The barcode of the product\",\"in\":\"path\",\"name\":\"barcode\",\"required\":true,\"schema\":{\"example\":\"737628064502\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"The product barcode\",\"type\":\"string\"},\"product\":{\"properties\":{\"additives_tags\":{\"description\":\"List of additives\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"allergens\":{\"description\":\"Allergens present in the product\",\"type\":\"string\"},\"brands\":{\"description\":\"Brands of the product\",\"type\":\"string\"},\"categories\":{\"description\":\"Categories the product belongs to\",\"type\":\"string\"},\"countries\":{\"description\":\"Countries where the product is sold\",\"type\":\"string\"},\"created_t\":{\"description\":\"Creation timestamp\",\"type\":\"integer\"},\"ecoscore_grade\":{\"description\":\"Eco-Score grade for environmental impact (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"ecoscore_score\":{\"description\":\"Eco-Score numerical score\",\"type\":\"integer\"},\"generic_name\":{\"description\":\"Generic name of the product\",\"type\":\"string\"},\"image_front_url\":{\"description\":\"URL of the front image\",\"type\":\"string\"},\"image_ingredients_url\":{\"description\":\"URL of the ingredients image\",\"type\":\"string\"},\"image_nutrition_url\":{\"description\":\"URL of the nutrition facts image\",\"type\":\"string\"},\"image_url\":{\"description\":\"URL of the product's front image\",\"type\":\"string\"},\"ingredients_analysis_tags\":{\"description\":\"Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"ingredients_text\":{\"description\":\"List of ingredients as text\",\"type\":\"string\"},\"labels\":{\"description\":\"Labels associated with the product (e.g., Organic, Fair Trade)\",\"type\":\"string\"},\"last_modified_t\":{\"description\":\"Last modification timestamp\",\"type\":\"integer\"},\"manufacturing_places\":{\"description\":\"Manufacturing or processing places\",\"type\":\"string\"},\"nova_group\":{\"description\":\"NOVA group for food processing level (1-4)\",\"maximum\":4,\"minimum\":1,\"type\":\"integer\"},\"nutriments\":{\"description\":\"Nutritional information\",\"properties\":{\"carbohydrates\":{\"description\":\"Carbohydrates per 100g\",\"type\":\"number\"},\"energy-kcal\":{\"description\":\"Energy in kcal per 100g\",\"type\":\"number\"},\"energy-kj\":{\"description\":\"Energy in kJ per 100g\",\"type\":\"number\"},\"fat\":{\"description\":\"Fat content per 100g\",\"type\":\"number\"},\"fiber\":{\"description\":\"Dietary fiber per 100g\",\"type\":\"number\"},\"proteins\":{\"description\":\"Proteins per 100g\",\"type\":\"number\"},\"salt\":{\"description\":\"Salt content per 100g\",\"type\":\"number\"},\"saturated-fat\":{\"description\":\"Saturated fat content per 100g\",\"type\":\"number\"},\"sodium\":{\"description\":\"Sodium content per 100g\",\"type\":\"number\"},\"sugars\":{\"description\":\"Sugars per 100g\",\"type\":\"number\"}},\"type\":\"object\"},\"nutriscore_grade\":{\"description\":\"Nutri-Score grade (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"nutriscore_score\":{\"description\":\"Nutri-Score numerical score\",\"type\":\"integer\"},\"packaging\":{\"description\":\"Packaging type\",\"type\":\"string\"},\"product_name\":{\"description\":\"Name of the product\",\"type\":\"string\"},\"quantity\":{\"description\":\"Quantity or volume of the product\",\"type\":\"string\"},\"stores\":{\"description\":\"Stores where the product is available\",\"type\":\"string\"},\"traces\":{\"description\":\"Traces of allergens\",\"type\":\"string\"}},\"type\":\"object\"},\"status\":{\"description\":\"Status code: 1 for found, 0 for not found\",\"type\":\"integer\"},\"status_verbose\":{\"description\":\"Human-readable status message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with product information in JSON\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"The barcode that was queried\",\"type\":\"string\"},\"status\":{\"description\":\"Status code (0 for error)\",\"type\":\"integer\"},\"status_verbose\":{\"description\":\"Human-readable error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Product not found\"}},\"securitySchemes\":{\"UserAgent\":{\"description\":\"It is recommended to send a User-Agent header with your API calls to help identify your application\",\"in\":\"header\",\"name\":\"User-Agent\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/product/{barcode}.json",
-                  "segments": [
-                    {
-                      "lit": "product"
-                    },
-                    {
-                      "lit": "{barcode}.json"
-                    }
-                  ],
-                  "select": {
-                    "$action": "barcode",
-                    "exist": [
-                      "barcode"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body.product`"
-                  }
-                },
-                {
-                  "active": true,
-                  "args": {
-                    "params": [
-                      {
-                        "active": true,
-                        "example": "737628064502",
-                        "kind": "param",
-                        "name": "barcode",
-                        "orig": "barcode",
-                        "reqd": true,
-                        "type": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "contract": {
-                    "id": "GET /product/{barcode}.xml",
-                    "json": "{\"operationId\":\"getProductByBarcodeXml\",\"parameters\":[{\"description\":\"The barcode of the product\",\"in\":\"path\",\"name\":\"barcode\",\"required\":true,\"schema\":{\"example\":\"737628064502\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/xml\":{\"schema\":{\"type\":\"object\"}}},\"description\":\"Successful response with product information in XML\"},\"404\":{\"content\":{\"application/xml\":{\"schema\":{\"type\":\"object\"}}},\"description\":\"Product not found\"}},\"securitySchemes\":{\"UserAgent\":{\"description\":\"It is recommended to send a User-Agent header with your API calls to help identify your application\",\"in\":\"header\",\"name\":\"User-Agent\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/product/{barcode}.xml",
-                  "segments": [
-                    {
-                      "lit": "product"
-                    },
-                    {
-                      "lit": "{barcode}.xml"
-                    }
-                  ],
-                  "select": {
-                    "$action": "barcode",
-                    "exist": [
-                      "barcode"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  }
-                },
-                {
-                  "active": true,
-                  "args": {
-                    "params": [
-                      {
-                        "active": true,
-                        "example": "737628064502",
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "barcode",
-                        "reqd": true,
-                        "type": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "contract": {
-                    "id": "GET /product/{barcode}",
-                    "json": "{\"operationId\":\"getProductByBarcode\",\"parameters\":[{\"description\":\"The barcode of the product (e.g., EAN-13, UPC)\",\"in\":\"path\",\"name\":\"barcode\",\"required\":true,\"schema\":{\"example\":\"737628064502\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"code\":\"737628064502\",\"product\":{\"allergens\":\"gluten\",\"brands\":\"Example Brand\",\"categories\":\"Snacks\",\"ecoscore_grade\":\"b\",\"image_url\":\"https://images.openfoodfacts.org/images/products/737/628/064/502/front_en.jpg\",\"ingredients_text\":\"Wheat flour, sugar, salt\",\"labels\":\"Organic\",\"nova_group\":3,\"nutriments\":{\"carbohydrates\":50,\"energy-kcal\":450,\"fat\":20,\"proteins\":8,\"salt\":1.5,\"saturated-fat\":5,\"sugars\":10},\"nutriscore_grade\":\"c\",\"product_name\":\"Example Product\"},\"status\":1,\"status_verbose\":\"product found\"},\"schema\":{\"properties\":{\"code\":{\"description\":\"The product barcode\",\"type\":\"string\"},\"product\":{\"properties\":{\"additives_tags\":{\"description\":\"List of additives\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"allergens\":{\"description\":\"Allergens present in the product\",\"type\":\"string\"},\"brands\":{\"description\":\"Brands of the product\",\"type\":\"string\"},\"categories\":{\"description\":\"Categories the product belongs to\",\"type\":\"string\"},\"countries\":{\"description\":\"Countries where the product is sold\",\"type\":\"string\"},\"created_t\":{\"description\":\"Creation timestamp\",\"type\":\"integer\"},\"ecoscore_grade\":{\"description\":\"Eco-Score grade for environmental impact (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"ecoscore_score\":{\"description\":\"Eco-Score numerical score\",\"type\":\"integer\"},\"generic_name\":{\"description\":\"Generic name of the product\",\"type\":\"string\"},\"image_front_url\":{\"description\":\"URL of the front image\",\"type\":\"string\"},\"image_ingredients_url\":{\"description\":\"URL of the ingredients image\",\"type\":\"string\"},\"image_nutrition_url\":{\"description\":\"URL of the nutrition facts image\",\"type\":\"string\"},\"image_url\":{\"description\":\"URL of the product's front image\",\"type\":\"string\"},\"ingredients_analysis_tags\":{\"description\":\"Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"ingredients_text\":{\"description\":\"List of ingredients as text\",\"type\":\"string\"},\"labels\":{\"description\":\"Labels associated with the product (e.g., Organic, Fair Trade)\",\"type\":\"string\"},\"last_modified_t\":{\"description\":\"Last modification timestamp\",\"type\":\"integer\"},\"manufacturing_places\":{\"description\":\"Manufacturing or processing places\",\"type\":\"string\"},\"nova_group\":{\"description\":\"NOVA group for food processing level (1-4)\",\"maximum\":4,\"minimum\":1,\"type\":\"integer\"},\"nutriments\":{\"description\":\"Nutritional information\",\"properties\":{\"carbohydrates\":{\"description\":\"Carbohydrates per 100g\",\"type\":\"number\"},\"energy-kcal\":{\"description\":\"Energy in kcal per 100g\",\"type\":\"number\"},\"energy-kj\":{\"description\":\"Energy in kJ per 100g\",\"type\":\"number\"},\"fat\":{\"description\":\"Fat content per 100g\",\"type\":\"number\"},\"fiber\":{\"description\":\"Dietary fiber per 100g\",\"type\":\"number\"},\"proteins\":{\"description\":\"Proteins per 100g\",\"type\":\"number\"},\"salt\":{\"description\":\"Salt content per 100g\",\"type\":\"number\"},\"saturated-fat\":{\"description\":\"Saturated fat content per 100g\",\"type\":\"number\"},\"sodium\":{\"description\":\"Sodium content per 100g\",\"type\":\"number\"},\"sugars\":{\"description\":\"Sugars per 100g\",\"type\":\"number\"}},\"type\":\"object\"},\"nutriscore_grade\":{\"description\":\"Nutri-Score grade (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"nutriscore_score\":{\"description\":\"Nutri-Score numerical score\",\"type\":\"integer\"},\"packaging\":{\"description\":\"Packaging type\",\"type\":\"string\"},\"product_name\":{\"description\":\"Name of the product\",\"type\":\"string\"},\"quantity\":{\"description\":\"Quantity or volume of the product\",\"type\":\"string\"},\"stores\":{\"description\":\"Stores where the product is available\",\"type\":\"string\"},\"traces\":{\"description\":\"Traces of allergens\",\"type\":\"string\"}},\"type\":\"object\"},\"status\":{\"description\":\"Status code: 1 for found, 0 for not found\",\"type\":\"integer\"},\"status_verbose\":{\"description\":\"Human-readable status message\",\"type\":\"string\"}},\"type\":\"object\"}},\"application/xml\":{\"schema\":{\"type\":\"object\"}}},\"description\":\"Successful response with product information\"},\"404\":{\"content\":{\"application/json\":{\"example\":{\"code\":\"737628064502\",\"status\":0,\"status_verbose\":\"product not found\"},\"schema\":{\"properties\":{\"code\":{\"description\":\"The barcode that was queried\",\"type\":\"string\"},\"status\":{\"description\":\"Status code (0 for error)\",\"type\":\"integer\"},\"status_verbose\":{\"description\":\"Human-readable error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Product not found\"}},\"securitySchemes\":{\"UserAgent\":{\"description\":\"It is recommended to send a User-Agent header with your API calls to help identify your application\",\"in\":\"header\",\"name\":\"User-Agent\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/product/{barcode}",
-                  "rename": {
-                    "param": {
-                      "barcode": "id"
-                    }
-                  },
-                  "segments": [
-                    {
-                      "lit": "product"
-                    },
-                    {
-                      "var": "id"
-                    }
-                  ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body.product`"
-                  }
-                }
-              ]
-            }
-          },
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "search": {
-          "active": true,
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "active": true,
-              "name": "additives_tags",
-              "req": false,
-              "short": "List of additives",
-              "type": "`$ARRAY`"
-            },
-            {
-              "active": true,
-              "name": "allergens",
-              "req": false,
-              "short": "Allergens present in the product",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "brands",
-              "req": false,
-              "short": "Brands of the product",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "categories",
-              "req": false,
-              "short": "Categories the product belongs to",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "countries",
-              "req": false,
-              "short": "Countries where the product is sold",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "created_t",
-              "req": false,
-              "short": "Creation timestamp",
-              "type": "`$INTEGER`"
-            },
-            {
-              "active": true,
-              "name": "ecoscore_grade",
-              "req": false,
-              "short": "Eco-Score grade for environmental impact (a, b, c, d, e)",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "ecoscore_score",
-              "req": false,
-              "short": "Eco-Score numerical score",
-              "type": "`$INTEGER`"
-            },
-            {
-              "active": true,
-              "name": "generic_name",
-              "req": false,
-              "short": "Generic name of the product",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "image_front_url",
-              "req": false,
-              "short": "URL of the front image",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "image_ingredients_url",
-              "req": false,
-              "short": "URL of the ingredients image",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "image_nutrition_url",
-              "req": false,
-              "short": "URL of the nutrition facts image",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "image_url",
-              "req": false,
-              "short": "URL of the product's front image",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "ingredients_analysis_tags",
-              "req": false,
-              "short": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
-              "type": "`$ARRAY`"
-            },
-            {
-              "active": true,
-              "name": "ingredients_text",
-              "req": false,
-              "short": "List of ingredients as text",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "labels",
-              "req": false,
-              "short": "Labels associated with the product (e.g., Organic, Fair Trade)",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "last_modified_t",
-              "req": false,
-              "short": "Last modification timestamp",
-              "type": "`$INTEGER`"
-            },
-            {
-              "active": true,
-              "name": "manufacturing_places",
-              "req": false,
-              "short": "Manufacturing or processing places",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "nova_group",
-              "req": false,
-              "short": "NOVA group for food processing level (1-4)",
-              "type": "`$INTEGER`"
-            },
-            {
-              "active": true,
-              "name": "nutriments",
-              "req": false,
-              "short": "Nutritional information",
-              "type": "`$OBJECT`"
-            },
-            {
-              "active": true,
-              "name": "nutriscore_grade",
-              "req": false,
-              "short": "Nutri-Score grade (a, b, c, d, e)",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "nutriscore_score",
-              "req": false,
-              "short": "Nutri-Score numerical score",
-              "type": "`$INTEGER`"
-            },
-            {
-              "active": true,
-              "name": "packaging",
-              "req": false,
-              "short": "Packaging type",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "product_name",
-              "req": false,
-              "short": "Name of the product",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "quantity",
-              "req": false,
-              "short": "Quantity or volume of the product",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "stores",
-              "req": false,
-              "short": "Stores where the product is available",
-              "type": "`$STRING`"
-            },
-            {
-              "active": true,
-              "name": "traces",
-              "req": false,
-              "short": "Traces of allergens",
-              "type": "`$STRING`"
-            }
-          ],
-          "name": "search",
-          "op": {
             "list": {
               "input": "data",
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /search",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "brand",
-                        "orig": "brand",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "brand",
+                        "or": "brand",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "category",
-                        "orig": "category",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "category",
+                        "or": "category",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": true,
-                        "kind": "query",
-                        "name": "json",
-                        "orig": "json",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": true,
+                        "k": "query",
+                        "n": "json",
+                        "or": "json",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "label",
-                        "orig": "label",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "label",
+                        "or": "label",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "page_size",
-                        "orig": "page_size",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "page_size",
+                        "or": "page_size",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "search_term",
-                        "orig": "search_term",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "search_term",
+                        "or": "search_term",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /search",
-                    "json": "{\"operationId\":\"searchProducts\",\"parameters\":[{\"description\":\"Search terms for product name, brand, or other text fields\",\"in\":\"query\",\"name\":\"search_terms\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by product category\",\"in\":\"query\",\"name\":\"categories\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by brand name\",\"in\":\"query\",\"name\":\"brands\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by labels (e.g., organic, fair-trade)\",\"in\":\"query\",\"name\":\"labels\",\"schema\":{\"type\":\"string\"}},{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Number of products per page\",\"in\":\"query\",\"name\":\"page_size\",\"schema\":{\"default\":20,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Return results in JSON format\",\"in\":\"query\",\"name\":\"json\",\"schema\":{\"default\":true,\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"count\":{\"description\":\"Total number of products matching the search\",\"type\":\"integer\"},\"page\":{\"description\":\"Current page number\",\"type\":\"integer\"},\"page_count\":{\"description\":\"Total number of pages\",\"type\":\"integer\"},\"page_size\":{\"description\":\"Number of products per page\",\"type\":\"integer\"},\"products\":{\"description\":\"Array of products matching the search criteria\",\"items\":{\"properties\":{\"additives_tags\":{\"description\":\"List of additives\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"allergens\":{\"description\":\"Allergens present in the product\",\"type\":\"string\"},\"brands\":{\"description\":\"Brands of the product\",\"type\":\"string\"},\"categories\":{\"description\":\"Categories the product belongs to\",\"type\":\"string\"},\"countries\":{\"description\":\"Countries where the product is sold\",\"type\":\"string\"},\"created_t\":{\"description\":\"Creation timestamp\",\"type\":\"integer\"},\"ecoscore_grade\":{\"description\":\"Eco-Score grade for environmental impact (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"ecoscore_score\":{\"description\":\"Eco-Score numerical score\",\"type\":\"integer\"},\"generic_name\":{\"description\":\"Generic name of the product\",\"type\":\"string\"},\"image_front_url\":{\"description\":\"URL of the front image\",\"type\":\"string\"},\"image_ingredients_url\":{\"description\":\"URL of the ingredients image\",\"type\":\"string\"},\"image_nutrition_url\":{\"description\":\"URL of the nutrition facts image\",\"type\":\"string\"},\"image_url\":{\"description\":\"URL of the product's front image\",\"type\":\"string\"},\"ingredients_analysis_tags\":{\"description\":\"Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"ingredients_text\":{\"description\":\"List of ingredients as text\",\"type\":\"string\"},\"labels\":{\"description\":\"Labels associated with the product (e.g., Organic, Fair Trade)\",\"type\":\"string\"},\"last_modified_t\":{\"description\":\"Last modification timestamp\",\"type\":\"integer\"},\"manufacturing_places\":{\"description\":\"Manufacturing or processing places\",\"type\":\"string\"},\"nova_group\":{\"description\":\"NOVA group for food processing level (1-4)\",\"maximum\":4,\"minimum\":1,\"type\":\"integer\"},\"nutriments\":{\"description\":\"Nutritional information\",\"properties\":{\"carbohydrates\":{\"description\":\"Carbohydrates per 100g\",\"type\":\"number\"},\"energy-kcal\":{\"description\":\"Energy in kcal per 100g\",\"type\":\"number\"},\"energy-kj\":{\"description\":\"Energy in kJ per 100g\",\"type\":\"number\"},\"fat\":{\"description\":\"Fat content per 100g\",\"type\":\"number\"},\"fiber\":{\"description\":\"Dietary fiber per 100g\",\"type\":\"number\"},\"proteins\":{\"description\":\"Proteins per 100g\",\"type\":\"number\"},\"salt\":{\"description\":\"Salt content per 100g\",\"type\":\"number\"},\"saturated-fat\":{\"description\":\"Saturated fat content per 100g\",\"type\":\"number\"},\"sodium\":{\"description\":\"Sodium content per 100g\",\"type\":\"number\"},\"sugars\":{\"description\":\"Sugars per 100g\",\"type\":\"number\"}},\"type\":\"object\"},\"nutriscore_grade\":{\"description\":\"Nutri-Score grade (a, b, c, d, e)\",\"enum\":[\"a\",\"b\",\"c\",\"d\",\"e\"],\"type\":\"string\"},\"nutriscore_score\":{\"description\":\"Nutri-Score numerical score\",\"type\":\"integer\"},\"packaging\":{\"description\":\"Packaging type\",\"type\":\"string\"},\"product_name\":{\"description\":\"Name of the product\",\"type\":\"string\"},\"quantity\":{\"description\":\"Quantity or volume of the product\",\"type\":\"string\"},\"stores\":{\"description\":\"Stores where the product is available\",\"type\":\"string\"},\"traces\":{\"description\":\"Traces of allergens\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful search response\"}},\"securitySchemes\":{\"UserAgent\":{\"description\":\"It is recommended to send a User-Agent header with your API calls to help identify your application\",\"in\":\"header\",\"name\":\"User-Agent\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/search",
-                  "segments": [
-                    {
-                      "lit": "search"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/search",
+                  "q": {
                     "exist": [
                       "brand",
                       "category",
@@ -669,9 +415,153 @@
                       "search_term"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "search"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.products`"
+                  }
+                }
+              ]
+            },
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /product/{barcode}.json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "737628064502",
+                        "k": "param",
+                        "n": "barcode",
+                        "or": "barcode",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/product/{barcode}.json",
+                  "q": {
+                    "$action": "barcode",
+                    "exist": [
+                      "barcode"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "product"
+                    },
+                    {
+                      "lit": "{barcode}.json"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.product`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /product/{barcode}.xml",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "737628064502",
+                        "k": "param",
+                        "n": "barcode",
+                        "or": "barcode",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/product/{barcode}.xml",
+                  "q": {
+                    "$action": "barcode",
+                    "exist": [
+                      "barcode"
+                    ]
+                  },
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "product"
+                    },
+                    {
+                      "lit": "{barcode}.xml"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                },
+                {
+                  "a": true,
+                  "co": {
+                    "id": "GET /product/{barcode}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
+                    "params": [
+                      {
+                        "a": true,
+                        "ex": "737628064502",
+                        "k": "param",
+                        "n": "id",
+                        "or": "barcode",
+                        "r": true,
+                        "t": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/product/{barcode}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
+                  },
+                  "r": {
+                    "param": {
+                      "barcode": "id"
+                    }
+                  },
+                  "s": [
+                    {
+                      "lit": "product"
+                    },
+                    {
+                      "var": "id"
+                    }
+                  ],
+                  "t": {
+                    "req": "`reqdata`",
+                    "res": "`body.product`"
                   }
                 }
               ]
@@ -1098,49 +988,39 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "product_ref01"
+                  }
+                }
+              ]
+            },
+            {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "product_ref01",
                 "srcdatavar": "product_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "product01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
                     "mark": "Mark01-product_ref01"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "BasicSearchFlow": {
-          "active": true,
-          "entity": "search",
-          "key$": "BasicSearchFlow",
-          "kind": "basic",
-          "name": "BasicSearchFlow",
-          "param": {},
-          "step": [
-            {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "search_ref01"
                   }
                 }
               ]

@@ -61,18 +61,6 @@ Create a new `Product` entity instance.
 
 **Returns:** `ProductEntity` instance.
 
-#### `Search(data?: object)`
-
-Create a new `Search` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `SearchEntity` instance.
-
 #### `options()`
 
 Return a deep copy of the current SDK options.
@@ -181,6 +169,14 @@ const result = await client.Product().load({
 
 ### Operations
 
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.Product().list()
+```
+
 #### `load(match: object, ctrl?: object)`
 
 Load a single entity matching the given criteria.
@@ -204,82 +200,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `ProductEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `OpenfoodfactsSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## SearchEntity
-
-```ts
-const search = client.Search()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `additives_tags` | `any[]` | No | List of additives |
-| `allergens` | `string` | No | Allergens present in the product |
-| `brands` | `string` | No | Brands of the product |
-| `categories` | `string` | No | Categories the product belongs to |
-| `countries` | `string` | No | Countries where the product is sold |
-| `created_t` | `number` | No | Creation timestamp |
-| `ecoscore_grade` | `string` | No | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | `number` | No | Eco-Score numerical score |
-| `generic_name` | `string` | No | Generic name of the product |
-| `image_front_url` | `string` | No | URL of the front image |
-| `image_ingredients_url` | `string` | No | URL of the ingredients image |
-| `image_nutrition_url` | `string` | No | URL of the nutrition facts image |
-| `image_url` | `string` | No | URL of the product's front image |
-| `ingredients_analysis_tags` | `any[]` | No | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | `string` | No | List of ingredients as text |
-| `labels` | `string` | No | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | `number` | No | Last modification timestamp |
-| `manufacturing_places` | `string` | No | Manufacturing or processing places |
-| `nova_group` | `number` | No | NOVA group for food processing level (1-4) |
-| `nutriments` | `Record<string, any>` | No | Nutritional information |
-| `nutriscore_grade` | `string` | No | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | `number` | No | Nutri-Score numerical score |
-| `packaging` | `string` | No | Packaging type |
-| `product_name` | `string` | No | Name of the product |
-| `quantity` | `string` | No | Quantity or volume of the product |
-| `stores` | `string` | No | Stores where the product is available |
-| `traces` | `string` | No | Traces of allergens |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.Search().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `SearchEntity` instance with the same client and
 options.
 
 #### `client()`

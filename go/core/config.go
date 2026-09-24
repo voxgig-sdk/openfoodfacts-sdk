@@ -88,7 +88,6 @@ func MakeConfig() map[string]any {
 			},
 			"entity": map[string]any{
 				"product": map[string]any{},
-				"search": map[string]any{},
 			},
 		},
 		"entity": map[string]any{
@@ -96,142 +95,170 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "additives_tags",
-						"short": "List of additives",
+						"title": "Additives Tags",
 						"type": "`$ARRAY`",
+						"short": "List of additives",
 					},
 					map[string]any{
 						"name": "allergens",
-						"short": "Allergens present in the product",
+						"title": "Allergens",
 						"type": "`$STRING`",
+						"short": "Allergens present in the product",
 					},
 					map[string]any{
 						"name": "brands",
-						"short": "Brands of the product",
+						"title": "Brands",
 						"type": "`$STRING`",
+						"short": "Brands of the product",
 					},
 					map[string]any{
 						"name": "categories",
-						"short": "Categories the product belongs to",
+						"title": "Categories",
 						"type": "`$STRING`",
+						"short": "Categories the product belongs to",
 					},
 					map[string]any{
 						"name": "countries",
-						"short": "Countries where the product is sold",
+						"title": "Countries",
 						"type": "`$STRING`",
+						"short": "Countries where the product is sold",
 					},
 					map[string]any{
 						"name": "created_t",
-						"short": "Creation timestamp",
+						"title": "Created T",
 						"type": "`$INTEGER`",
+						"short": "Creation timestamp",
 					},
 					map[string]any{
 						"name": "ecoscore_grade",
-						"short": "Eco-Score grade for environmental impact (a, b, c, d, e)",
+						"title": "Ecoscore Grade",
 						"type": "`$STRING`",
+						"short": "Eco-Score grade for environmental impact (a, b, c, d, e)",
 					},
 					map[string]any{
 						"name": "ecoscore_score",
-						"short": "Eco-Score numerical score",
+						"title": "Ecoscore Score",
 						"type": "`$INTEGER`",
+						"short": "Eco-Score numerical score",
 					},
 					map[string]any{
 						"name": "generic_name",
-						"short": "Generic name of the product",
+						"title": "Generic Name",
 						"type": "`$STRING`",
+						"short": "Generic name of the product",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "image_front_url",
-						"short": "URL of the front image",
+						"title": "Image Front Url",
 						"type": "`$STRING`",
+						"short": "URL of the front image",
 					},
 					map[string]any{
 						"name": "image_ingredients_url",
-						"short": "URL of the ingredients image",
+						"title": "Image Ingredients Url",
 						"type": "`$STRING`",
+						"short": "URL of the ingredients image",
 					},
 					map[string]any{
 						"name": "image_nutrition_url",
-						"short": "URL of the nutrition facts image",
+						"title": "Image Nutrition Url",
 						"type": "`$STRING`",
+						"short": "URL of the nutrition facts image",
 					},
 					map[string]any{
 						"name": "image_url",
-						"short": "URL of the product's front image",
+						"title": "Image Url",
 						"type": "`$STRING`",
+						"short": "URL of the product's front image",
 					},
 					map[string]any{
 						"name": "ingredients_analysis_tags",
-						"short": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
+						"title": "Ingredients Analysis Tags",
 						"type": "`$ARRAY`",
+						"short": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
 					},
 					map[string]any{
 						"name": "ingredients_text",
-						"short": "List of ingredients as text",
+						"title": "Ingredients Text",
 						"type": "`$STRING`",
+						"short": "List of ingredients as text",
 					},
 					map[string]any{
 						"name": "labels",
-						"short": "Labels associated with the product (e.g., Organic, Fair Trade)",
+						"title": "Labels",
 						"type": "`$STRING`",
+						"short": "Labels associated with the product (e.g., Organic, Fair Trade)",
 					},
 					map[string]any{
 						"name": "last_modified_t",
-						"short": "Last modification timestamp",
+						"title": "Last Modified T",
 						"type": "`$INTEGER`",
+						"short": "Last modification timestamp",
 					},
 					map[string]any{
 						"name": "manufacturing_places",
-						"short": "Manufacturing or processing places",
+						"title": "Manufacturing Places",
 						"type": "`$STRING`",
+						"short": "Manufacturing or processing places",
 					},
 					map[string]any{
 						"name": "nova_group",
-						"short": "NOVA group for food processing level (1-4)",
+						"title": "Nova Group",
 						"type": "`$INTEGER`",
+						"short": "NOVA group for food processing level (1-4)",
 					},
 					map[string]any{
 						"name": "nutriments",
-						"short": "Nutritional information",
+						"title": "Nutriments",
 						"type": "`$OBJECT`",
+						"short": "Nutritional information",
 					},
 					map[string]any{
 						"name": "nutriscore_grade",
-						"short": "Nutri-Score grade (a, b, c, d, e)",
+						"title": "Nutriscore Grade",
 						"type": "`$STRING`",
+						"short": "Nutri-Score grade (a, b, c, d, e)",
 					},
 					map[string]any{
 						"name": "nutriscore_score",
-						"short": "Nutri-Score numerical score",
+						"title": "Nutriscore Score",
 						"type": "`$INTEGER`",
+						"short": "Nutri-Score numerical score",
 					},
 					map[string]any{
 						"name": "packaging",
-						"short": "Packaging type",
+						"title": "Packaging",
 						"type": "`$STRING`",
+						"short": "Packaging type",
 					},
 					map[string]any{
 						"name": "product_name",
-						"short": "Name of the product",
+						"title": "Product Name",
 						"type": "`$STRING`",
+						"short": "Name of the product",
 					},
 					map[string]any{
 						"name": "quantity",
-						"short": "Quantity or volume of the product",
+						"title": "Quantity",
 						"type": "`$STRING`",
+						"short": "Quantity or volume of the product",
 					},
 					map[string]any{
 						"name": "stores",
-						"short": "Stores where the product is available",
+						"title": "Stores",
 						"type": "`$STRING`",
+						"short": "Stores where the product is available",
 					},
 					map[string]any{
 						"name": "traces",
-						"short": "Traces of allergens",
+						"title": "Traces",
 						"type": "`$STRING`",
+						"short": "Traces of allergens",
 					},
 				},
 				"id": map[string]any{
@@ -240,338 +267,74 @@ func MakeConfig() map[string]any {
 				},
 				"name": "product",
 				"op": map[string]any{
-					"load": map[string]any{
-						"input": "data",
-						"name": "load",
-						"points": []any{
-							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "737628064502",
-											"kind": "param",
-											"name": "barcode",
-											"orig": "barcode",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
-								"kind": "http",
-								"method": "GET",
-								"orig": "/product/{barcode}.json",
-								"segments": []any{
-									map[string]any{
-										"lit": "product",
-									},
-									map[string]any{
-										"lit": "{barcode}.json",
-									},
-								},
-								"select": map[string]any{
-									"$action": "barcode",
-									"exist": []any{
-										"barcode",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.product`",
-								},
-								"parts": []any{
-									"product",
-									"{barcode}.json",
-								},
-							},
-							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "737628064502",
-											"kind": "param",
-											"name": "barcode",
-											"orig": "barcode",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
-								"kind": "http",
-								"method": "GET",
-								"orig": "/product/{barcode}.xml",
-								"segments": []any{
-									map[string]any{
-										"lit": "product",
-									},
-									map[string]any{
-										"lit": "{barcode}.xml",
-									},
-								},
-								"select": map[string]any{
-									"$action": "barcode",
-									"exist": []any{
-										"barcode",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"product",
-									"{barcode}.xml",
-								},
-							},
-							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "737628064502",
-											"kind": "param",
-											"name": "id",
-											"orig": "barcode",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
-								"kind": "http",
-								"method": "GET",
-								"orig": "/product/{barcode}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"barcode": "id",
-									},
-								},
-								"segments": []any{
-									map[string]any{
-										"lit": "product",
-									},
-									map[string]any{
-										"var": "id",
-									},
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.product`",
-								},
-								"parts": []any{
-									"product",
-									"{id}",
-								},
-							},
-						},
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{},
-				},
-			},
-			"search": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"name": "additives_tags",
-						"short": "List of additives",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "allergens",
-						"short": "Allergens present in the product",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "brands",
-						"short": "Brands of the product",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "categories",
-						"short": "Categories the product belongs to",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "countries",
-						"short": "Countries where the product is sold",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "created_t",
-						"short": "Creation timestamp",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "ecoscore_grade",
-						"short": "Eco-Score grade for environmental impact (a, b, c, d, e)",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "ecoscore_score",
-						"short": "Eco-Score numerical score",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "generic_name",
-						"short": "Generic name of the product",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "image_front_url",
-						"short": "URL of the front image",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "image_ingredients_url",
-						"short": "URL of the ingredients image",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "image_nutrition_url",
-						"short": "URL of the nutrition facts image",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "image_url",
-						"short": "URL of the product's front image",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "ingredients_analysis_tags",
-						"short": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "ingredients_text",
-						"short": "List of ingredients as text",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "labels",
-						"short": "Labels associated with the product (e.g., Organic, Fair Trade)",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "last_modified_t",
-						"short": "Last modification timestamp",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "manufacturing_places",
-						"short": "Manufacturing or processing places",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "nova_group",
-						"short": "NOVA group for food processing level (1-4)",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "nutriments",
-						"short": "Nutritional information",
-						"type": "`$OBJECT`",
-					},
-					map[string]any{
-						"name": "nutriscore_grade",
-						"short": "Nutri-Score grade (a, b, c, d, e)",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "nutriscore_score",
-						"short": "Nutri-Score numerical score",
-						"type": "`$INTEGER`",
-					},
-					map[string]any{
-						"name": "packaging",
-						"short": "Packaging type",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "product_name",
-						"short": "Name of the product",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "quantity",
-						"short": "Quantity or volume of the product",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "stores",
-						"short": "Stores where the product is available",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "traces",
-						"short": "Traces of allergens",
-						"type": "`$STRING`",
-					},
-				},
-				"name": "search",
-				"op": map[string]any{
 					"list": map[string]any{
 						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "brand",
-											"orig": "brand",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "category",
-											"orig": "category",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": true,
-											"kind": "query",
-											"name": "json",
-											"orig": "json",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "label",
-											"orig": "label",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "page_size",
-											"orig": "page_size",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "search_term",
-											"orig": "search_term",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/search",
 								"segments": []any{
 									map[string]any{
 										"lit": "search",
+									},
+								},
+								"parts": []any{
+									"search",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.products`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "brand",
+											"orig": "brand",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "category",
+											"orig": "category",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "json",
+											"orig": "json",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": true,
+										},
+										map[string]any{
+											"name": "label",
+											"orig": "label",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "page_size",
+											"orig": "page_size",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+										map[string]any{
+											"name": "search_term",
+											"orig": "search_term",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -585,12 +348,134 @@ func MakeConfig() map[string]any {
 										"search_term",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.products`",
+							},
+						},
+					},
+					"load": map[string]any{
+						"input": "data",
+						"name": "load",
+						"points": []any{
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/product/{barcode}.json",
+								"segments": []any{
+									map[string]any{
+										"lit": "product",
+									},
+									map[string]any{
+										"lit": "{barcode}.json",
+									},
 								},
 								"parts": []any{
-									"search",
+									"product",
+									"{barcode}.json",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.product`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "barcode",
+											"orig": "barcode",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "737628064502",
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "barcode",
+									"exist": []any{
+										"barcode",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/product/{barcode}.xml",
+								"segments": []any{
+									map[string]any{
+										"lit": "product",
+									},
+									map[string]any{
+										"lit": "{barcode}.xml",
+									},
+								},
+								"parts": []any{
+									"product",
+									"{barcode}.xml",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "barcode",
+											"orig": "barcode",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "737628064502",
+										},
+									},
+								},
+								"select": map[string]any{
+									"$action": "barcode",
+									"exist": []any{
+										"barcode",
+									},
+								},
+							},
+							map[string]any{
+								"kind": "http",
+								"method": "GET",
+								"orig": "/product/{barcode}",
+								"segments": []any{
+									map[string]any{
+										"lit": "product",
+									},
+									map[string]any{
+										"var": "id",
+									},
+								},
+								"parts": []any{
+									"product",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"barcode": "id",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.product`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "barcode",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "737628064502",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},

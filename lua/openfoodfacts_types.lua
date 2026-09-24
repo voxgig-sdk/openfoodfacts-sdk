@@ -1,7 +1,7 @@
 -- Typed models for the Openfoodfacts SDK (LuaLS annotations).
 --
--- GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
--- params (op.<name>.points[].args.params[]). Field/param types come from the
+-- GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+-- params (op.<name>.points[].g.params[]). Field/param types come from the
 -- canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 -- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
 -- edit by hand.
@@ -39,36 +39,7 @@
 ---@class ProductLoadMatch
 ---@field id string
 
----@class Search
----@field additives_tags? table
----@field allergens? string
----@field brands? string
----@field categories? string
----@field countries? string
----@field created_t? number
----@field ecoscore_grade? string
----@field ecoscore_score? number
----@field generic_name? string
----@field image_front_url? string
----@field image_ingredients_url? string
----@field image_nutrition_url? string
----@field image_url? string
----@field ingredients_analysis_tags? table
----@field ingredients_text? string
----@field labels? string
----@field last_modified_t? number
----@field manufacturing_places? string
----@field nova_group? number
----@field nutriments? table
----@field nutriscore_grade? string
----@field nutriscore_score? number
----@field packaging? string
----@field product_name? string
----@field quantity? string
----@field stores? string
----@field traces? string
-
----@class SearchListMatch
+---@class ProductListMatch
 ---@field brand? string
 ---@field category? string
 ---@field json? boolean

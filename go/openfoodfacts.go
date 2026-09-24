@@ -44,9 +44,6 @@ func init() {
 	core.NewProductEntityFunc = func(client *core.OpenfoodfactsSDK, entopts map[string]any) core.OpenfoodfactsEntity {
 		return entity.NewProductEntity(client, entopts)
 	}
-	core.NewSearchEntityFunc = func(client *core.OpenfoodfactsSDK, entopts map[string]any) core.OpenfoodfactsEntity {
-		return entity.NewSearchEntity(client, entopts)
-	}
 }
 
 // Constructor re-exports.

@@ -45,10 +45,6 @@ local client = sdk.test()
 
 Create a new `Product` entity instance. Pass `nil` for no initial data.
 
-#### `Search(data)`
-
-Create a new `Search` entity instance. Pass `nil` for no initial data.
-
 #### `options_map() -> table`
 
 Return a deep copy of the current SDK options.
@@ -126,6 +122,14 @@ local product = client:Product(nil)
 
 ### Operations
 
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Product():list()
+```
+
 #### `load(reqmatch, ctrl) -> any, err`
 
 Load a single entity matching the given criteria.
@@ -155,84 +159,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ProductEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## SearchEntity
-
-```lua
-local search = client:Search(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `additives_tags` | `table` | No | List of additives |
-| `allergens` | `string` | No | Allergens present in the product |
-| `brands` | `string` | No | Brands of the product |
-| `categories` | `string` | No | Categories the product belongs to |
-| `countries` | `string` | No | Countries where the product is sold |
-| `created_t` | `number` | No | Creation timestamp |
-| `ecoscore_grade` | `string` | No | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | `number` | No | Eco-Score numerical score |
-| `generic_name` | `string` | No | Generic name of the product |
-| `image_front_url` | `string` | No | URL of the front image |
-| `image_ingredients_url` | `string` | No | URL of the ingredients image |
-| `image_nutrition_url` | `string` | No | URL of the nutrition facts image |
-| `image_url` | `string` | No | URL of the product's front image |
-| `ingredients_analysis_tags` | `table` | No | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | `string` | No | List of ingredients as text |
-| `labels` | `string` | No | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | `number` | No | Last modification timestamp |
-| `manufacturing_places` | `string` | No | Manufacturing or processing places |
-| `nova_group` | `number` | No | NOVA group for food processing level (1-4) |
-| `nutriments` | `table` | No | Nutritional information |
-| `nutriscore_grade` | `string` | No | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | `number` | No | Nutri-Score numerical score |
-| `packaging` | `string` | No | Packaging type |
-| `product_name` | `string` | No | Name of the product |
-| `quantity` | `string` | No | Quantity or volume of the product |
-| `stores` | `string` | No | Stores where the product is available |
-| `traces` | `string` | No | Traces of allergens |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:Search():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `SearchEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`

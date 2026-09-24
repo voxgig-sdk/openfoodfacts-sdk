@@ -1,0 +1,432 @@
+# Entity: product
+
+main: kit: entity: product: {
+
+  alias: field: {}
+
+  fields: {
+    additives_tags: {
+      h: "Additives Tags"
+      n: "additives_tags"
+      r: false
+      sh: "List of additives"
+      t: "`$ARRAY`"
+    }
+    allergens: {
+      h: "Allergens"
+      n: "allergens"
+      r: false
+      sh: "Allergens present in the product"
+      t: "`$STRING`"
+    }
+    brands: {
+      h: "Brands"
+      n: "brands"
+      r: false
+      sh: "Brands of the product"
+      t: "`$STRING`"
+    }
+    categories: {
+      h: "Categories"
+      n: "categories"
+      r: false
+      sh: "Categories the product belongs to"
+      t: "`$STRING`"
+    }
+    countries: {
+      h: "Countries"
+      n: "countries"
+      r: false
+      sh: "Countries where the product is sold"
+      t: "`$STRING`"
+    }
+    created_t: {
+      h: "Created T"
+      n: "created_t"
+      r: false
+      sh: "Creation timestamp"
+      t: "`$INTEGER`"
+    }
+    ecoscore_grade: {
+      h: "Ecoscore Grade"
+      n: "ecoscore_grade"
+      r: false
+      sh: "Eco-Score grade for environmental impact (a, b, c, d, e)"
+      t: "`$STRING`"
+    }
+    ecoscore_score: {
+      h: "Ecoscore Score"
+      n: "ecoscore_score"
+      r: false
+      sh: "Eco-Score numerical score"
+      t: "`$INTEGER`"
+    }
+    generic_name: {
+      h: "Generic Name"
+      n: "generic_name"
+      r: false
+      sh: "Generic name of the product"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    image_front_url: {
+      h: "Image Front Url"
+      n: "image_front_url"
+      r: false
+      sh: "URL of the front image"
+      t: "`$STRING`"
+    }
+    image_ingredients_url: {
+      h: "Image Ingredients Url"
+      n: "image_ingredients_url"
+      r: false
+      sh: "URL of the ingredients image"
+      t: "`$STRING`"
+    }
+    image_nutrition_url: {
+      h: "Image Nutrition Url"
+      n: "image_nutrition_url"
+      r: false
+      sh: "URL of the nutrition facts image"
+      t: "`$STRING`"
+    }
+    image_url: {
+      h: "Image Url"
+      n: "image_url"
+      r: false
+      sh: "URL of the product's front image"
+      t: "`$STRING`"
+    }
+    ingredients_analysis_tags: {
+      h: "Ingredients Analysis Tags"
+      n: "ingredients_analysis_tags"
+      r: false
+      sh: "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)"
+      t: "`$ARRAY`"
+    }
+    ingredients_text: {
+      h: "Ingredients Text"
+      n: "ingredients_text"
+      r: false
+      sh: "List of ingredients as text"
+      t: "`$STRING`"
+    }
+    labels: {
+      h: "Labels"
+      n: "labels"
+      r: false
+      sh: "Labels associated with the product (e.g., Organic, Fair Trade)"
+      t: "`$STRING`"
+    }
+    last_modified_t: {
+      h: "Last Modified T"
+      n: "last_modified_t"
+      r: false
+      sh: "Last modification timestamp"
+      t: "`$INTEGER`"
+    }
+    manufacturing_places: {
+      h: "Manufacturing Places"
+      n: "manufacturing_places"
+      r: false
+      sh: "Manufacturing or processing places"
+      t: "`$STRING`"
+    }
+    nova_group: {
+      h: "Nova Group"
+      n: "nova_group"
+      r: false
+      sh: "NOVA group for food processing level (1-4)"
+      t: "`$INTEGER`"
+    }
+    nutriments: {
+      h: "Nutriments"
+      n: "nutriments"
+      r: false
+      sh: "Nutritional information"
+      t: "`$OBJECT`"
+    }
+    nutriscore_grade: {
+      h: "Nutriscore Grade"
+      n: "nutriscore_grade"
+      r: false
+      sh: "Nutri-Score grade (a, b, c, d, e)"
+      t: "`$STRING`"
+    }
+    nutriscore_score: {
+      h: "Nutriscore Score"
+      n: "nutriscore_score"
+      r: false
+      sh: "Nutri-Score numerical score"
+      t: "`$INTEGER`"
+    }
+    packaging: {
+      h: "Packaging"
+      n: "packaging"
+      r: false
+      sh: "Packaging type"
+      t: "`$STRING`"
+    }
+    product_name: {
+      h: "Product Name"
+      n: "product_name"
+      r: false
+      sh: "Name of the product"
+      t: "`$STRING`"
+    }
+    quantity: {
+      h: "Quantity"
+      n: "quantity"
+      r: false
+      sh: "Quantity or volume of the product"
+      t: "`$STRING`"
+    }
+    stores: {
+      h: "Stores"
+      n: "stores"
+      r: false
+      sh: "Stores where the product is available"
+      t: "`$STRING`"
+    }
+    traces: {
+      h: "Traces"
+      n: "traces"
+      r: false
+      sh: "Traces of allergens"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "product"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "brand"
+                or: "brand"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "category"
+                or: "category"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: true
+                k: "query"
+                n: "json"
+                or: "json"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "label"
+                or: "label"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "search_term"
+                or: "search_term"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/search"
+          q: {
+            exist: [
+              "brand"
+              "category"
+              "json"
+              "label"
+              "page"
+              "page_size"
+              "search_term"
+            ]
+          }
+          s: [
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.products`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /product/{barcode}.json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "737628064502"
+                k: "param"
+                n: "barcode"
+                or: "barcode"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/product/{barcode}.json"
+          q: {
+            "$action": "barcode"
+            exist: [
+              "barcode"
+            ]
+          }
+          s: [
+            {
+              lit: "product"
+            }
+            {
+              lit: "{barcode}.json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.product`"
+          }
+        }
+        {
+          co: {
+            id: "GET /product/{barcode}.xml"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "737628064502"
+                k: "param"
+                n: "barcode"
+                or: "barcode"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/product/{barcode}.xml"
+          q: {
+            "$action": "barcode"
+            exist: [
+              "barcode"
+            ]
+          }
+          s: [
+            {
+              lit: "product"
+            }
+            {
+              lit: "{barcode}.xml"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /product/{barcode}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "737628064502"
+                k: "param"
+                n: "id"
+                or: "barcode"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/product/{barcode}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              barcode: "id"
+            }
+          }
+          s: [
+            {
+              lit: "product"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.product`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

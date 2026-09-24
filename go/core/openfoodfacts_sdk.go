@@ -264,7 +264,6 @@ func (sdk *OpenfoodfactsSDK) rawRequest(fetchargs map[string]any) (map[string]an
 		if !noBody {
 			if jf := vs.GetProp(fm, "json"); jf != nil {
 				if f, ok := jf.(func() any); ok {
-					// f() returns nil on parse error in our fetcher.
 					jsonData = f()
 				}
 			}
@@ -281,17 +280,6 @@ func (sdk *OpenfoodfactsSDK) rawRequest(fetchargs map[string]any) (map[string]an
 	return map[string]any{"ok": false, "err": ctx.MakeError("direct_invalid", "invalid response type")}, nil
 }
 
-// Raw GraphQL access: the pressure valve that makes the generated surface's
-// deliberate omissions (per-call selection sets, typed filter builders,
-// batching, subscriptions) livable — the whole schema stays reachable.
-//
-// Thin wrapper over the same prepare/fetch path Direct uses, with the one
-// thing raw Direct cannot do for GraphQL: a GraphQL failure rides HTTP 200
-// as a top-level `errors` array, so status alone would report a failed query
-// as ok.
-//
-// NOTE: like Direct, this bypasses the feature pipeline — no retry,
-// ratelimit or paging features apply.
 func (sdk *OpenfoodfactsSDK) Graphql(
 	query string, variables map[string]any, ctrl map[string]any,
 ) (map[string]any, error) {
@@ -343,14 +331,6 @@ func (sdk *OpenfoodfactsSDK) Graphql(
 // client.Product(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *OpenfoodfactsSDK) Product(data map[string]any) OpenfoodfactsEntity {
 	return NewProductEntityFunc(sdk, data)
-}
-
-
-// Search returns a Search entity bound to this client.
-// Idiomatic usage: client.Search(nil).List(nil, nil) or
-// client.Search(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *OpenfoodfactsSDK) Search(data map[string]any) OpenfoodfactsEntity {
-	return NewSearchEntityFunc(sdk, data)
 }
 
 

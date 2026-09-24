@@ -33,6 +33,21 @@ $client = new OpenfoodfactsSDK([
 ]);
 ```
 
+### 2. List product records
+
+```php
+try {
+    // list() returns entity instances; data_get() reads each record.
+    $products = $client->Product()->list();
+    foreach ($products as $record) {
+        $item = $record->data_get();
+        echo $item["id"] . " " . $item["additives_tags"] . "\n";
+    }
+} catch (\Throwable $err) {
+    echo "Error: " . $err->getMessage();
+}
+```
+
 ### 3. Load a product
 
 ```php
@@ -53,7 +68,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $product = $client->Product()->load(["id" => "example_id"]);
+    $products = $client->Product()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -128,10 +143,10 @@ $client = OpenfoodfactsSDK::test([
     "entity" => ["product" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the ENTITY (throws on error);
+// list() returns entity instances (throws on error);
 // call data_get() for the mock record.
-$product = $client->Product()->load(["id" => "test01"]);
-print_r($product->data_get());
+$product = $client->Product()->list();
+print_r(array_map(fn($item) => $item->data_get(), $product));
 ```
 
 ### Use a custom fetch function
@@ -213,7 +228,6 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
 | `Product` | `($data): ProductEntity` | Create a Product entity instance. |
-| `Search` | `($data): SearchEntity` | Create a Search entity instance. |
 
 ### Entity interface
 
@@ -283,43 +297,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `stores` | Stores where the product is available |
 | `traces` | Traces of allergens |
 
-Operations: Load.
-
-API path: `/product/{barcode}.json`
-
-#### Search
-
-| Field | Description |
-| --- | --- |
-| `additives_tags` | List of additives |
-| `allergens` | Allergens present in the product |
-| `brands` | Brands of the product |
-| `categories` | Categories the product belongs to |
-| `countries` | Countries where the product is sold |
-| `created_t` | Creation timestamp |
-| `ecoscore_grade` | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | Eco-Score numerical score |
-| `generic_name` | Generic name of the product |
-| `image_front_url` | URL of the front image |
-| `image_ingredients_url` | URL of the ingredients image |
-| `image_nutrition_url` | URL of the nutrition facts image |
-| `image_url` | URL of the product's front image |
-| `ingredients_analysis_tags` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | List of ingredients as text |
-| `labels` | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | Last modification timestamp |
-| `manufacturing_places` | Manufacturing or processing places |
-| `nova_group` | NOVA group for food processing level (1-4) |
-| `nutriments` | Nutritional information |
-| `nutriscore_grade` | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | Nutri-Score numerical score |
-| `packaging` | Packaging type |
-| `product_name` | Name of the product |
-| `quantity` | Quantity or volume of the product |
-| `stores` | Stores where the product is available |
-| `traces` | Traces of allergens |
-
-Operations: List.
+Operations: List, Load.
 
 API path: `/search`
 
@@ -336,6 +314,7 @@ Create an instance: `$product = $client->Product();`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -378,54 +357,11 @@ Create an instance: `$product = $client->Product();`
 $product = $client->Product()->load(["id" => "product_id"]);
 ```
 
-
-### Search
-
-Create an instance: `$search = $client->Search();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `additives_tags` | `array` | List of additives |
-| `allergens` | `string` | Allergens present in the product |
-| `brands` | `string` | Brands of the product |
-| `categories` | `string` | Categories the product belongs to |
-| `countries` | `string` | Countries where the product is sold |
-| `created_t` | `int` | Creation timestamp |
-| `ecoscore_grade` | `string` | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | `int` | Eco-Score numerical score |
-| `generic_name` | `string` | Generic name of the product |
-| `image_front_url` | `string` | URL of the front image |
-| `image_ingredients_url` | `string` | URL of the ingredients image |
-| `image_nutrition_url` | `string` | URL of the nutrition facts image |
-| `image_url` | `string` | URL of the product's front image |
-| `ingredients_analysis_tags` | `array` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | `string` | List of ingredients as text |
-| `labels` | `string` | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | `int` | Last modification timestamp |
-| `manufacturing_places` | `string` | Manufacturing or processing places |
-| `nova_group` | `int` | NOVA group for food processing level (1-4) |
-| `nutriments` | `array` | Nutritional information |
-| `nutriscore_grade` | `string` | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | `int` | Nutri-Score numerical score |
-| `packaging` | `string` | Packaging type |
-| `product_name` | `string` | Name of the product |
-| `quantity` | `string` | Quantity or volume of the product |
-| `stores` | `string` | Stores where the product is available |
-| `traces` | `string` | Traces of allergens |
-
 #### Example: List
 
 ```php
-// list() returns an array of Search records (throws on error).
-$searchs = $client->Search()->list();
+// list() returns an array of Product records (throws on error).
+$products = $client->Product()->list();
 ```
 
 ## Features
@@ -586,14 +522,14 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
 $product = $client->Product();
-$product->load(["id" => "example_id"]);
+$product->list();
 
-// $product->data_get() now returns the product data from the last load
+// $product->data_get() now returns the product data from the last list
 // $product->match_get() returns the last match criteria
 ```
 

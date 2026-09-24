@@ -313,12 +313,6 @@ class OpenfoodfactsSDK:
         return ProductEntity(self, data)
 
 
-    def Search(self, data=None) -> "SearchEntity":
-        """Entity factory: client.Search().list() / client.Search().load({"id": ...})."""
-        from openfoodfacts_sdk.entity.search_entity import SearchEntity
-        return SearchEntity(self, data)
-
-
 
     @classmethod
     def test(cls, testopts=None, sdkopts=None) -> "OpenfoodfactsSDK":
@@ -347,4 +341,3 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from openfoodfacts_sdk.entity.product_entity import ProductEntity
-    from openfoodfacts_sdk.entity.search_entity import SearchEntity

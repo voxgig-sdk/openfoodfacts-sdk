@@ -35,6 +35,20 @@ local client = sdk.new({
 })
 ```
 
+### 2. List product records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
+
+```lua
+local products, err = client:Product():list()
+if err then error(err) end
+
+for _, item in ipairs(products) do
+  print(item["id"])
+end
+```
+
 ### 3. Load a product
 
 ```lua
@@ -50,7 +64,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local product, err = client:Product():load({ id = "example_id" })
+local products, err = client:Product():list()
 if err then error(err) end
 ```
 
@@ -108,7 +122,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Product():load({ id = "test01" })
+local result, err = client:Product():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -190,7 +204,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `prepare` | `(fetchargs) -> table, err` | Build an HTTP request definition without sending. |
 | `direct` | `(fetchargs) -> table, err` | Build and send an HTTP request. |
 | `Product` | `(data) -> ProductEntity` | Create a Product entity instance. |
-| `Search` | `(data) -> SearchEntity` | Create a Search entity instance. |
 
 ### Entity interface
 
@@ -261,43 +274,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `stores` | Stores where the product is available |
 | `traces` | Traces of allergens |
 
-Operations: Load.
-
-API path: `/product/{barcode}.json`
-
-#### Search
-
-| Field | Description |
-| --- | --- |
-| `additives_tags` | List of additives |
-| `allergens` | Allergens present in the product |
-| `brands` | Brands of the product |
-| `categories` | Categories the product belongs to |
-| `countries` | Countries where the product is sold |
-| `created_t` | Creation timestamp |
-| `ecoscore_grade` | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | Eco-Score numerical score |
-| `generic_name` | Generic name of the product |
-| `image_front_url` | URL of the front image |
-| `image_ingredients_url` | URL of the ingredients image |
-| `image_nutrition_url` | URL of the nutrition facts image |
-| `image_url` | URL of the product's front image |
-| `ingredients_analysis_tags` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | List of ingredients as text |
-| `labels` | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | Last modification timestamp |
-| `manufacturing_places` | Manufacturing or processing places |
-| `nova_group` | NOVA group for food processing level (1-4) |
-| `nutriments` | Nutritional information |
-| `nutriscore_grade` | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | Nutri-Score numerical score |
-| `packaging` | Packaging type |
-| `product_name` | Name of the product |
-| `quantity` | Quantity or volume of the product |
-| `stores` | Stores where the product is available |
-| `traces` | Traces of allergens |
-
-Operations: List.
+Operations: List, Load.
 
 API path: `/search`
 
@@ -314,6 +291,7 @@ Create an instance: `local product = client:Product(nil)`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -355,53 +333,10 @@ Create an instance: `local product = client:Product(nil)`
 local product, err = client:Product():load({ id = "product_id" })
 ```
 
-
-### Search
-
-Create an instance: `local search = client:Search(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `additives_tags` | `table` | List of additives |
-| `allergens` | `string` | Allergens present in the product |
-| `brands` | `string` | Brands of the product |
-| `categories` | `string` | Categories the product belongs to |
-| `countries` | `string` | Countries where the product is sold |
-| `created_t` | `number` | Creation timestamp |
-| `ecoscore_grade` | `string` | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | `number` | Eco-Score numerical score |
-| `generic_name` | `string` | Generic name of the product |
-| `image_front_url` | `string` | URL of the front image |
-| `image_ingredients_url` | `string` | URL of the ingredients image |
-| `image_nutrition_url` | `string` | URL of the nutrition facts image |
-| `image_url` | `string` | URL of the product's front image |
-| `ingredients_analysis_tags` | `table` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | `string` | List of ingredients as text |
-| `labels` | `string` | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | `number` | Last modification timestamp |
-| `manufacturing_places` | `string` | Manufacturing or processing places |
-| `nova_group` | `number` | NOVA group for food processing level (1-4) |
-| `nutriments` | `table` | Nutritional information |
-| `nutriscore_grade` | `string` | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | `number` | Nutri-Score numerical score |
-| `packaging` | `string` | Packaging type |
-| `product_name` | `string` | Name of the product |
-| `quantity` | `string` | Quantity or volume of the product |
-| `stores` | `string` | Stores where the product is available |
-| `traces` | `string` | Traces of allergens |
-
 #### Example: List
 
 ```lua
-local searchs, err = client:Search():list()
+local products, err = client:Product():list()
 ```
 
 ## Features
@@ -562,14 +497,14 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
 local product = client:Product()
-product:load({ id = "example_id" })
+product:list()
 
--- product:data_get() now returns the product data from the last load
+-- product:data_get() now returns the product data from the last list
 -- product:match_get() returns the last match criteria
 ```
 

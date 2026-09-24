@@ -52,10 +52,6 @@ client := sdk.TestSDK(testopts, sdkopts)
 
 Create a new `Product` entity instance. Pass `nil` for no initial data.
 
-#### `Search(data map[string]any) OpenfoodfactsEntity`
-
-Create a new `Search` entity instance. Pass `nil` for no initial data.
-
 #### `OptionsMap() map[string]any`
 
 Return a deep copy of the current SDK options.
@@ -134,6 +130,18 @@ fmt.Println(product.GetName()) // "product"
 
 ### Operations
 
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Product(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
 
 Load a single entity matching the given criteria.
@@ -161,83 +169,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `ProductEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## SearchEntity
-
-```go
-search := client.Search(nil)
-fmt.Println(search.GetName()) // "search"
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `additives_tags` | `[]any` | No | List of additives |
-| `allergens` | `string` | No | Allergens present in the product |
-| `brands` | `string` | No | Brands of the product |
-| `categories` | `string` | No | Categories the product belongs to |
-| `countries` | `string` | No | Countries where the product is sold |
-| `created_t` | `int` | No | Creation timestamp |
-| `ecoscore_grade` | `string` | No | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | `int` | No | Eco-Score numerical score |
-| `generic_name` | `string` | No | Generic name of the product |
-| `image_front_url` | `string` | No | URL of the front image |
-| `image_ingredients_url` | `string` | No | URL of the ingredients image |
-| `image_nutrition_url` | `string` | No | URL of the nutrition facts image |
-| `image_url` | `string` | No | URL of the product's front image |
-| `ingredients_analysis_tags` | `[]any` | No | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | `string` | No | List of ingredients as text |
-| `labels` | `string` | No | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | `int` | No | Last modification timestamp |
-| `manufacturing_places` | `string` | No | Manufacturing or processing places |
-| `nova_group` | `int` | No | NOVA group for food processing level (1-4) |
-| `nutriments` | `map[string]any` | No | Nutritional information |
-| `nutriscore_grade` | `string` | No | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | `int` | No | Nutri-Score numerical score |
-| `packaging` | `string` | No | Packaging type |
-| `product_name` | `string` | No | Name of the product |
-| `quantity` | `string` | No | Quantity or volume of the product |
-| `stores` | `string` | No | Stores where the product is available |
-| `traces` | `string` | No | Traces of allergens |
-
-### Operations
-
-#### `List(reqmatch, ctrl map[string]any) (any, error)`
-
-List entities matching the given criteria. Returns an array.
-
-```go
-results, err := client.Search(nil).List(nil, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(results)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `SearchEntity` instance with the same client and
 options.
 
 #### `GetName() string`

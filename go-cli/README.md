@@ -19,15 +19,16 @@ make build
 export OPENFOODFACTS_APIKEY=sk_live_xxx
 
 # 4. Each command line is ONE boru expression, run against the API:
+./openfoodfacts-cli list product
 ./openfoodfacts-cli load 1 product            # {id:1} shorthand
 ./openfoodfacts-cli load '{id:1}' product       # explicit match map
 
 # 5. Override the API base URL for a single call
-OPENFOODFACTS_BASE=https://api.example.com ./openfoodfacts-cli load 1 product
+OPENFOODFACTS_BASE=https://api.example.com ./openfoodfacts-cli list product
 
 # 6. No arguments -> interactive REPL
 ./openfoodfacts-cli
-openfoodfacts> load 1 product
+openfoodfacts> list product
 openfoodfacts> /quit
 ```
 
@@ -53,7 +54,7 @@ openfoodfacts> /quit
    arguments to open the REPL):
 
    ```sh
-   ./dist/*/openfoodfacts-cli load 1 product
+   ./dist/*/openfoodfacts-cli list product
    ```
 
 4. **Go interactive.** Run the binary with no arguments to open the REPL, then
@@ -62,6 +63,15 @@ openfoodfacts> /quit
 That is the whole loop: *build → set key → evaluate boru expressions*.
 
 ## How-to guides
+
+### List the records of an entity
+
+```sh
+./openfoodfacts-cli list product
+```
+
+`list <entity>` returns the first page of records. `<entity>` is a bareword —
+it is auto-quoted as an boru atom, so no quotes are needed.
 
 ### Load a single record
 
@@ -80,7 +90,7 @@ Configuration is read from the environment — nothing is written to disk:
 ```sh
 export OPENFOODFACTS_APIKEY=sk_live_xxx            # API key
 export OPENFOODFACTS_BASE=https://api.example.com  # optional: override the API base URL
-./openfoodfacts-cli load 1 product
+./openfoodfacts-cli list product
 ```
 
 Both are injectable by a secrets vault, so the key never has to be typed inline.
@@ -92,7 +102,7 @@ evaluated as its own boru expression:
 
 ```text
 $ ./openfoodfacts-cli
-openfoodfacts> load 1 product
+openfoodfacts> list product
 openfoodfacts> /help
 openfoodfacts> /quit
 ```
@@ -107,7 +117,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 ### Discover the available entities
 
 `/help` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes 2 entities.
+below — this SDK exposes 1 entity.
 
 ## Reference
 
@@ -161,9 +171,9 @@ Meta-commands use the `/` prefix (everything else on a line is evaluated as boru
 
 ### Entities
 
-The 2 entities this SDK exposes (any is valid as `<entity>`):
+The 1 entity this SDK exposes (any is valid as `<entity>`):
 
-product search
+product
 
 ## Explanation
 

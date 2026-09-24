@@ -363,20 +363,6 @@ function OpenfoodfactsSDK:Product(data)
 end
 
 
--- Idiomatic facade: client:Search():list() / client:Search():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function OpenfoodfactsSDK:Search(data)
-  local EntityMod = require("entity.search_entity")
-  if data == nil then
-    if self._search == nil then
-      self._search = EntityMod.new(self, nil)
-    end
-    return self._search
-  end
-  return EntityMod.new(self, data)
-end
-
-
 
 
 function OpenfoodfactsSDK.test(testopts, sdkopts)

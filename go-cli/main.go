@@ -20,7 +20,7 @@ import (
 const prompt = "openfoodfacts"
 
 // entitiesHelp is the space-separated entity list shown by /help.
-const entitiesHelp = "product search"
+const entitiesHelp = "product"
 
 func main() {
 	os.Exit(run(os.Args[1:], os.Stdin, os.Stdout, os.Stderr))

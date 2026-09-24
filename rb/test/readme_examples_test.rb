@@ -44,7 +44,6 @@ class ReadmeExamplesTest < Minitest::Test
   # Entity accessor (client.<Name>) => fixture storage key (lowercase name).
   ENTITIES = {
     "Product" => "product",
-    "Search" => "search",
   }
 
   # Documented SDK method names — used only to recognise the NARROW

@@ -32,6 +32,20 @@ client = OpenfoodfactsSDK.new({
 })
 ```
 
+### 2. List product records
+
+```ruby
+begin
+  # list returns an Array of Product records — iterate directly.
+  products = client.Product.list
+  products.each do |item|
+    puts "#{item["id"]} #{item["additives_tags"]}"
+  end
+rescue => err
+  warn "list failed: #{err}"
+end
+```
+
 ### 3. Load a product
 
 ```ruby
@@ -51,9 +65,9 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  product = client.Product.load({ "id" => "example_id" })
+  products = client.Product.list()
 rescue => err
-  warn "load failed: #{err}"
+  warn "list failed: #{err}"
 end
 ```
 
@@ -124,7 +138,7 @@ client = OpenfoodfactsSDK.test({
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-product = client.Product.load({ "id" => "test01" })
+product = client.Product.list()
 puts product
 ```
 
@@ -204,7 +218,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
 | `Product` | `(data) -> ProductEntity` | Create a Product entity instance. |
-| `Search` | `(data) -> SearchEntity` | Create a Search entity instance. |
 
 ### Entity interface
 
@@ -273,43 +286,7 @@ returns a result `Hash` with these keys:
 | `stores` | Stores where the product is available |
 | `traces` | Traces of allergens |
 
-Operations: Load.
-
-API path: `/product/{barcode}.json`
-
-#### Search
-
-| Field | Description |
-| --- | --- |
-| `additives_tags` | List of additives |
-| `allergens` | Allergens present in the product |
-| `brands` | Brands of the product |
-| `categories` | Categories the product belongs to |
-| `countries` | Countries where the product is sold |
-| `created_t` | Creation timestamp |
-| `ecoscore_grade` | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | Eco-Score numerical score |
-| `generic_name` | Generic name of the product |
-| `image_front_url` | URL of the front image |
-| `image_ingredients_url` | URL of the ingredients image |
-| `image_nutrition_url` | URL of the nutrition facts image |
-| `image_url` | URL of the product's front image |
-| `ingredients_analysis_tags` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | List of ingredients as text |
-| `labels` | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | Last modification timestamp |
-| `manufacturing_places` | Manufacturing or processing places |
-| `nova_group` | NOVA group for food processing level (1-4) |
-| `nutriments` | Nutritional information |
-| `nutriscore_grade` | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | Nutri-Score numerical score |
-| `packaging` | Packaging type |
-| `product_name` | Name of the product |
-| `quantity` | Quantity or volume of the product |
-| `stores` | Stores where the product is available |
-| `traces` | Traces of allergens |
-
-Operations: List.
+Operations: List, Load.
 
 API path: `/search`
 
@@ -326,6 +303,7 @@ Create an instance: `product = client.Product`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -368,54 +346,11 @@ Create an instance: `product = client.Product`
 product = client.Product.load({ "id" => "product_id" })
 ```
 
-
-### Search
-
-Create an instance: `search = client.Search`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `additives_tags` | `Array` | List of additives |
-| `allergens` | `String` | Allergens present in the product |
-| `brands` | `String` | Brands of the product |
-| `categories` | `String` | Categories the product belongs to |
-| `countries` | `String` | Countries where the product is sold |
-| `created_t` | `Integer` | Creation timestamp |
-| `ecoscore_grade` | `String` | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | `Integer` | Eco-Score numerical score |
-| `generic_name` | `String` | Generic name of the product |
-| `image_front_url` | `String` | URL of the front image |
-| `image_ingredients_url` | `String` | URL of the ingredients image |
-| `image_nutrition_url` | `String` | URL of the nutrition facts image |
-| `image_url` | `String` | URL of the product's front image |
-| `ingredients_analysis_tags` | `Array` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | `String` | List of ingredients as text |
-| `labels` | `String` | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | `Integer` | Last modification timestamp |
-| `manufacturing_places` | `String` | Manufacturing or processing places |
-| `nova_group` | `Integer` | NOVA group for food processing level (1-4) |
-| `nutriments` | `Hash` | Nutritional information |
-| `nutriscore_grade` | `String` | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | `Integer` | Nutri-Score numerical score |
-| `packaging` | `String` | Packaging type |
-| `product_name` | `String` | Name of the product |
-| `quantity` | `String` | Quantity or volume of the product |
-| `stores` | `String` | Stores where the product is available |
-| `traces` | `String` | Traces of allergens |
-
 #### Example: List
 
 ```ruby
-# list returns an Array of Search records (raises on error).
-searchs = client.Search.list
+# list returns an Array of Product records (raises on error).
+products = client.Product.list
 ```
 
 ## Features
@@ -576,14 +511,14 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
 product = client.Product
-product.load({ "id" => "example_id" })
+product.list()
 
-# product.data_get now returns the product data from the last load
+# product.data_get now returns the product data from the last list
 # product.match_get returns the last match criteria
 ```
 

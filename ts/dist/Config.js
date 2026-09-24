@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -111,7 +104,6 @@ class Config {
         },
         entity: {
             product: {},
-            search: {},
         }
     };
     entity = {
@@ -119,142 +111,170 @@ class Config {
             "fields": [
                 {
                     "name": "additives_tags",
-                    "short": "List of additives",
-                    "type": "`$ARRAY`"
+                    "title": "Additives Tags",
+                    "type": "`$ARRAY`",
+                    "short": "List of additives"
                 },
                 {
                     "name": "allergens",
-                    "short": "Allergens present in the product",
-                    "type": "`$STRING`"
+                    "title": "Allergens",
+                    "type": "`$STRING`",
+                    "short": "Allergens present in the product"
                 },
                 {
                     "name": "brands",
-                    "short": "Brands of the product",
-                    "type": "`$STRING`"
+                    "title": "Brands",
+                    "type": "`$STRING`",
+                    "short": "Brands of the product"
                 },
                 {
                     "name": "categories",
-                    "short": "Categories the product belongs to",
-                    "type": "`$STRING`"
+                    "title": "Categories",
+                    "type": "`$STRING`",
+                    "short": "Categories the product belongs to"
                 },
                 {
                     "name": "countries",
-                    "short": "Countries where the product is sold",
-                    "type": "`$STRING`"
+                    "title": "Countries",
+                    "type": "`$STRING`",
+                    "short": "Countries where the product is sold"
                 },
                 {
                     "name": "created_t",
-                    "short": "Creation timestamp",
-                    "type": "`$INTEGER`"
+                    "title": "Created T",
+                    "type": "`$INTEGER`",
+                    "short": "Creation timestamp"
                 },
                 {
                     "name": "ecoscore_grade",
-                    "short": "Eco-Score grade for environmental impact (a, b, c, d, e)",
-                    "type": "`$STRING`"
+                    "title": "Ecoscore Grade",
+                    "type": "`$STRING`",
+                    "short": "Eco-Score grade for environmental impact (a, b, c, d, e)"
                 },
                 {
                     "name": "ecoscore_score",
-                    "short": "Eco-Score numerical score",
-                    "type": "`$INTEGER`"
+                    "title": "Ecoscore Score",
+                    "type": "`$INTEGER`",
+                    "short": "Eco-Score numerical score"
                 },
                 {
                     "name": "generic_name",
-                    "short": "Generic name of the product",
-                    "type": "`$STRING`"
+                    "title": "Generic Name",
+                    "type": "`$STRING`",
+                    "short": "Generic name of the product"
                 },
                 {
                     "name": "id",
+                    "title": "Id",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "image_front_url",
-                    "short": "URL of the front image",
-                    "type": "`$STRING`"
+                    "title": "Image Front Url",
+                    "type": "`$STRING`",
+                    "short": "URL of the front image"
                 },
                 {
                     "name": "image_ingredients_url",
-                    "short": "URL of the ingredients image",
-                    "type": "`$STRING`"
+                    "title": "Image Ingredients Url",
+                    "type": "`$STRING`",
+                    "short": "URL of the ingredients image"
                 },
                 {
                     "name": "image_nutrition_url",
-                    "short": "URL of the nutrition facts image",
-                    "type": "`$STRING`"
+                    "title": "Image Nutrition Url",
+                    "type": "`$STRING`",
+                    "short": "URL of the nutrition facts image"
                 },
                 {
                     "name": "image_url",
-                    "short": "URL of the product's front image",
-                    "type": "`$STRING`"
+                    "title": "Image Url",
+                    "type": "`$STRING`",
+                    "short": "URL of the product's front image"
                 },
                 {
                     "name": "ingredients_analysis_tags",
-                    "short": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
-                    "type": "`$ARRAY`"
+                    "title": "Ingredients Analysis Tags",
+                    "type": "`$ARRAY`",
+                    "short": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)"
                 },
                 {
                     "name": "ingredients_text",
-                    "short": "List of ingredients as text",
-                    "type": "`$STRING`"
+                    "title": "Ingredients Text",
+                    "type": "`$STRING`",
+                    "short": "List of ingredients as text"
                 },
                 {
                     "name": "labels",
-                    "short": "Labels associated with the product (e.g., Organic, Fair Trade)",
-                    "type": "`$STRING`"
+                    "title": "Labels",
+                    "type": "`$STRING`",
+                    "short": "Labels associated with the product (e.g., Organic, Fair Trade)"
                 },
                 {
                     "name": "last_modified_t",
-                    "short": "Last modification timestamp",
-                    "type": "`$INTEGER`"
+                    "title": "Last Modified T",
+                    "type": "`$INTEGER`",
+                    "short": "Last modification timestamp"
                 },
                 {
                     "name": "manufacturing_places",
-                    "short": "Manufacturing or processing places",
-                    "type": "`$STRING`"
+                    "title": "Manufacturing Places",
+                    "type": "`$STRING`",
+                    "short": "Manufacturing or processing places"
                 },
                 {
                     "name": "nova_group",
-                    "short": "NOVA group for food processing level (1-4)",
-                    "type": "`$INTEGER`"
+                    "title": "Nova Group",
+                    "type": "`$INTEGER`",
+                    "short": "NOVA group for food processing level (1-4)"
                 },
                 {
                     "name": "nutriments",
-                    "short": "Nutritional information",
-                    "type": "`$OBJECT`"
+                    "title": "Nutriments",
+                    "type": "`$OBJECT`",
+                    "short": "Nutritional information"
                 },
                 {
                     "name": "nutriscore_grade",
-                    "short": "Nutri-Score grade (a, b, c, d, e)",
-                    "type": "`$STRING`"
+                    "title": "Nutriscore Grade",
+                    "type": "`$STRING`",
+                    "short": "Nutri-Score grade (a, b, c, d, e)"
                 },
                 {
                     "name": "nutriscore_score",
-                    "short": "Nutri-Score numerical score",
-                    "type": "`$INTEGER`"
+                    "title": "Nutriscore Score",
+                    "type": "`$INTEGER`",
+                    "short": "Nutri-Score numerical score"
                 },
                 {
                     "name": "packaging",
-                    "short": "Packaging type",
-                    "type": "`$STRING`"
+                    "title": "Packaging",
+                    "type": "`$STRING`",
+                    "short": "Packaging type"
                 },
                 {
                     "name": "product_name",
-                    "short": "Name of the product",
-                    "type": "`$STRING`"
+                    "title": "Product Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the product"
                 },
                 {
                     "name": "quantity",
-                    "short": "Quantity or volume of the product",
-                    "type": "`$STRING`"
+                    "title": "Quantity",
+                    "type": "`$STRING`",
+                    "short": "Quantity or volume of the product"
                 },
                 {
                     "name": "stores",
-                    "short": "Stores where the product is available",
-                    "type": "`$STRING`"
+                    "title": "Stores",
+                    "type": "`$STRING`",
+                    "short": "Stores where the product is available"
                 },
                 {
                     "name": "traces",
-                    "short": "Traces of allergens",
-                    "type": "`$STRING`"
+                    "title": "Traces",
+                    "type": "`$STRING`",
+                    "short": "Traces of allergens"
                 }
             ],
             "id": {
@@ -263,23 +283,95 @@ class Config {
             },
             "name": "product",
             "op": {
+                "list": {
+                    "input": "data",
+                    "name": "list",
+                    "points": [
+                        {
+                            "kind": "http",
+                            "method": "GET",
+                            "orig": "/search",
+                            "segments": [
+                                {
+                                    "lit": "search"
+                                }
+                            ],
+                            "parts": [
+                                "search"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.products`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "brand",
+                                        "orig": "brand",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "category",
+                                        "orig": "category",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "json",
+                                        "orig": "json",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query",
+                                        "example": true
+                                    },
+                                    {
+                                        "name": "label",
+                                        "orig": "label",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "page",
+                                        "orig": "page",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 1
+                                    },
+                                    {
+                                        "name": "page_size",
+                                        "orig": "page_size",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 20
+                                    },
+                                    {
+                                        "name": "search_term",
+                                        "orig": "search_term",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "brand",
+                                    "category",
+                                    "json",
+                                    "label",
+                                    "page",
+                                    "page_size",
+                                    "search_term"
+                                ]
+                            }
+                        }
+                    ]
+                },
                 "load": {
                     "input": "data",
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "example": "737628064502",
-                                        "kind": "param",
-                                        "name": "barcode",
-                                        "orig": "barcode",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/product/{barcode}.json",
@@ -291,34 +383,35 @@ class Config {
                                     "lit": "{barcode}.json"
                                 }
                             ],
+                            "parts": [
+                                "product",
+                                "{barcode}.json"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.product`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "barcode",
+                                        "orig": "barcode",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "737628064502"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "$action": "barcode",
                                 "exist": [
                                     "barcode"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.product`"
-                            },
-                            "parts": [
-                                "product",
-                                "{barcode}.json"
-                            ]
+                            }
                         },
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "example": "737628064502",
-                                        "kind": "param",
-                                        "name": "barcode",
-                                        "orig": "barcode",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/product/{barcode}.xml",
@@ -330,42 +423,38 @@ class Config {
                                     "lit": "{barcode}.xml"
                                 }
                             ],
+                            "parts": [
+                                "product",
+                                "{barcode}.xml"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "barcode",
+                                        "orig": "barcode",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "737628064502"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "$action": "barcode",
                                 "exist": [
                                     "barcode"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "product",
-                                "{barcode}.xml"
-                            ]
+                            }
                         },
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "example": "737628064502",
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "barcode",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/product/{barcode}",
-                            "rename": {
-                                "param": {
-                                    "barcode": "id"
-                                }
-                            },
                             "segments": [
                                 {
                                     "lit": "product"
@@ -374,247 +463,36 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
+                            "parts": [
+                                "product",
+                                "{id}"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "barcode": "id"
+                                }
                             },
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.product`"
                             },
-                            "parts": [
-                                "product",
-                                "{id}"
-                            ]
-                        }
-                    ]
-                }
-            },
-            "relations": {
-                "ancestors": []
-            }
-        },
-        "search": {
-            "fields": [
-                {
-                    "name": "additives_tags",
-                    "short": "List of additives",
-                    "type": "`$ARRAY`"
-                },
-                {
-                    "name": "allergens",
-                    "short": "Allergens present in the product",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "brands",
-                    "short": "Brands of the product",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "categories",
-                    "short": "Categories the product belongs to",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "countries",
-                    "short": "Countries where the product is sold",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "created_t",
-                    "short": "Creation timestamp",
-                    "type": "`$INTEGER`"
-                },
-                {
-                    "name": "ecoscore_grade",
-                    "short": "Eco-Score grade for environmental impact (a, b, c, d, e)",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "ecoscore_score",
-                    "short": "Eco-Score numerical score",
-                    "type": "`$INTEGER`"
-                },
-                {
-                    "name": "generic_name",
-                    "short": "Generic name of the product",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "image_front_url",
-                    "short": "URL of the front image",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "image_ingredients_url",
-                    "short": "URL of the ingredients image",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "image_nutrition_url",
-                    "short": "URL of the nutrition facts image",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "image_url",
-                    "short": "URL of the product's front image",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "ingredients_analysis_tags",
-                    "short": "Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.)",
-                    "type": "`$ARRAY`"
-                },
-                {
-                    "name": "ingredients_text",
-                    "short": "List of ingredients as text",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "labels",
-                    "short": "Labels associated with the product (e.g., Organic, Fair Trade)",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "last_modified_t",
-                    "short": "Last modification timestamp",
-                    "type": "`$INTEGER`"
-                },
-                {
-                    "name": "manufacturing_places",
-                    "short": "Manufacturing or processing places",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "nova_group",
-                    "short": "NOVA group for food processing level (1-4)",
-                    "type": "`$INTEGER`"
-                },
-                {
-                    "name": "nutriments",
-                    "short": "Nutritional information",
-                    "type": "`$OBJECT`"
-                },
-                {
-                    "name": "nutriscore_grade",
-                    "short": "Nutri-Score grade (a, b, c, d, e)",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "nutriscore_score",
-                    "short": "Nutri-Score numerical score",
-                    "type": "`$INTEGER`"
-                },
-                {
-                    "name": "packaging",
-                    "short": "Packaging type",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "product_name",
-                    "short": "Name of the product",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "quantity",
-                    "short": "Quantity or volume of the product",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "stores",
-                    "short": "Stores where the product is available",
-                    "type": "`$STRING`"
-                },
-                {
-                    "name": "traces",
-                    "short": "Traces of allergens",
-                    "type": "`$STRING`"
-                }
-            ],
-            "name": "search",
-            "op": {
-                "list": {
-                    "input": "data",
-                    "name": "list",
-                    "points": [
-                        {
                             "args": {
-                                "query": [
+                                "params": [
                                     {
-                                        "kind": "query",
-                                        "name": "brand",
-                                        "orig": "brand",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "category",
-                                        "orig": "category",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": true,
-                                        "kind": "query",
-                                        "name": "json",
-                                        "orig": "json",
-                                        "type": "`$BOOLEAN`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "label",
-                                        "orig": "label",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 1,
-                                        "kind": "query",
-                                        "name": "page",
-                                        "orig": "page",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": 20,
-                                        "kind": "query",
-                                        "name": "page_size",
-                                        "orig": "page_size",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "search_term",
-                                        "orig": "search_term",
-                                        "type": "`$STRING`"
+                                        "name": "id",
+                                        "orig": "barcode",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "737628064502"
                                     }
                                 ]
                             },
-                            "kind": "http",
-                            "method": "GET",
-                            "orig": "/search",
-                            "segments": [
-                                {
-                                    "lit": "search"
-                                }
-                            ],
                             "select": {
                                 "exist": [
-                                    "brand",
-                                    "category",
-                                    "json",
-                                    "label",
-                                    "page",
-                                    "page_size",
-                                    "search_term"
+                                    "id"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.products`"
-                            },
-                            "parts": [
-                                "search"
-                            ]
+                            }
                         }
                     ]
                 }

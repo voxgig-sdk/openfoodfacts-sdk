@@ -1,5 +1,4 @@
 import { ProductEntity } from './entity/ProductEntity';
-import { SearchEntity } from './entity/SearchEntity';
 export type * from './OpenfoodfactsTypes';
 import { inspect } from 'node:util';
 import type { Context, Feature } from './types';
@@ -46,7 +45,6 @@ declare class OpenfoodfactsSDK {
     }>;
     graphql(query: string, variables?: any, ctrl?: any): Promise<any>;
     Product(entopts?: Record<string, any>): ProductEntity;
-    Search(entopts?: Record<string, any>): SearchEntity;
     static test(testoptsarg?: any, sdkoptsarg?: any): OpenfoodfactsSDK;
     tester(testopts?: any, sdkopts?: any): OpenfoodfactsSDK;
     toJSON(): {

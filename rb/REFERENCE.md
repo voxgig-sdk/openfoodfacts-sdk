@@ -46,10 +46,6 @@ client = OpenfoodfactsSDK.test
 
 Create a new `Product` entity instance. Pass `nil` for no initial data.
 
-#### `Search(data = nil)`
-
-Create a new `Search` entity instance. Pass `nil` for no initial data.
-
 #### `options_map -> Hash`
 
 Return a deep copy of the current SDK options.
@@ -129,6 +125,14 @@ product = client.Product
 
 ### Operations
 
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
+
+```ruby
+results = client.Product.list
+```
+
 #### `load(reqmatch, ctrl = nil) -> result`
 
 Load a single entity matching the given criteria. Raises on error.
@@ -158,84 +162,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `ProductEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## SearchEntity
-
-```ruby
-search = client.Search
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `additives_tags` | `Array` | No | List of additives |
-| `allergens` | `String` | No | Allergens present in the product |
-| `brands` | `String` | No | Brands of the product |
-| `categories` | `String` | No | Categories the product belongs to |
-| `countries` | `String` | No | Countries where the product is sold |
-| `created_t` | `Integer` | No | Creation timestamp |
-| `ecoscore_grade` | `String` | No | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | `Integer` | No | Eco-Score numerical score |
-| `generic_name` | `String` | No | Generic name of the product |
-| `image_front_url` | `String` | No | URL of the front image |
-| `image_ingredients_url` | `String` | No | URL of the ingredients image |
-| `image_nutrition_url` | `String` | No | URL of the nutrition facts image |
-| `image_url` | `String` | No | URL of the product's front image |
-| `ingredients_analysis_tags` | `Array` | No | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | `String` | No | List of ingredients as text |
-| `labels` | `String` | No | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | `Integer` | No | Last modification timestamp |
-| `manufacturing_places` | `String` | No | Manufacturing or processing places |
-| `nova_group` | `Integer` | No | NOVA group for food processing level (1-4) |
-| `nutriments` | `Hash` | No | Nutritional information |
-| `nutriscore_grade` | `String` | No | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | `Integer` | No | Nutri-Score numerical score |
-| `packaging` | `String` | No | Packaging type |
-| `product_name` | `String` | No | Name of the product |
-| `quantity` | `String` | No | Quantity or volume of the product |
-| `stores` | `String` | No | Stores where the product is available |
-| `traces` | `String` | No | Traces of allergens |
-
-### Operations
-
-#### `list(reqmatch = nil, ctrl = nil) -> Array`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
-
-```ruby
-results = client.Search.list
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `SearchEntity` instance with the same client and
 options.
 
 #### `get_name -> String`

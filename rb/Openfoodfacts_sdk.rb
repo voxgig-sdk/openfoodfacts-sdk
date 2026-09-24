@@ -296,13 +296,6 @@ class OpenfoodfactsSDK
   end
 
 
-  # Canonical facade: client.Search.list / client.Search.load({ "id" => ... })
-  def Search(data = nil)
-    require_relative 'entity/search_entity'
-    SearchEntity.new(self, data)
-  end
-
-
 
   def self.test(testopts = nil, sdkopts = nil)
     sdkopts = sdkopts || {}

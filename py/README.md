@@ -39,6 +39,20 @@ client = OpenfoodfactsSDK({
 })
 ```
 
+### 2. List product records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
+
+```python
+try:
+    products = client.Product().list()
+    for product in products:
+        print(product)
+except Exception as err:
+    print(f"list failed: {err}")
+```
+
 ### 3. Load a product
 
 `load()` returns the ENTITY — call data_get() for the record — and raises on error.
@@ -58,10 +72,10 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    product = client.Product().load({"id": "example_id"})
-    print(product)
+    products = client.Product().list()
+    print(products)
 except Exception as err:
-    print(f"load failed: {err}")
+    print(f"list failed: {err}")
 ```
 
 `direct()` does **not** raise — it returns the result envelope. Branch
@@ -127,7 +141,7 @@ client = OpenfoodfactsSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-product = client.Product().load({"id": "test01"})
+product = client.Product().list()
 # product contains the mock response record
 ```
 
@@ -207,7 +221,6 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
 | `Product` | `(data) -> ProductEntity` | Create a Product entity instance. |
-| `Search` | `(data) -> SearchEntity` | Create a Search entity instance. |
 
 ### Entity interface
 
@@ -277,43 +290,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `stores` | Stores where the product is available |
 | `traces` | Traces of allergens |
 
-Operations: Load.
-
-API path: `/product/{barcode}.json`
-
-#### Search
-
-| Field | Description |
-| --- | --- |
-| `additives_tags` | List of additives |
-| `allergens` | Allergens present in the product |
-| `brands` | Brands of the product |
-| `categories` | Categories the product belongs to |
-| `countries` | Countries where the product is sold |
-| `created_t` | Creation timestamp |
-| `ecoscore_grade` | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | Eco-Score numerical score |
-| `generic_name` | Generic name of the product |
-| `image_front_url` | URL of the front image |
-| `image_ingredients_url` | URL of the ingredients image |
-| `image_nutrition_url` | URL of the nutrition facts image |
-| `image_url` | URL of the product's front image |
-| `ingredients_analysis_tags` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | List of ingredients as text |
-| `labels` | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | Last modification timestamp |
-| `manufacturing_places` | Manufacturing or processing places |
-| `nova_group` | NOVA group for food processing level (1-4) |
-| `nutriments` | Nutritional information |
-| `nutriscore_grade` | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | Nutri-Score numerical score |
-| `packaging` | Packaging type |
-| `product_name` | Name of the product |
-| `quantity` | Quantity or volume of the product |
-| `stores` | Stores where the product is available |
-| `traces` | Traces of allergens |
-
-Operations: List.
+Operations: List, Load.
 
 API path: `/search`
 
@@ -330,6 +307,7 @@ Create an instance: `product = client.Product()`
 
 | Method | Description |
 | --- | --- |
+| `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -371,53 +349,10 @@ Create an instance: `product = client.Product()`
 product = client.Product().load({"id": "product_id"})
 ```
 
-
-### Search
-
-Create an instance: `search = client.Search()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list()` | List entities, optionally matching the given criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `additives_tags` | `list` | List of additives |
-| `allergens` | `str` | Allergens present in the product |
-| `brands` | `str` | Brands of the product |
-| `categories` | `str` | Categories the product belongs to |
-| `countries` | `str` | Countries where the product is sold |
-| `created_t` | `int` | Creation timestamp |
-| `ecoscore_grade` | `str` | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | `int` | Eco-Score numerical score |
-| `generic_name` | `str` | Generic name of the product |
-| `image_front_url` | `str` | URL of the front image |
-| `image_ingredients_url` | `str` | URL of the ingredients image |
-| `image_nutrition_url` | `str` | URL of the nutrition facts image |
-| `image_url` | `str` | URL of the product's front image |
-| `ingredients_analysis_tags` | `list` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | `str` | List of ingredients as text |
-| `labels` | `str` | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | `int` | Last modification timestamp |
-| `manufacturing_places` | `str` | Manufacturing or processing places |
-| `nova_group` | `int` | NOVA group for food processing level (1-4) |
-| `nutriments` | `dict` | Nutritional information |
-| `nutriscore_grade` | `str` | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | `int` | Nutri-Score numerical score |
-| `packaging` | `str` | Packaging type |
-| `product_name` | `str` | Name of the product |
-| `quantity` | `str` | Quantity or volume of the product |
-| `stores` | `str` | Stores where the product is available |
-| `traces` | `str` | Traces of allergens |
-
 #### Example: List
 
 ```python
-searchs = client.Search().list()
+products = client.Product().list()
 ```
 
 ## Features
@@ -577,14 +512,14 @@ Import entity or utility modules directly only when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
 product = client.Product()
-product.load({"id": "example_id"})
+product.list()
 
-# product.data_get() now returns the product data from the last load
+# product.data_get() now returns the product data from the last list
 # product.match_get() returns the last match criteria
 ```
 

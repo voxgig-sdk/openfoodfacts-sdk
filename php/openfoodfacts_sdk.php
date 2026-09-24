@@ -359,24 +359,6 @@ class OpenfoodfactsSDK
     }
 
 
-    private $_search = null;
-
-    // Canonical facade: $client->Search()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->search()
-    // resolves here too.
-    public function Search($data = null)
-    {
-        require_once __DIR__ . '/entity/search_entity.php';
-        if ($data === null) {
-            if ($this->_search === null) {
-                $this->_search = new SearchEntity($this, null);
-            }
-            return $this->_search;
-        }
-        return new SearchEntity($this, $data);
-    }
-
-
 
     public static function test(?array $testopts = null, ?array $sdkopts = null): self
     {

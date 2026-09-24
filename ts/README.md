@@ -35,6 +35,20 @@ const client = new OpenfoodfactsSDK({
 })
 ```
 
+### 2. List product records
+
+`list()` resolves to an array of Product ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
+
+```ts
+const products = await client.Product().list()
+
+for (const product of products) {
+  console.log(product)
+}
+```
+
 ### 3. Load a product
 
 `load()` returns the entity directly and throws on failure:
@@ -55,10 +69,10 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const product = await client.Product().load({ id: "example_id" })
-  console.log(product)
+  const products = await client.Product().list()
+  console.log(products)
 } catch (err) {
-  console.error('load failed:', err)
+  console.error('list failed:', err)
 }
 ```
 
@@ -122,7 +136,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = OpenfoodfactsSDK.test()
 
-const product = await client.Product().load({ id: 'test01' })
+const product = await client.Product().list()
 // product is the entity, populated with mock response data
 // — call product.data() for the record itself
 console.log(product)
@@ -143,7 +157,7 @@ Entity instances remember their last match and data:
 const entity = client.Product()
 
 // First call runs the operation and stores its result
-await entity.load({ id: 'example' })
+await entity.list()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -228,7 +242,6 @@ new OpenfoodfactsSDK(options?: {
 | `prepare(fetchargs?)` | `Promise<FetchDef>` | Build an HTTP request definition without sending it. |
 | `direct(fetchargs?)` | `Promise<DirectResult>` | Build and send an HTTP request. |
 | `Product(data?)` | `ProductEntity` | Create a Product entity instance. |
-| `Search(data?)` | `SearchEntity` | Create a Search entity instance. |
 | `tester(testopts?, sdkopts?)` | `OpenfoodfactsSDK` | Create a test-mode client instance. |
 
 #### Static methods
@@ -329,43 +342,7 @@ The `prepare()` method returns:
 | `stores` | Stores where the product is available |
 | `traces` | Traces of allergens |
 
-Operations: load.
-
-API path: `/product/{barcode}.json`
-
-#### Search
-
-| Field | Description |
-| --- | --- |
-| `additives_tags` | List of additives |
-| `allergens` | Allergens present in the product |
-| `brands` | Brands of the product |
-| `categories` | Categories the product belongs to |
-| `countries` | Countries where the product is sold |
-| `created_t` | Creation timestamp |
-| `ecoscore_grade` | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | Eco-Score numerical score |
-| `generic_name` | Generic name of the product |
-| `image_front_url` | URL of the front image |
-| `image_ingredients_url` | URL of the ingredients image |
-| `image_nutrition_url` | URL of the nutrition facts image |
-| `image_url` | URL of the product's front image |
-| `ingredients_analysis_tags` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | List of ingredients as text |
-| `labels` | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | Last modification timestamp |
-| `manufacturing_places` | Manufacturing or processing places |
-| `nova_group` | NOVA group for food processing level (1-4) |
-| `nutriments` | Nutritional information |
-| `nutriscore_grade` | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | Nutri-Score numerical score |
-| `packaging` | Packaging type |
-| `product_name` | Name of the product |
-| `quantity` | Quantity or volume of the product |
-| `stores` | Stores where the product is available |
-| `traces` | Traces of allergens |
-
-Operations: list.
+Operations: list, load.
 
 API path: `/search`
 
@@ -382,6 +359,7 @@ Create an instance: `const product = client.Product()`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -423,53 +401,10 @@ Create an instance: `const product = client.Product()`
 const product = await client.Product().load({ id: 'product_id' })
 ```
 
-
-### Search
-
-Create an instance: `const search = client.Search()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `additives_tags` | `any[]` | List of additives |
-| `allergens` | `string` | Allergens present in the product |
-| `brands` | `string` | Brands of the product |
-| `categories` | `string` | Categories the product belongs to |
-| `countries` | `string` | Countries where the product is sold |
-| `created_t` | `number` | Creation timestamp |
-| `ecoscore_grade` | `string` | Eco-Score grade for environmental impact (a, b, c, d, e) |
-| `ecoscore_score` | `number` | Eco-Score numerical score |
-| `generic_name` | `string` | Generic name of the product |
-| `image_front_url` | `string` | URL of the front image |
-| `image_ingredients_url` | `string` | URL of the ingredients image |
-| `image_nutrition_url` | `string` | URL of the nutrition facts image |
-| `image_url` | `string` | URL of the product's front image |
-| `ingredients_analysis_tags` | `any[]` | Tags for ingredient analysis (vegan, vegetarian, palm oil, etc.) |
-| `ingredients_text` | `string` | List of ingredients as text |
-| `labels` | `string` | Labels associated with the product (e.g., Organic, Fair Trade) |
-| `last_modified_t` | `number` | Last modification timestamp |
-| `manufacturing_places` | `string` | Manufacturing or processing places |
-| `nova_group` | `number` | NOVA group for food processing level (1-4) |
-| `nutriments` | `Record<string, any>` | Nutritional information |
-| `nutriscore_grade` | `string` | Nutri-Score grade (a, b, c, d, e) |
-| `nutriscore_score` | `number` | Nutri-Score numerical score |
-| `packaging` | `string` | Packaging type |
-| `product_name` | `string` | Name of the product |
-| `quantity` | `string` | Quantity or volume of the product |
-| `stores` | `string` | Stores where the product is available |
-| `traces` | `string` | Traces of allergens |
-
 #### Example: List
 
 ```ts
-const searchs = await client.Search().list()
+const products = await client.Product().list()
 ```
 
 ## Features
@@ -621,16 +556,16 @@ import { OpenfoodfactsSDK } from '@voxgig-sdk/openfoodfacts-sdk'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
 const product = client.Product()
-await product.load({ id: "example_id" })
+await product.list()
 
-// product.data() now returns the product data from the last `load`
-// product.match() returns { id: "example_id" }
+// product.data() now returns the product data from the last `list`
+// product.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration
