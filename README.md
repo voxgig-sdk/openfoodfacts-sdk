@@ -106,11 +106,11 @@ local results, err = client:Product():list()
 | Language | Package | Install |
 | --- | --- | --- |
 | TypeScript | `@voxgig-sdk/openfoodfacts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
-| Python | `voxgig-sdk-openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
-| PHP | `voxgig-sdk/openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
+| Python | `voxgig-sdk-openfoodfacts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
+| PHP | `voxgig-sdk/openfoodfacts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/openfoodfacts-sdk/go` | `go get github.com/voxgig-sdk/openfoodfacts-sdk/go@latest` |
-| Ruby | `voxgig-sdk-openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
-| Lua | `voxgig-sdk-openfoodfacts` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
+| Ruby | `voxgig-sdk-openfoodfacts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
+| Lua | `voxgig-sdk-openfoodfacts-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/openfoodfacts-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/openfoodfacts-sdk/go-cli` | `go install github.com/voxgig-sdk/openfoodfacts-sdk/go-cli/cmd/openfoodfacts@latest` |
 | Go MCP server | `github.com/voxgig-sdk/openfoodfacts-sdk/go-mcp` | `go get github.com/voxgig-sdk/openfoodfacts-sdk/go-mcp@latest` |
 
@@ -368,10 +368,10 @@ forking the SDK.
 
 | Feature | Purpose |
 | --- | --- |
-| **RatelimitFeature** | Client-side rate limiting via a token bucket |
-| **RetryFeature** | Automatic retry of transient failures with exponential backoff |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-| **TimeoutFeature** | Per-request timeout with transport abort |
+| **RatelimitFeature** | Rate limiting |
+| **RetryFeature** | Retry |
+| **TestFeature** | Test transport |
+| **TimeoutFeature** | Timeout |
 
 Pass custom features via the `extend` option at construction time.
 
